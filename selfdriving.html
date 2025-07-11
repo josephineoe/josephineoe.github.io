@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Self-Driving Car Project</title>
+  <!-- Link your main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Dark theme styling */
+    body {
+      background-color: #121212;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+    .report-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.8);
+      line-height: 1.6;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      color: #1db954;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container code {
+      background: #1a1a1a;
+      padding: 0.3rem;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #fff;
+    }
+    .report-container pre {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .video-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .video-container a {
+      display: inline-block;
+      text-decoration: none;
+    }
+    .video-container img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .media-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .media-link a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #1db954;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background 0.3s ease;
+    }
+    .media-link a:hover {
+      background: #13a04a;
+    }
+    .media-link img {
+      height: 2.5rem;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Jerin Peter</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Report Container -->
+  <div class="report-container">
+    <h1>Self-Driving Car Project</h1>
+    <h2>Advanced Autonomous Driving Using Open-Source Frameworks</h2>
+    <p>
+      This project presents a comprehensive implementation of a self-driving car system using open-source software and hardware. 
+      It integrates perception, decision-making, and control modules to achieve autonomous navigation in a simulated environment.
+    </p>
+    
+    <!-- Abstract -->
+    <h2>Abstract</h2>
+    <p>
+      This project implements a self-driving car system that combines computer vision, sensor data processing, and advanced control algorithms using ROS. 
+      The system leverages a modular architecture to detect road features, make real-time decisions, and safely navigate through simulated environments. 
+      Extensive testing has validated the system's performance under various conditions.
+    </p>
+    
+    <!-- Introduction -->
+    <h2>Introduction</h2>
+    <p>
+      Autonomous driving has become a cornerstone of modern robotics and artificial intelligence research. 
+      This project, developed using the selfdrivingcar-master codebase, demonstrates how open-source frameworks and standard hardware components 
+      can be combined to create an effective self-driving system. Through a series of iterative tests and refinements, the system has been optimized 
+      for robust perception, decision-making, and control.
+    </p>
+    
+    <!-- Methodology -->
+    <h2>Methodology</h2>
+    <p>
+      The project is organized into several key modules:
+    </p>
+    <ul>
+      <li>
+        <strong>Perception:</strong> Utilizes camera feeds and sensor data to detect road lanes, obstacles, and traffic signals.
+      </li>
+      <li>
+        <strong>Decision-Making:</strong> Implements path planning algorithms that generate safe and efficient trajectories.
+      </li>
+      <li>
+        <strong>Control:</strong> Employs PID controllers to convert high-level commands into actuator signals for steering and throttle control.
+      </li>
+      <li>
+        <strong>Software Integration:</strong> The system is built on ROS, enabling modular communication between perception, planning, and control nodes.
+      </li>
+    </ul>
+    
+    <!-- System Architecture -->
+    <h2>System Architecture</h2>
+    <p>
+      The self-driving car is developed with a modular design, where individual nodes in ROS communicate seamlessly to process sensor inputs, perform object detection, plan trajectories, and execute control commands. The architecture supports scalability and real-time decision-making in complex scenarios.
+    </p>
+    
+    <!-- Image Grid for Visuals -->
+<div class="image-grid" style="grid-template-columns: repeat(2, 1fr);">
+  <!-- <img src="assets/images/projects/selfdriving_project/1.jpg" alt="Chassis Assembly"> -->
+  <img src="assets/images/projects/selfdriving_project/2.jpg" alt="Laser-Cut Parts">
+  <img src="assets/images/projects/selfdriving_project/3.jpg" alt="PCB and Wiring">
+  <img src="assets/images/projects/selfdriving_project/4.jpg" alt="Fusion 360 Design">
+  <img src="assets/images/projects/selfdriving_project/5.jpg" alt="Fusion 360 Design">
+  <img src="assets/images/projects/selfdriving_project/6.jpg" alt="Fusion 360 Design">
+  <img src="assets/images/projects/selfdriving_project/1.png" alt="Fusion 360 Design">
+
+</div>
+    
+    <!-- Experimental Results -->
+    <h2>Experimental Results</h2>
+    <p>
+      The self-driving car was tested extensively in simulation, where it successfully navigated complex routes, detected obstacles, 
+      and adhered to traffic rules. The performance metrics indicate a high level of robustness and efficiency in autonomous decision-making.
+    </p>
+    
+    <!-- Conclusion and Future Work -->
+    <h2>Conclusion and Future Work</h2>
+    <p>
+      This project demonstrates that a fully autonomous self-driving system can be developed using open-source tools and modular hardware. 
+      Future work will focus on refining perception algorithms, incorporating additional sensors for improved environmental understanding, 
+      and testing the system under more diverse and challenging real-world conditions.
+    </p>
+    
+    <!-- Google Photos Link -->
+    <!-- <div class="media-link">
+      <p>For More Photos and Videos, Visit</p>
+      <a href="https://photos.app.goo.gl/YourSelfDrivingCarLink" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Google_Photos_icon_%282020%29.svg/1024px-Google_Photos_icon_%282020%29.svg.png" alt="Google Photos">
+        Google Photos
+      </a>
+    </div>
+  </div> -->
+  
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
+<p style="text-align: center; margin-top: 2rem;">&copy; 2025 Jerin Peter. All rights reserved.</p>
+      </footer>
+</body>
+</html>

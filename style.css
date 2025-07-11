@@ -1,0 +1,1456 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff; /* White text for contrast */
+  background-color: #121212; /* Dark background */
+}
+
+.container {
+  width: 100%;
+  max-width: 1690px;
+  margin: 0 auto;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #000; /* Black navigation bar */
+  color: #1db954; /* Spotify green */
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: slideInDown 1s ease-in-out;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1db954; /* Spotify green */
+}
+
+nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav .nav-links a {
+  color: #fff; /* White text for links */
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+  color: #1db954; /* Spotify green on hover */
+}
+
+/* Home Section */
+.home-section {
+position: relative;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+overflow: hidden;
+/* Removed gradient background */
+}
+/* Increase heading size in the home section */
+.home-section h1 {
+  font-size: 3rem; /* Adjust this value as needed */
+  margin-bottom: 1rem;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* Increase paragraph text size in the home section */
+.home-section p {
+  font-size: 1.1rem; /* Adjust this value as needed */
+  margin-bottom: 2rem;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* Increase the icon size in the social links */
+.social-links a {
+  font-size: 2rem; /* Adjust this value as needed */
+  margin: 0 0.75rem;
+  animation: zoomIn 1.5s ease-in-out;
+}
+
+.background-slideshow {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+background-size: cover;
+background-position: center;
+transition: opacity 3s ease-in-out;
+opacity: 1;
+}
+
+/* Overlay for faded green tint */
+.background-slideshow::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+/* Green tint with about 30% opacity */
+background: rgba(30, 30, 30, 0.753);
+pointer-events: none;
+}
+
+
+
+.social-links a {
+  color: #fff;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+social-links a:hover {
+  color: #1db954; /* Spotify green on hover */
+}
+
+/* About Section */
+.about-section {
+  padding: 4rem 0;
+  background-color: #000000; /* Dark background */
+}
+
+.about-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954; /* Spotify green */
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* .about-section .container */
+{ background-color: #000; /* Black background */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: auto; /* Optional: limit width if necessary */
+  max-height: auto; /* Optional: limit height if necessary */
+
+  margin: 0 auto;
+} */
+
+.about-section .container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+black-box {
+  background-color: #000000;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 0 auto 2rem;
+  box-shadow: 0 4px 6px rgb(0, 0, 0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 800px; /* Optional: limit width if you want a narrower box */
+}
+
+/* .black-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+} */
+
+.about-section p {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+
+/* Projects Section */
+.projects-section {
+  padding: 4rem 0;
+  background-color: #000; /* Black background */
+}
+
+.projects-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954; /* Spotify green */
+}
+
+/* Projects Section Grid - 3 columns per row */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Fade-in effect for project cards (optional) */
+/* Remove initial blur effect */
+/* Fade-in animation for projects */
+.project-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Blur effect for preview batches */
+.blurred {
+  filter: blur(4px);
+  transition: filter 0.6s ease;
+}
+
+
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+  margin-bottom: 1rem;
+  color: #1db954; /* Spotify green */
+}
+
+/* Experience Section */
+.experience-section {
+  padding: 4rem 0;
+  background-color: #121212; /* Dark background */
+  
+}
+
+.experience-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954; /* Spotify green */
+}
+
+.experience-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.experience-item {
+  margin-bottom: 1.5rem;
+}
+
+.experience-item h3 {
+  margin-bottom: 0.5rem;
+  color: #1db954; /* Spotify green */
+
+}
+
+/* Publications Section */
+.publications-section {
+  padding: 4rem 0;
+  background-color: #000; /* Black background */
+}
+
+.publications-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954; /* Spotify green */
+}
+
+.publications-section ul {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.publications-section li {
+  margin-bottom: 1rem;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 4rem 0;
+  background-color: #121212; /* Dark background */
+}
+
+.contact-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954; /* Spotify green */
+}
+
+.contact-info {
+  text-align: center;
+}
+
+.contact-info a {
+  color: #1db954; /* Spotify green */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+contact-info a:hover {
+  color: #fff; /* White on hover */
+}
+
+/* Footer */
+footer {
+  background-color: #000; /* Black background */
+  color: #1db954; /* Spotify green */
+  text-align: center;
+  padding: 1rem 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animated-text {
+  animation: fadeIn 1.5s ease-in-out;
+} 
+/* Timeline Styles */
+/* Timeline Container */
+.timeline {
+  position: relative;
+  max-width: 1300px; /* or your desired max width */
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Vertical Line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 40%;
+  width: 4px;
+  background-color: #1db954; /* Spotify green or your color */
+  margin-left: -2px; /* Center the line */
+}
+
+/* Timeline Items (left & right) */
+.timeline-item {
+  position: relative;
+  width: 30%;
+  padding: 10px 10px; /* Controls spacing around each card */
+  box-sizing: border-box;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.timeline-item.left {
+  left: 0;        /* Positions the left cards on the left half */
+  text-align: right;
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.timeline-item.right {
+  left: 40%;      /* Positions the right cards on the right half */
+  text-align: left;
+  animation: slideInRight 1s ease-in-out;
+}
+
+/* The card content itself */
+.timeline-content {
+  background-color: #121212e5; /* Dark background */
+  border-radius: 8px;
+  padding: 1rem;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+/* Push the left card away from the center line */
+.timeline-item.left .timeline-content {
+  margin-left: auto;    /* This ensures the content shrinks from the left side */
+  margin-right: 1px;   /* Space between the card and the center line */
+}
+
+/* Push the right card away from the center line */
+.timeline-item.right .timeline-content {
+  margin-left: 1px;    /* Space between the card and the center line */
+  margin-right: auto;
+}
+
+/* The circle “bullet” on the line */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background-color: #1db954; /* Same as the line color */
+  border: 4px solid #000000; /* Dark background for the circle border */
+  border-radius: 50%;
+  top: 1px; 
+  left: 50%; 
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Responsive: Single-column layout for smaller screens */
+@media only screen and (max-width: 768px) {
+  .timeline::before {
+    left: 0; /* Hide or move the vertical line to the left side, or remove it if you prefer */
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding: 20px; /* Less side padding for mobile */
+    text-align: left !important;
+    left: 0 !important;
+  }
+
+  .timeline-item.left .timeline-content,
+  .timeline-item.right .timeline-content {
+    margin: 0 auto; /* Center the cards in mobile view */
+  }
+
+  .timeline-item::after {
+    left: 0; 
+    transform: translateX(0);
+  }
+}
+
+
+/* Project Images */
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.more-button {
+  display: block;           /* Makes it easier to center */
+  width: fit-content;       /* The button’s width will match its content */
+  margin: 2rem auto 0;      /* Auto left/right margins to center it */
+  padding: 1rem 2rem;       /* Larger padding for a bigger button */
+  font-size: 1.25rem;       /* Increase font size */
+  background-color: #1db954; 
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.more-button:hover {
+  background-color: #169c46; /* Slightly darker green on hover */
+}
+
+
+
+/* Experience Section */
+.experience-section {
+padding: 4rem 0;
+background-color: #000; /* Black background */
+}
+
+.experience-section h2 {
+text-align: center;
+margin-bottom: 2rem;
+color: #1db954; /* Spotify green */
+}
+
+.timeline {
+position: relative;
+max-width: 800px;
+margin: 0 auto;
+padding: 40px 0;
+}
+
+.timeline::before {
+content: '';
+position: absolute;
+top: 0;
+bottom: 0;
+width: 4px;
+background-color: #1db954; /* Spotify green */
+left: 50%;
+margin-left: -2px;
+}
+
+.timeline-item {
+padding: 20px 40px;
+position: relative;
+width: 50%;
+animation: fadeIn 1s ease-in-out;
+}
+
+.timeline-item.left {
+left: 0;
+text-align: right;
+}
+
+.timeline-item.right {
+left: 50%;
+text-align: left;
+}
+
+.timeline-content {
+padding: 20px;
+background-color: #121212; /* Dark background */
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item img {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+margin-bottom: 1rem;
+}
+
+.timeline-item h3 {
+margin-bottom: 1rem;
+color: #1db954; /* Spotify green */
+}
+
+.timeline-item ul {
+list-style: none;
+padding: 0;
+}
+
+.timeline-item li {
+margin-bottom: 0.5rem;
+}
+
+.timeline-item::after {
+content: '';
+position: absolute;
+width: 20px;
+height: 20px;
+background-color: #1db954; /* Spotify green */
+border: 4px solid #121212; /* Dark background */
+border-radius: 50%;
+top: 20px;
+left: 50%;
+margin-left: -10px;
+z-index: 1;
+}
+
+/* Education Section */
+.education-section {
+padding: 1rem 1;
+background-color: #121212; /* Dark background */
+}
+
+.education-section h2 {
+text-align: center;
+margin-bottom: 2rem;
+color: #1db954; /* Spotify green */
+}
+
+.education-list {
+max-width: 800px;
+margin: 0 auto;
+}
+
+.education-item {
+  background-color: #000; /* Black background */
+  padding: 2rem; /* Increased padding */
+  border-radius: 10px;
+  margin-bottom: 2.5rem; /* Slightly more spacing */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Slightly more depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.3);
+}
+
+
+.education-item h3 {
+margin-bottom: 1rem;
+color: #1db954; /* Spotify green */
+}
+
+
+/* Experience Section */
+.experience-section {
+padding: 4rem 0;
+background-color: #000; /* Black background */
+}
+
+.experience-section h2 {
+text-align: center;
+margin-bottom: 2rem;
+color: #1db954; /* Spotify green */
+}
+
+.timeline {
+position: relative;
+max-width: 800px;
+margin: 0 auto;
+padding: 40px 0;
+}
+
+.timeline::before {
+content: '';
+position: absolute;
+top: 0;
+bottom: 0;
+width: 4px;
+background-color: #1db954; /* Spotify green */
+left: 50%;
+margin-left: -2px;
+}
+
+.timeline-item {
+padding: 30px 40px;
+position: relative;
+width: 50%;
+animation: fadeIn 1s ease-in-out;
+}
+
+.timeline-item.left {
+left: 0;
+text-align: right;
+}
+
+.timeline-item.right {
+left: 50%;
+text-align: left;
+}
+
+.timeline-content {
+padding: 20px;
+background-color: #121212; /* Dark background */
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item img {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+margin-bottom: 1rem;
+}
+
+.timeline-item h3 {
+margin-bottom: 1rem;
+color: #1db954; /* Spotify green */
+}
+
+.timeline-item ul {
+list-style: none;
+padding: 0;
+}
+
+.timeline-item li {
+margin-bottom: 0.5rem;
+}
+
+.timeline-item::after {
+content: '';
+position: absolute;
+width: 20px;
+height: 20px;
+background-color: transparent; /* Spotify green */
+border: 4px solid #121212; /* Dark background */
+border-radius: 50%;
+top: 20px;
+left: 50%;
+margin-left: -10px;
+z-index: 1;
+}
+
+.education-item img {
+  max-width: 100px; /* Adjust the size as needed */
+  margin-bottom: 1rem;
+}
+
+.education-section {
+  padding: 4rem 0;
+  background-color: #121212; /* Dark background */
+}
+
+.education-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954; /* Spotify green */
+}
+
+.education-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-item {
+  background-color: #000; /* Black background */
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.education-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.education-header h3 {
+  margin: 0;
+  color: #1db954; /* Spotify green */
+}
+
+.education-header img {
+  max-width: 100px; /* Adjust the size as needed */
+  height: auto;
+  margin-left: 1rem;
+  border-radius: 8px; /* Adjust the radius for more or less rounding */
+}
+
+/* Container that controls the slide-down animation */
+.more-projects-wrapper {
+  max-height: 200px; /* Height to show a blurred preview (adjust based on your card sizes) */
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+}
+
+/* When expanded, set a large max-height to reveal all content */
+.more-projects-wrapper.expanded {
+  max-height: 2000px; /* Ensure this is large enough for all extra projects */
+}
+
+/* Initially blur the extra projects */
+.extra-projects {
+  filter: blur(4px);
+  transition: filter 0.6s ease;
+}
+
+/* Remove the blur when expanded */
+.more-projects-wrapper.expanded .extra-projects {
+  filter: none;
+}
+
+/* Optional: Animate the button icon rotation */
+.more-button i {
+  transition: transform 0.6s ease;
+}
+
+.more-button.expanded i {
+  transform: rotate(180deg);
+}
+.project-card {
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+@media only screen and (max-width: 768px) {
+  .project-grid {
+    display: flex; /* Ensure proper layout on mobile */
+    flex-direction: column; /* Stack projects vertically */
+    align-items: center; /* Center-align project cards */
+    gap: 1.5rem; /* Add spacing between project cards */
+  }
+
+  .project-card {
+    width: 90%; /* Adjust width for smaller screens */
+    max-width: 500px; /* Limit maximum width */
+    text-align: center; /* Center-align text */
+    margin: 0 auto; /* Center the project card horizontally */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .timeline {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background-color: #1db954; /* Keeps the green timeline */
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    margin: 30px auto;
+    text-align: center;
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    left: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .timeline-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #121212;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .timeline-item::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background-color:transparent;
+    border-radius: 50%;
+    border: 3px solid #12121200;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 80px; /* Adjust image size */
+    height: 80px;
+    border-radius: 50%;
+  }
+}
+
+/* Container for the skill list */
+.project-skills {
+  list-style: none;        /* Remove default bullet points */
+  margin: 1rem 0;          /* Spacing above/below */
+  padding: 0;
+  display: flex;           /* Lay them out side by side */
+  flex-wrap: wrap;         /* Wrap to the next line if too long */
+  gap: 0.5rem;             /* Space between skill tags */
+}
+
+/* Individual skill tags (pills) */
+.project-skills li {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #1db954; /* A red border color (example) */
+  color: #ffffff;            /* Matching text color */
+  background-color: #1a1919; /* White background (or any color you like) */
+  border-radius: 16px;       /* Rounded pill shape */
+  font-size: 0.9rem;         /* Slightly smaller text */
+  cursor: default;           /* Pointer not needed since they’re not links */
+  transition: background-color 0.3s;
+}
+
+/* Optional hover effect: invert colors or lighten background */
+.project-skills li:hover {
+  background-color: #f44336;
+  color: #ffffff;
+}
+
+/* Skills Section */
+.skills-section {
+  padding: 4rem 0;
+  background-color: #121212;
+}
+
+.skills-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.skill-card {
+  background-color: #000;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  animation: zoomIn 1s ease-in-out;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+.skill-card i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #1db954;
+}
+
+.skill-card h3 {
+  margin: 0.5rem 0;
+  color: #fff;
+}
+
+.skill-card p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+.publications-section {
+  padding: 4rem 0;
+  background-color: #000; /* or another background color of your choice */
+}
+
+.publications-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954;
+}
+
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.publication-card {
+  background-color: #121212;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+.publication-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.publication-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.publication-info {
+  padding: 1rem;
+  color: #fff;
+}
+
+.publication-info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.publication-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #1db954;
+}
+.about-section {
+  padding: 4rem 0;
+  background-color: #121212;
+}
+
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  flex: 1 1 250px;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 250px;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.about-info {
+  flex: 2 1 400px;
+  color: #fff;
+}
+
+.about-info h2 {
+  color: #1db954;
+  margin-bottom: 1rem;
+}
+
+.about-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Publications Section */
+.publications-section {
+  padding: 4rem 0;
+  background-color: #000; /* Maintains black background */
+}
+
+.publications-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954; /* Green accent */
+}
+
+/* Responsive Grid Layout for publications */
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual Publication Card */
+.publication-card {
+  background-color: #121212;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+.publication-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+/* Card Content */
+.publication-info {
+  padding: 1rem;
+  color: #fff;
+}
+
+/* Publication Title */
+.publication-info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: #1db954; /* Green accent for titles */
+}
+
+/* Short description / reference text */
+.publication-info p {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: #ccc; /* Slightly lighter gray text for references */
+}
+.publication-link {
+  display: block;
+  width: fit-content;
+  margin: 1rem auto 0; /* Center the button */
+  color: #1db954;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid #1db954;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.publication-link:hover {
+  background-color: #1db954;
+  color: #000;
+}
+/* Button/Link to paper */
+.publication-link {
+  color: #1db954;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid #1db954;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.publication-link:hover {
+  background-color: #1db954;
+  color: #000;
+}
+
+.publication-link:hover {
+  background-color: #1db954;
+  color: #000;
+}
+/* Workshops & Mentorships Slideshow Section */
+.workshops-section {
+  padding: 4rem 0;
+  background-color: #000; /* Consistent with your other sections */
+}
+
+.workshops-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954; /* Spotify green accent */
+}
+
+.slider {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  text-align: center;
+  opacity: 0; /* Start with hidden opacity */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+  opacity: 1; /* Fully visible when active */
+}
+
+.slide img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.slide p {
+  margin-top: 0.5rem;
+  color: #fff;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #1db954;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 4px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.dots-container {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #1db954; /* Spotify green */
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.achievements-section {
+  padding: 4rem 0;
+  background-color: #000;
+}
+
+.achievements-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1db954;
+}
+
+.achievements-slider {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.achievements-slider .slide img {
+  max-width: 90%; /* Reduce the width to 70% of the container */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto; /* Center the image */
+  display: block; /* Ensure the image is centered */
+  /* Removed animation */
+}
+
+.achievements-slider .slide {
+  display: none;
+  text-align: center;
+  opacity: 0; /* Start with hidden opacity */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+  animation: fadeIn 1s ease-in-out;
+}
+
+.achievements-slider .slide.active {
+  display: block;
+  opacity: 1; /* Fully visible when active */
+}
+
+/* Standardize and increase image size in the achievements slider */
+.achievements-slider .slide img {
+  width: 100%; /* Ensure all images take up the full width of the container */
+  max-width: 650px; /* Increased maximum width for larger images */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+
+/* Achievements Section */
+.achievements-slider .slide img {
+  width: 100%; /* Ensure images take up the full width of the container */
+  max-width: 100%; /* Remove any fixed width constraints */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the image */
+  border-radius: 8px; /* Add consistent border radius */
+}
+
+/* Responsive adjustments for smaller screens */
+@media only screen and (max-width: 768px) {
+  .achievements-slider .slide img {
+    width: 90%; /* Slightly reduce width for better fit */
+    max-width: 90%; /* Ensure it doesn't exceed container width */
+  }
+}
+
+/* Experience Section Card Animation */
+.experience-section .timeline-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.experience-section .timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* General Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Apply Animations to Sections */
+section {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Navigation Bar Animation */
+nav {
+  animation: slideInDown 1s ease-in-out;
+}
+
+/* Home Section Animations */
+.home-section h1,
+.home-section p {
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.social-links a {
+  animation: zoomIn 1.5s ease-in-out;
+}
+
+/* About Section */
+.about-section h2 {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.about-section p {
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* Skills Section */
+.skill-card {
+  animation: zoomIn 1s ease-in-out;
+}
+
+/* Projects Section */
+.project-card {
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* Timeline Items */
+.timeline-item.left {
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.timeline-item.right {
+  animation: slideInRight 1s ease-in-out;
+}
+
+/* Publications Section */
+.publication-card {
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* Workshops Section */
+.workshops-section .slide {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Achievements Section */
+.achievements-slider .slide {
+  animation: zoomIn 1s ease-in-out;
+}
+
+/* Footer Animation */
+footer {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Ensure visibility for animated elements */
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation-play-state: running !important;
+}
+
+/* Add fallback for sections to ensure visibility */
+section, .skill-card, .project-card, .timeline-item, .publication-card, .slide, footer {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Hidden state for elements before animation */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Visible state for elements after animation */
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.resume-container {
+  margin-top: 1.5rem;
+}
+
+.resume-button {
+  display: inline-block;
+  padding: 0.5rem 1rem; /* Smaller padding */
+  font-size: 0.9rem; /* Smaller font size */
+  font-weight: 600;
+  color: #fff; /* White text */
+  background-color: transparent; /* Transparent background */
+  border: 1px solid #fff; /* White border */
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #fff; /* White background on hover */
+  color: #000; /* Black text on hover */
+}
+
+/* Ensure project cards are visible on mobile */
+@media only screen and (max-width: 768px) {
+  .project-card {
+    opacity: 1 !important; /* Force visibility */
+    transform: translateY(0) !important; /* Reset any translation */
+    animation: none !important; /* Disable animations for mobile */
+  }
+}
+
+/* Ensure visibility for all animated elements on mobile */
+@media only screen and (max-width: 768px) {
+  section, .skill-card, .project-card, .timeline-item, .publication-card, .slide, footer {
+    opacity: 1 !important; /* Force visibility */
+    transform: translateY(0) !important; /* Reset any translation */
+    animation: none !important; /* Disable animations for mobile */
+  }
+}

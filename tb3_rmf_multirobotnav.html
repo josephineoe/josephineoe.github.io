@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi-Robot Navigation using RMF and TurtleBot3</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    .report-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #1a1a1a;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      line-height: 1.6;
+      color: #fff;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      text-align: left;
+      margin-bottom: 1rem;
+      color: #1db954;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .highlight {
+      background: #222;
+      border-left: 4px solid #1db954;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      font-family: monospace;
+      color: #1db954;
+      font-size: 1rem;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Jerin Peter</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="report-container">
+    <h1>Multi-Robot Navigation using RMF and TurtleBot3</h1>
+    <p><em>Fleet Coordination and Traffic Management in Simulated Environments</em></p>
+    <h2>Abstract</h2>
+    <p>
+      This project presents the design and implementation of a multi-robot navigation system using the Robotics Middleware Framework (RMF) and TurtleBot3 robots. The system demonstrates coordinated task allocation, traffic management, and dynamic path planning for a fleet of robots, leveraging ROS 2 and Gazebo. The approach enables robust, scalable, and efficient operation for real-world logistics and facility management scenarios.
+    </p>
+    <h2>1. Introduction</h2>
+    <p>
+      The increasing demand for automation in logistics and facility management has led to the development of multi-robot systems capable of performing complex tasks collaboratively. RMF provides a modular framework for managing fleets, scheduling tasks, and resolving conflicts. This project explores the integration of RMF with TurtleBot3 robots, focusing on coordinated navigation, task execution, and real-time traffic control.
+    </p>
+    <h2>2. System Overview</h2>
+    <ul>
+      <li><strong>Robotics Middleware Framework (RMF):</strong> Centralized fleet and traffic management, task scheduling, and conflict resolution.</li>
+      <li><strong>ROS 2:</strong> Communication backbone for robot control, sensor integration, and navigation.</li>
+      <li><strong>Gazebo Simulation:</strong> Realistic environment for testing navigation, obstacle avoidance, and task execution.</li>
+      <li><strong>TurtleBot3 Robots:</strong> Mobile platforms running navigation and localization stacks.</li>
+    </ul>
+    <figure>
+      <img src="assets/images/projects/tb3_rmf_multirobotnav/robots.jpg" alt="Fleet of TurtleBot3 robots in simulation" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 1 TB3 robots used for testing</figcaption>
+    </figure>
+    <h2>3. Methodology</h2>
+    <h3>3.1 Environment and Robot Setup</h3>
+    <ul>
+      <li>A custom map is created in Gazebo, representing a facility with multiple rooms, corridors, and obstacles.</li>
+      <li>Multiple TurtleBot3 robots are spawned, each with unique namespaces and configurations.</li>
+      <li>Robots are equipped with LIDAR and odometry for localization and mapping.</li>
+    </ul>
+    <h3>3.2 RMF Integration and Task Scheduling</h3>
+    <ul>
+      <li>RMF is configured to recognize all robots, define traffic lanes, and set up delivery endpoints.</li>
+      <li>Tasks (e.g., deliveries, patrols) are assigned via the RMF web dashboard or API.</li>
+      <li>RMF schedules and coordinates task execution, dynamically resolving conflicts and rerouting robots as needed.</li>
+    </ul>
+    <figure>
+      <img src="assets/images/projects/tb3_rmf_multirobotnav/tasksinwebgui.png" alt="RMF Web Dashboard" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 2. RMF web dashboard for task assignment and monitoring</figcaption>
+    </figure>
+    <h3>3.3 Navigation, Traffic Management, and Coordination</h3>
+    <ul>
+      <li>Each robot runs the ROS 2 navigation stack for path planning and obstacle avoidance.</li>
+      <li>RMF manages traffic, ensuring robots yield, wait, or reroute to prevent collisions.</li>
+      <li>Dynamic path planning allows robots to adapt to changing environments and traffic conditions.</li>
+    </ul>
+    <figure>
+      <img src="assets/images/projects/tb3_rmf_multirobotnav/task.png" alt="Task execution in simulation" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 3. Task execution and robot coordination implementation in real-world setting</figcaption>
+    </figure>
+    <h3>3.4 Monitoring and Visualization</h3>
+    <ul>
+      <li>System state is monitored using RViz and the RMF dashboard, providing real-time feedback on robot positions, task status, and traffic flow.</li>
+      <li>Logs and metrics are collected for performance analysis and debugging.</li>
+    </ul>
+
+    <h2>4. Results</h2>
+    <p>
+      The system successfully demonstrated coordinated navigation and task execution for multiple TurtleBot3 robots. RMF efficiently managed task allocation and traffic, enabling robots to complete deliveries without collisions. The simulation validated the scalability and robustness of RMF for real-world multi-robot applications.
+    </p>
+        <div class="video-container" style="text-align: center; margin-top: 2rem;">
+      <iframe width="640" height="360" src="https://www.youtube.com/embed/DyssXuOaH5k?si=H4bJVBvwwuscdOsh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <figcaption> Robot Navigation Working (in progress) </figcaption>
+    </div>
+    <h2>5. Conclusion</h2>
+    <p>
+      Integrating RMF with ROS 2 and TurtleBot3 robots enables scalable, flexible, and safe multi-robot navigation. This approach is applicable to a wide range of domains, including healthcare, logistics, and smart facilities. Future work may involve deploying the system on physical robots and extending RMF capabilities for heterogeneous fleets and dynamic environments.
+    </p>
+    <div style="text-align:center; margin:2.5rem 0 0 0;">
+      <a href="assets/images/projects/tb3_rmf_multirobotnav/Final_Project_Report.pdf" target="_blank" style="display:inline-block; padding:0.75rem 2rem; background:#1db954; color:#fff; border-radius:6px; font-size:1.2rem; font-weight:600; text-decoration:none; transition:background 0.2s;">📄 Full Report (PDF)</a>
+    </div>
+  </div>
+  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
+    <p>&copy; 2025 Jerin Peter. All rights reserved.</p>
+  </footer>
+</body>
+</html>

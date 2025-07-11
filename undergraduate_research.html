@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Autonomous Indoor Delivery Robot</title>
+  <!-- Link your main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for any icons if needed -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Report container using the default dark theme */
+    .report-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #1a1a1a;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      line-height: 1.6;
+      color: #fff;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      text-align: left;
+      margin-bottom: 1rem;
+      color: #1db954;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Jerin Peter</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Report Content -->
+  <div class="report-container">
+    <h1>Autonomous Indoor Delivery Robot</h1>
+    <p><em>Efficient Last Mile Delivery in Indoor Environments</em></p>
+<div style="text-align: center;">
+      <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xsw3N9XQKTw?si=H4bJVBvwwuscdOsh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>      </div>
+
+
+    <h2>Abstract</h2>
+    <p>
+      The robot actualizes the concept of autonomous last mile delivery in indoor environments.
+      Designed to transport small goods, mail, and groceries efficiently, it employs a real‐time obstacle detection system,
+      a dynamic path planning algorithm, and SLAM-based mapping using a RPLIDAR.
+      An Nvidia Jetson Nano handles intensive computations, ensuring precise navigation and effective obstacle avoidance.
+    </p>
+    
+    <h2>Introduction</h2>
+    <p>
+      Autonomous indoor delivery addresses the critical need for efficient last-mile logistics within confined spaces.
+      This project report presents the design and implementation of a delivery robot that seamlessly navigates indoor environments.
+      By integrating advanced sensors, SLAM algorithms for mapping, and real-time processing capabilities,
+      the system ensures that delivery tasks are carried out with high accuracy and minimal human intervention.
+    </p>
+    
+    <h2>Methodology</h2>
+    <p>
+      The core methodology is centered on real-time obstacle detection and dynamic path planning:
+    </p>
+    <ul>
+      <li><strong>Sensor Integration:</strong> A RPLIDAR captures 360° scan data that is processed through SLAM to create an accurate map.</li>
+      <li><strong>Path Planning & Navigation:</strong> The robot employs an adaptive algorithm to compute optimal routes and avoid obstacles in real time.</li>
+      <li><strong>Computational Unit:</strong> An Nvidia Jetson Nano processes sensor data rapidly, enabling timely decision-making.</li>
+      <li><strong>Localization:</strong> Sensor fusion from the RPLIDAR, IMU, and other inputs provides precise position and orientation data.</li>
+    </ul>
+    
+    <h2>Experimental Setup & Results</h2>
+    <p>
+      Tested in a controlled indoor environment, the robot demonstrated efficient navigation and reliable obstacle avoidance.
+      The integration of real-time sensor data with advanced path planning resulted in a robust system capable of executing autonomous delivery tasks with high precision.
+    </p>
+    
+    <h2>Conclusion</h2>
+    <p>
+      The Autonomous Indoor Delivery Robot offers a promising solution for last-mile delivery challenges within indoor settings.
+      Its ability to autonomously navigate, detect obstacles, and compute optimal routes paves the way for cost-effective and reliable delivery systems.
+      Future enhancements may include further refinement of sensor fusion algorithms and extended operational capabilities.
+    </p>
+    
+    <h2>Figures</h2>
+    <figure>
+      <img src="assets/images/projects/nova_project/fig1.jpg" alt="Autonomous Indoor Delivery Robot" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 1. The Intial Prototype</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/images/projects/nova_project/fig2.png" alt="SLAM Mapping" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 2. The GUI</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/images/projects/nova_project/fig3.jpg" alt="Navigation in Action" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 3. The Final Finished Product</figcaption>
+    </figure>
+  </div>
+  
+  <div class="media-link" style="text-align: center; margin-top: 2rem;">
+      <p style="color: #fff; text-align: center;">For More Photos and Videos Visit</p>
+      <a href="https://photos.app.goo.gl/rMXf2ZqJBj95Wx5AA" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background: #1db954; color: #fff; border-radius: 5px; text-decoration: none; font-size: 1.2rem;">
+        <i class="fab fa-google" style="font-size: 2rem; vertical-align: middle; margin-right: 0.5rem;"></i> Google Photos
+      </a>
+    </div>
+    
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 1rem 0; background-color: #33323200; color: #1db954;">
+<p style="text-align: center; margin-top: 4rem;">&copy; 2025 Jerin Peter. All rights reserved.</p>
+      </footer>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mecanum Wheel Based Autonomous Navigation Mobile Robot</title>
+  <!-- Link your main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Dark theme styling */
+    body {
+      background-color: #121212;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+    .report-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.8);
+      line-height: 1.6;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      color: #1db954;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .media-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .media-link a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #1db954;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background 0.3s ease;
+    }
+    .media-link a:hover {
+      background: #13a04a;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Jerin Peter</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Report Container -->
+  <div class="report-container">
+    <h1>Mecanum Wheel Based Autonomous Navigation Mobile Robot</h1>
+    <p><strong>Overview:</strong> This project presents the design, development, and testing of a mobile robot powered by mecanum wheels
+       for omnidirectional navigation. The system integrates precision mechanical components with advanced sensor fusion and control algorithms to achieve accurate, holonomic motion in complex environments.</p>
+    
+    <!-- Abstract -->
+    <h2>Abstract</h2>
+    <p>
+      The project involves a sophisticated design and implementation of a mecanum wheel based autonomous robot.
+      Precision laser-cut metal components were assembled and powder coated in black to ensure durability and aesthetics.
+      Driven by 60 rpm Rhino motors delivering 40 kg-cm of torque and featuring high-resolution encoders,
+      the robot’s drive system is capable of executing omnidirectional movement with high precision.
+      A Raspberry Pi 4 serves as the central processing unit, running ROS atop Raspberry Pi OS.
+      An RPlidar A1M8 sensor provides 360° environmental scanning, while custom firmware running on a Teensy-controlled PCB
+      converts ROS velocity commands into PWM signals using PID control.
+      Sensor fusion of lidar data and wheel encoder feedback is employed to enhance localization and generate accurate odometry,
+      enabling robust mapping via GMapping and holonomic navigation using a TEB planner.
+    </p>
+    
+    <!-- Introduction -->
+    <h2>Introduction</h2>
+    <p>
+      Autonomous navigation for mobile robots demands precise control, robust sensor integration, and efficient mapping algorithms.
+      In this project, a mecanum wheel configuration is used to achieve full omnidirectional movement,
+      which is critical for navigating cluttered and dynamic environments.
+      By integrating a multi-layered sensor suite—including an RPlidar for environmental scanning and wheel encoders for motion feedback—
+      along with a Raspberry Pi 4 running ROS, the system overcomes challenges such as wheel slippage and non-holonomic constraints.
+      This report details the entire development process from mechanical assembly to firmware implementation and experimental validation.
+    </p>
+    
+    <!-- Hardware Setup -->
+    <h2>Hardware Setup</h2>
+    <p>
+      The build commenced with the fabrication and assembly of laser metal-cut parts. The chassis, powder coated in black, provided a rigid,
+      lightweight frame for the robot. Key hardware components include:
+    </p>
+    <ul>
+      <li>
+        <strong>Chassis Assembly:</strong> Precision metal parts were laser cut and assembled to form the robot’s frame. The body was powder coated in black
+        to enhance corrosion resistance and aesthetics.
+      </li>
+      <li>
+        <strong>Drive System:</strong> The robot is powered by 60 rpm Rhino motors that deliver 40 kg-cm of torque and offer high encoder resolution for precise feedback.
+      </li>
+      <li>
+        <strong>Electronic Control:</strong> A perfboard-based PCB integrates a Teensy microcontroller with headers for motor encoder inputs.
+        A Raspberry Pi 4, running Raspberry Pi OS with ROS, serves as the central “brain” of the system.
+      </li>
+      <li>
+        <strong>Sensing:</strong> An RPlidar A1M8 provides 360° lidar scanning for mapping and obstacle detection.
+      </li>
+    </ul>
+    
+    <!-- Image Grid for Hardware -->
+    <div class="image-grid">
+      <img src="assets/images/projects/mecanum_projects/3.jpg" alt="Chassis Assembly">
+      <img src="assets/images/projects/mecanum_projects/2.jpg" alt="Powder Coated Frame">
+      <img src="assets/images/projects/mecanum_projects/4.jpg" alt="PCB and Teensy Integration">
+      <img src="assets/images/projects/mecanum_projects/5.jpg" alt="Completed Robot">
+      <img src="assets/images/projects/mecanum_projects/6.jpg" alt="Completed Robot">
+      <img src="assets/images/projects/mecanum_projects/7.jpg" alt="Completed Robot">
+
+    </div>
+    
+    <!-- Software and Firmware Implementation -->
+    <h2>Software and Firmware Implementation</h2>
+    <p>
+      The base firmware, developed in C/C++, subscribes to the <code>cmd_vel</code> topic in ROS and decomposes velocity commands into PWM signals.
+      A PID controller regulates motor speed to ensure precise actuation. Simultaneously, encoder feedback is processed to compute real-time robot velocity in the X, Y, and Z axes,
+      which is published back to the Raspberry Pi. A Python node aggregates these signals to publish refined odometry data.
+      Sensor fusion is performed by integrating lidar odometry with wheel encoder data, significantly enhancing localization accuracy.
+      The system employs GMapping for generating occupancy grid maps and a Timed Elastic Band (TEB) planner for executing holonomic navigation.
+    </p>
+    
+    <!-- Experimental Validation -->
+    <h2>Experimental Validation</h2>
+    <p>
+      Extensive testing was conducted to validate the performance of the robot.
+      Multiple Python scripts were developed to send velocity commands for executing predefined trajectories.
+      The sensor fusion algorithm ensured that odometry feedback was highly accurate, enabling the robot to execute complex maneuvers with precision.
+      Experimental results confirmed the robustness of the control system and the efficacy of the PID loops in maintaining desired motor speeds.
+    </p>
+    
+    <!-- Conclusion -->
+    <h2>Conclusion</h2>
+    <p>
+      The Mecanum Wheel Based Autonomous Navigation Mobile Robot project demonstrates a successful integration of advanced mechanical design,
+      precision control, and sensor fusion techniques. The robust drive system, combined with effective firmware and ROS-based software architecture,
+      enables reliable omnidirectional navigation in complex environments. Future work will focus on further refining the localization algorithms,
+      integrating additional sensors for improved environmental perception, and scaling the system for broader applications.
+    </p>
+    
+    <!-- Future Scope -->
+    <h2>Future Scope</h2>
+    <ul>
+      <li>Enhanced sensor fusion using additional vision-based systems.</li>
+      <li>Integration with advanced ROS navigation stacks for dynamic re-planning.</li>
+      <li>Optimization of PID parameters for even greater precision in varying terrains.</li>
+      <li>Development of an intuitive user interface for real-time teleoperation and monitoring.</li>
+    </ul>
+    
+  
+    <!-- (Optional) GitHub Documentation Button -->
+    <div class="media-link" style="text-align: center; margin-top: 2rem;">
+      <p style="color: #fff; text-align: center;">For More Photos and Videos Visit</p>
+      <a href="https://photos.app.goo.gl/UczhLnbYWokjUN27A" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background: #1db954; color: #fff; border-radius: 5px; text-decoration: none; font-size: 1.2rem;">
+        <i class="fab fa-google" style="font-size: 2rem; vertical-align: middle; margin-right: 0.5rem;"></i> Google Photos
+      </a>
+    </div>
+  
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
+<p style="text-align: center; margin-top: 4rem;">&copy; 2025 Jerin Peter. All rights reserved.</p>
+      </footer>
+</body>
+</html>

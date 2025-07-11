@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plate Cleaning Robot using ABB IRB 120</title>
+  <!-- Link your main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for GitHub icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Report container using the default dark theme */
+    .report-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #1a1a1a;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      line-height: 1.6;
+      color: #fff;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      text-align: left;
+      margin-bottom: 1rem;
+      color: #1db954;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .github-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .github-link a {
+      color: #1db954;
+      font-size: 2rem;
+      text-decoration: none;
+    }
+    .github-link a:hover {
+      color: #13a04a;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar (uses default styling from style.css) -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Jerin Peter</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Report Content -->
+  <div class="report-container">
+    <h1>Implementation of a Plate Cleaning Robot using ABB IRB 120</h1>
+    <p><em>A Comprehensive Approach to Dishwashing Automation</em></p>
+
+    <h2>Abstract</h2>
+    <p>
+      This project presents a comprehensive implementation of a plate cleaning robot utilizing the ABB IRB 120 robotic arm.
+      The robot mimics human dishwashing motions through a sophisticated spiral trajectory, ensuring thorough cleaning of
+      plates placed randomly within a predefined workspace. The system leverages numerical inverse kinematics (IK) and
+      Proportional-Derivative (PD) control strategies for precise end-effector positioning and trajectory following.
+      Detailed explanations of the task space definition, plate position generation, trajectory planning, and control methodologies are
+      provided, highlighting the complexity and intricacies involved in developing such a robotic system.
+    </p>
+    <p><strong>Index Terms:</strong> robotics, inverse kinematics, PD control, trajectory planning, automation</p>
+
+    <h2>I. Introduction</h2>
+    <p>
+      The automation of routine tasks, such as dishwashing, has seen significant advancements with the integration of robotic
+      systems. This report delves into the meticulous implementation of a robotic system designed to mimic human dishwashing
+      motions. The ABB IRB 120 robotic arm is employed in this project to perform dishwashing tasks by executing a spiral
+      motion to clean plates, emulating human-like washing techniques. This report provides detailed explanations of the system’s
+      components, including task space definition, inverse kinematics, control strategies, and trajectory planning.
+    </p>
+
+    <h2>II. System Overview</h2>
+    <p>
+      The robotic system comprises an ABB IRB 120 robotic arm programmed to navigate a defined workspace, identify plate positions,
+      and perform cleaning operations. The core components of the system include the inverse kinematics method, task space
+      boundaries, plate position generation, and control strategies.
+    </p>
+
+    <h3>A. System Flowchart</h3>
+    <figure>
+      <img src="assets/images/projects/arm_project/fig1.png" alt="System Flowchart" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 1. System Flowchart</figcaption>
+    </figure>
+
+    <h3>B. Inverse Kinematics Method</h3>
+    <p>
+      Inverse kinematics (IK) is pivotal in determining the required joint angles for the robotic arm to achieve a specific
+      end-effector position and orientation. The numerical IK method is chosen for its robustness in handling the complex
+      configurations of the robotic arm. The IK problem is formulated as:
+    </p>
+    <pre><code>Find q such that T(q) = Td</code></pre>
+    <p>
+      where <em>q</em> is the vector of joint angles, <em>T(q)</em> is the transformation matrix representing the end-effector pose,
+      and <em>Td</em> is the desired end-effector pose.
+    </p>
+
+    <h3>C. Task Space Definition</h3>
+    <p>
+      The task space is defined to exclude the robot’s base area, ensuring safe operation. The boundaries are set as follows:
+    </p>
+    <ul>
+      <li>X-axis: <em>xmin</em> = 0.0 m, <em>xmax</em> = 0.32 m</li>
+      <li>Y-axis: <em>ymin</em> = –0.38 m, <em>ymax</em> = 0.32 m</li>
+      <li>Z-axis: <em>zplate</em> = 0.03 m (fixed plate height)</li>
+    </ul>
+
+    <h3>D. Plate Position Generation</h3>
+    <p>
+      A function is employed to generate random plate positions within the task space. The generated positions must ensure
+      no overlap between plates and maintain a minimum distance from the robot’s base. This is achieved through the following steps:
+    </p>
+    <ol>
+      <li><strong>Random Position Generation:</strong> A new position <em>Pnew</em> is generated within the task space boundaries.</li>
+      <li><strong>Distance Calculation:</strong> The Euclidean distances between <em>Pnew</em> and existing plate positions <em>Pi</em> are calculated.</li>
+      <li><strong>Validation:</strong> The new position is validated if the distances satisfy the minimum distance constraint
+          (<em>minDistance</em> = 0.28 m) and the distance from the base (<em>baseRadius</em> = 0.25 m).</li>
+    </ol>
+
+    <h2>III. Control and Motion Planning</h2>
+    <p>
+      The robot’s motion planning involves two primary phases: cleaning the plates using a spiral trajectory and transitioning
+      between plates.
+    </p>
+
+    <h3>A. Spiral Trajectory for Cleaning</h3>
+    <ol>
+      <li>
+        <strong>Parameters Definition:</strong>
+        <ul>
+          <li>Number of points (<em>npoints</em>): 55</li>
+          <li>Radius (<em>r</em>): 0.145 m</li>
+          <li>Number of turns (<em>nturns</em>): 3</li>
+          <li>Height above plate (<em>zabove plate</em>): 0.05 m</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Trajectory Equations:</strong>
+        <pre><code>
+θ = linspace(0, 2π · nturns, npoints)
+ri = linspace(0, r, npoints)
+xi = ri cos(θi) + xplate
+yi = ri sin(θi) + yplate
+zi = zplate + zabove plate
+        </code></pre>
+      </li>
+    </ol>
+
+    <h3>B. Transition Trajectory</h3>
+    <p>
+      Transitioning between plates requires generating smooth trajectories that avoid collisions with the robot’s base and other obstacles.
+      This is achieved using a cubic polynomial trajectory planning method, which ensures smooth acceleration and deceleration phases.
+    </p>
+    <ol>
+      <li><strong>Waypoints Definition:</strong> Define intermediate waypoints that guide the robot around the base, avoiding obstacles.</li>
+      <li><strong>Midpoint Angle Calculation:</strong> Calculate angles for the waypoints using the <code>atan2</code> function.</li>
+      <li><strong>Shortest Arc Calculation:</strong> Determine the shortest arc between angles.</li>
+      <li><strong>Midpoint Waypoints:</strong> Create intermediate waypoints along the arc at a safe distance from the base.</li>
+      <li><strong>Trajectory Planning:</strong> Use a cubic polynomial method (e.g., <code>cubicpolytraj</code> in MATLAB) to generate the trajectory.</li>
+    </ol>
+
+    <h2>IV. Trajectory Generation</h2>
+    <h3>A. Cleaning Trajectory</h3>
+    <p>
+      The spiral trajectory for cleaning is generated using a parametric approach, where the radius increases linearly with the
+      angle to form a spiral:
+    </p>
+    <pre><code>
+xi = ri cos(θi) + xplate
+yi = ri sin(θi) + yplate
+zi = zplate + zabove plate
+    </code></pre>
+
+    <h3>B. Transition Trajectory</h3>
+    <p>
+      The transition trajectory ensures smooth movement from one plate to another. It is defined by planning the robot’s motion between intermediate waypoints:
+    </p>
+    <pre><code>
+p(t) = a3 t³ + a2 t² + a1 t + a0
+    </code></pre>
+    <p>
+      where <em>p(t)</em> is the position at time <em>t</em> and the coefficients are determined by the initial and final conditions.
+    </p>
+
+    <h2>V. Experimental Setup and Results</h2>
+    <h3>A. Initial Setup</h3>
+    <p>
+      The robot starts at the origin with a zero joint configuration. Plates are placed randomly within the task space, ensuring spacing constraints.
+    </p>
+
+    <h3>B. Simulation Execution</h3>
+    <p>
+      The simulation proceeds with the robot identifying the nearest unvisited plate, executing the spiral cleaning motion, and transitioning to the next plate. This loop continues until all plates are cleaned.
+    </p>
+
+    <h3>C. Shortest Path Calculation</h3>
+    <pre><code>
+dist(i) = √((xcurrent - xi)² + (ycurrent - yi)²)
+    </code></pre>
+    <p>
+      The plate with the minimum distance is chosen as the next target.
+    </p>
+
+    <h3>D. Visualization</h3>
+    <p>
+      The simulation provides real-time visualization of the robot’s movements, including spiral and transition trajectories.
+    </p>
+    <figure>
+      <img src="assets/images/projects/arm_project/fig2.png" alt="Spiral and Transition Trajectories" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 2. Spiral and Transition Trajectories</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/images/projects/arm_project/fig3.png" alt="Spiral Cleaning Trajectory" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 3. Robot executing the spiral cleaning trajectory on plates</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/images/projects/arm_project/fig4.png" alt="Transition Trajectory" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 4. Robot transitioning between plates using cubic polynomial trajectory</figcaption>
+    </figure>
+
+    <h2>VI. Conclusion</h2>
+    <p>
+      The robotic system successfully demonstrates dishwashing tasks through a controlled spiral motion. The implementation highlights the effectiveness of numerical IK methods and PD controllers in achieving precise and efficient robotic operations. Future work may include optimizing control parameters and exploring advanced trajectory planning algorithms.
+    </p>
+
+    <h2>MATLAB Code</h2>
+    <div class="github-link">
+      <a href="https://github.com/jerinpeter/DIshWashingArm" target="_blank">
+        <i class="fab fa-github" style="font-size: 3rem;"></i>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
+    <p>&copy; 2025 Jerin Peter. All rights reserved.</p>
+  </footer>
+</body>
+</html>

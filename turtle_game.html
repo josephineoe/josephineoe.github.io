@@ -1,0 +1,199 @@
+<div class="media-link"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Sophisticated Turtlesim Game for ROS</title>
+  <!-- Link to main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Dark theme styling */
+    body {
+      background-color: #121212;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+    .report-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.8);
+      line-height: 1.6;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      color: #1db954;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container code {
+      background: #1a1a1a;
+      padding: 0.3rem;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #fff;
+    }
+    .report-container pre {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .media-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .media-link a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #1db954;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background 0.3s ease;
+    }
+    .media-link a:hover {
+      background: #13a04a;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Jerin Peter</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Report Container -->
+  <div class="report-container">
+    <h1>A Sophisticated Turtlesim Game for ROS</h1>
+    <h2>Overview</h2>
+    <p>
+      This project demonstrates a game built on the ROS-based TurtleSim platform. 
+      The objective is to guide the virtual turtle along a precisely defined path while preventing it from straying outside the boundary.
+      The system leverages real-time sensor feedback and service calls to dynamically enforce game constraints, challenging the user to maintain accuracy and control.
+    </p>
+    
+    <!-- Introduction -->
+    <h2>Introduction</h2>
+    <p>
+      In the realm of robotics education and simulation, TurtleSim serves as a powerful tool for illustrating fundamental concepts in ROS.
+      In this project, an interactive game is developed where users are tasked with driving the turtle along a predefined trajectory.
+      By monitoring the turtle’s background color via the "/turtle1/color_sensor" topic, the system detects deviations from the safe path,
+      triggering immediate warnings to the user. This project not only reinforces ROS service utilization but also demonstrates the integration of real-time feedback mechanisms in an engaging manner.
+    </p>
+    
+    <!-- Prerequisites -->
+    <h2>Prerequisites</h2>
+    <p>
+      To successfully build and run this project, ensure that your development environment meets the following requirements:
+    </p>
+    <ul>
+      <li><a href="https://ubuntu.com/download/desktop" target="_blank" style="color: #1db954;">Ubuntu 20.04 / 18.04</a></li>
+      <li><a href="http://wiki.ros.org/noetic/Installation/Ubuntu" target="_blank" style="color: #1db954;">ROS Noetic / Melodic</a></li>
+      <li><a href="https://code.visualstudio.com/download" target="_blank" style="color: #1db954;">VS Code</a> as the editor</li>
+      <li>Catkin as the compiler and build system</li>
+    </ul>
+    
+    <!-- Building & Installation -->
+    <h2>Building & Installation</h2>
+    <p>
+      The project is structured within a ROS Catkin workspace. Follow these steps to compile and launch the game:
+    </p>
+    <pre><code>
+cd ~/catkin_ws/src
+git clone https://github.com/jerinpeter/turtle_game.git
+cd ..
+catkin_make
+roslaunch turtle_launch.launch
+    </code></pre>
+    
+    <!-- Working in Brief -->
+    <h2>Working in Brief</h2>
+    <p>
+      The game operates by subscribing to the "/turtle1/color_sensor" topic, allowing it to continuously monitor the background color beneath the turtle.
+      The system leverages two key ROS services:
+    </p>
+    <ul>
+      <li><code>/turtle1/set_pen</code>: Adjusts the drawing parameters to render a predefined shape that represents the safe path.</li>
+      <li><code>/turtle1/teleport_absolute</code>: Resets the turtle's position if needed.</li>
+    </ul>
+    <p>
+      If the turtle deviates from the drawn path, the system issues a warning message to the user, thereby enforcing strict adherence to the game's constraints.
+    </p>
+    
+    <!-- Demo -->
+<h2>Demo</h2>
+<figure>
+  <img src="assets/images/projects/turtle_project/demo.gif" alt="Turtlesim Game Demo" style="max-width: 100%; height: auto;">
+  <figcaption>Figure: Demonstration of the Turtlesim Game in action.</figcaption>
+</figure>
+    <!-- Improvements -->
+    <h2>Improvements</h2>
+    <p>
+      Future iterations of the game may include:
+    </p>
+    <ul>
+      <li>Expansion to include a variety of complex shapes and multiple levels of difficulty.</li>
+      <li>Dynamic adjustment of the line thickness using the "width" parameter in the <code>/turtle1/set_pen</code> service.</li>
+      <li>Enhanced game logic and real-time analytics to provide feedback on user performance.</li>
+    </ul>
+    
+    <!-- References -->
+    <h2>References</h2>
+    <ul>
+      <li><a href="http://wiki.ros.org/turtlesim" target="_blank" style="color: #1db954;">ROS Wiki: TurtleSim</a></li>
+      <li><a href="http://wiki.ros.org/rosservice" target="_blank" style="color: #1db954;">ROS Service Documentation</a></li>
+      <li><a href="http://wiki.ros.org/roslaunch" target="_blank" style="color: #1db954;">ROS Launch File Creation</a></li>
+    </ul>
+  </div>
+<div class="media-link"></div>
+<div class="media-link" style="margin-top: 1rem;">
+            <a href="https://github.com/jerinpeter/4wdNavbot" target="_blank">
+        <i class="fab fa-github" style="font-size: 2rem; vertical-align: middle; margin-right: 0.5rem;"></i> View Full Documentation on GitHub
+      </a>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
+    <p>&copy; 2025 Jerin Peter. All rights reserved.</p>
+  </footer>
+</body>
+</html>

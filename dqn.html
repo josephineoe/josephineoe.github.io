@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Autonomous Navigation of a Mecanum Robot Using DQN in ROS 2</title>
+  <!-- Link your main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Dark theme styling */
+    body {
+      background-color: #121212;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+    .report-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.8);
+      line-height: 1.6;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      color: #1db954;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container code {
+      background: #1a1a1a;
+      padding: 0.3rem;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #fff;
+    }
+    .report-container pre {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .video-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .video-container a {
+      display: inline-block;
+      text-decoration: none;
+    }
+    .video-container img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .media-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .media-link a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #1db954;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background 0.3s ease;
+    }
+    .media-link a:hover {
+      background: #13a04a;
+    }
+    .media-link img {
+      height: 2.5rem;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Jerin Peter</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Report Container -->
+  <div class="report-container">
+    <h1>Autonomous Navigation of a Mecanum Robot Using DQN in ROS 2</h1>
+    <h2>A Reinforcement Learning Approach</h2>
+
+<div class="image-grid">
+      <img src="assets/images/projects/rl_project/demo.gif" alt="TurtleSim Training Plot">
+    </div>
+    
+    <!-- Abstract -->
+    <h2>Abstract</h2>
+    <p>
+      This project demonstrates the development and implementation of a Deep Q-Network (DQN) a</p>lgorithm for navigating a 
+      Mecanum-wheeled robot in a simulated ROS 2 environment. The objective is to enable the robot to reach a specified 
+      target position (e.g., <code>[1,1]</code>) while avoiding obstacles. Preliminary tests were conducted in TurtleSim 
+      to validate the reinforcement learning (RL) pipeline before transitioning to a Gazebo simulation with the Mecanum robot. 
+      Despite some challenges in saving final training plots for the Mecanum robot, the system showed promising results 
+      in learning and executing collision-free navigation.
+    </p>
+    
+    <!-- Introduction -->
+    <h2>Introduction</h2>
+    <p>
+      The primary goal of this project was to apply and refine a DQN-based RL strategy to achieve autonomous navigation 
+      in </p>ROS 2. While standard ROS packages often support classical path-planning methods, they do not natively include 
+      reinforcement learning modules. Consequently, the simulation environment and RL pipeline were built from scratch. 
+      A Mecanum-wheeled robot was chosen to exploit the advantages of omnidirectional movement, adding complexity and 
+      flexibility to the navigation tasks.
+    </p>
+    
+    <!-- Tools and Frameworks Used -->
+    <h2>Tools and Frameworks Used</h2>
+    <ul>
+      <li><strong>ROS 2 Humble:</strong> Core framework for the robot simulation and node management.</li>
+      <li><strong>Python and PyTorch:</strong> Implemented </ul>the DQN algorithm, neural network training, and experience replay.</li>
+      <li><strong>Gazebo:</strong> Main simulation software hosting the Mecanum robot environment.</li>
+      <li><strong>TurtleSim:</strong> Simple 2D ROS simulator for preliminary RL testing.</li>
+    </ul>
+    
+    <!-- Methodology -->
+    <h2>Methodology</h2>
+    <p>
+      The project was divided into two major phases:
+    </p>
+    <ol>
+      <li>
+        <strong>Preliminary Testing in TurtleSim:</strong>  
+        <ul>
+          <li><strong>Environment Setup:</strong> Used TurtleSim for an initial 2D environment. The robot's input was its 
+              linear and angular velocity, and the feedback included its pose and velocity.</li>
+          <li><strong>Reward System:</strong> Devised a reward mechanism with negative rewards proportional to the distance 
+              from the goal, and significant penalties for collisions or straying off the defined path.</li>
+          <li><strong>Action Execution:</strong> Subscribed to the turtle's pose while publishing velocity commands. 
+              This phase validated the RL loop and the DQN's ability to converge.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Full Implementation in Gazebo:</strong>  
+        <ul>
+          <li><strong>Subscriptions and Publications:</strong> Subscribed to laser scan and odometry data for obstacle 
+              detection and pose estimation. Published velocity commands to control the Mecanum wheels.</li>
+          <li><strong>State Representation:</strong> Used segmented laser scan data to form a fixed-length state vector 
+              representing obstacle proximity.</li>
+          <li><strong>Action Space:</strong> The DQN output was mapped to Mecanum-specific velocity commands, including 
+              lateral, forward/backward, and rotational movements.</li>
+        </ul>
+      </li>
+    </ol>
+    
+    <!-- DQN Architecture & Training -->
+    <h2>DQN Architecture &amp; Training</h2>
+    <ul>
+      <li><strong>Neural Network Configuration:</strong> A multi-layer perceptron with two hidden layers (256 units each), 
+          outputting Q-values for discrete actions.</li>
+      <li><strong>Experience Replay:</strong> Implemented via a deque to store state-action-reward transitions, enabling 
+          mini-batch updates.</li>
+      <li><strong>Epsilon-Greedy Strategy:</strong> Balanced exploration (random actions) and exploitation (greedy policy) 
+          by decaying epsilon over training episodes.</li>
+      <li><strong>Training Process:</strong> The agent repeatedly interacted with the environment, collecting experiences 
+          and periodically updating the network using PyTorch. The process continued until performance converged or a 
+          maximum number of episodes was reached.</li>
+    </ul>
+    
+    <!-- Results -->
+    <h2>Results</h2>
+    <p>
+      <strong>TurtleSim:</strong> Training plots showed clear improvement over time, with the turtle eventually learning 
+      to navigate toward the goal. The reward curve stabilized, confirming that the RL pipeline worked as intended.
+    </p>
+    <p>
+      <strong>Mecanum Robot in Gazebo:</strong> Although the final training plots were not successfully saved, the robot 
+      exhibited satisfactory performance in reaching the designated goal and avoiding collisions. Preliminary tests 
+      validated that the DQN approach could be scaled to a more complex, omnidirectional platform.
+    </p>
+    
+    <div class="image-grid">
+      <img src="assets/images/projects/rl_project/1.png" alt="TurtleSim Training Plot">
+      <img src="assets/images/projects/rl_project/2.png" alt="Mecanum Robot Training Plot">
+
+
+    </div>
+    
+
+    <!-- Conclusion and Future Works -->
+    <h2>Conclusion and Future Works</h2>
+    <p>
+      This project demonstrated the feasibility of using a DQN algorithm for robotic navigation in ROS 2, covering both 
+      a simplified 2D environment (TurtleSim) and a more advanced Mecanum simulation in Gazebo. While the final performance 
+      was not fully optimized, it provided a solid foundation for future RL-based robotic systems. Potential improvements include:
+    </p>
+    <ul>
+      <li><strong>Algorithm Enhancement:</strong> Exploring advanced RL methods (e.g., PPO, SAC) for improved convergence 
+          and stability.</li>
+      <li><strong>Dynamic Obstacles:</strong> Introducing moving obstacles to increase navigation complexity.</li>
+      <li><strong>Randomized Goals:</strong> Generating varied start/goal positions to enhance training robustness.</li>
+    </ul>
+    
+    <!-- Footer or Additional Links -->
+    <div class="media-link">
+      <p>For More Details or Videos, Visit</p>
+      <a href="https://photos.app.goo.gl/YourDQNProjectLink" target="_blank">
+        <i class="fab fa-google" style="font-size: 2rem; vertical-align: middle; margin-right: 0.5rem;"></i>
+        Google Photos
+      </a>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
+    <p>&copy; 2025 Jerin Peter. All rights reserved.</p>
+  </footer>
+</body>
+</html>

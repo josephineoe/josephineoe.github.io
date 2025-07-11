@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Autonomous Outdoor Navigation Robot</title>
+  <!-- Link your main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Dark theme styling */
+    body {
+      background-color: #121212;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+    .report-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.8);
+      line-height: 1.6;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      color: #1db954;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container code {
+      background: #1a1a1a;
+      padding: 0.3rem;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #fff;
+    }
+    .report-container pre {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .video-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .video-container a {
+      display: inline-block;
+      text-decoration: none;
+    }
+    .video-container img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .media-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .media-link a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #1db954;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background 0.3s ease;
+    }
+    .media-link a:hover {
+      background: #13a04a;
+    }
+    .media-link img {
+      height: 2.5rem;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+    .diagram {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .diagram svg {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #1db954;
+      border-radius: 8px;
+      background: #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Jerin Peter</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Report Container -->
+  <div class="report-container">
+    <h1>Autonomous Outdoor Navigation Robot</h1>
+    <h2>Robust RTK-Based Navigation for Dynamic Environments</h2>
+    <p>
+      <strong>Overview:</strong> This project details the development of a large-scale outdoor navigation robot featuring inflatable tyres and a lightweight aluminium extrusion frame. Designed in Fusion 360, the robot integrates advanced sensor suites and an RTK-based GPS system for precise outdoor localization and navigation.
+    </p>
+    
+    <!-- Demo Video as YouTube Thumbnail -->
+<div class="video-container" style="max-width: 600px; margin: 0 auto;">
+      <img src="assets/images/projects/outdoorbot_project/design.gif" alt="Demo Video Thumbnail" style="width: 100%; border-radius: 8px;">
+      <p style="text-align: center; color: #aaa; margin-top: 0.5rem;">The Design</p>
+</div>
+    <!-- Abstract -->
+    <h2>Abstract</h2>
+    <p>
+      This project focuses on developing an autonomous outdoor navigation robot capable of operating in complex, GPS-restricted environments. The system utilizes a Raspberry Pi 4 as the central processor, integrated with an RPlidar S2 for long-range outdoor scanning and a Bosch BNO055 IMU for inertial measurement. A robust RTK solution, featuring Ardusimple RTK2B boards and an innovative NTRIP setup via Rtk2go.com, provides high-precision positioning by fusing data from multiple sensor sources.
+    </p>
+    
+    <!-- Introduction -->
+    <h2>Introduction</h2>
+    <p>
+      Autonomous outdoor navigation poses unique challenges, particularly in dynamic and GPS-restricted environments. This project addresses these challenges by integrating low-cost hardware with advanced sensor fusion and RTK-based positioning techniques. The robot’s mechanical design—featuring inflatable tyres for improved terrain adaptability and an aluminium extrusion frame for structural rigidity—ensures robust performance. Using a Raspberry Pi 4 running ROS, the system leverages state-of-the-art mapping and navigation algorithms to autonomously traverse complex outdoor terrains.
+    </p>
+    
+    <!-- System Architecture Diagram -->
+   <!-- System Architecture Diagram -->
+<h2>System Architecture</h2>
+<p>
+  The following diagram illustrates the complete RTK/NTRIP setup. At the base station, a GPS board (with its antenna) and an RTK GPS module provide correction data via a telemetry module (TX). A Pi Zero W with a telemetry receiver (RX) collects these signals and uploads the RTCM data to an NTRIP server (hosted on rtk2go.com). On the robot side, a Raspberry Pi 4 downloads the RTCM corrections from the internet and sends them via USB to the RTK GPS module (RTK2B board), which outputs highly accurate positioning data.
+</p>
+<div class="diagram">
+  <svg width="800" height="210" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto">
+        <polygon points="0 0, 7 3, 0 6" fill="#fff"/>
+      </marker>
+    </defs>
+    
+<!-- Base Station Column -->
+<rect x="50" y="10" width="200" height="50" fill="#1db954" />
+<text x="150" y="30" text-anchor="middle" fill="#000" font-family="Poppins" font-size="12">
+      RTK GPS Module 
+</text>
+<text x="150" y="50" text-anchor="middle" fill="#000" font-family="Poppins" font-size="12">
+      (GPS + Antenna + Telemetry TX)
+</text>
+
+<rect x="50" y="80" width="200" height="80" fill="#1db954" />
+<text x="150" y="105" text-anchor="middle" fill="#000" font-family="Poppins" font-size="12">
+      Pi Zero W (Base Station)
+</text>
+<text x="150" y="125" text-anchor="middle" fill="#000" font-family="Poppins" font-size="12">
+      with Telemetry RX
+</text>
+</text>
+    
+    <!-- Arrow from Base Station (Pi Zero W) to NTRIP Server -->
+    <line x1="250" y1="145" x2="300" y2="145" stroke="#fff" stroke-width="2" marker-end="url(#arrow)" />
+    
+    <!-- NTRIP Server Column -->
+    <rect x="300" y="100" width="200" height="70" fill="#1db954" />
+    <text x="400" y="135" text-anchor="middle" fill="#000" font-family="Poppins" font-size="14">
+      NTRIP Server 
+      (rtk2go.com)
+    </text>
+    
+    <!-- Arrow from NTRIP Server to Robot Side -->
+    <line x1="500" y1="135" x2="550" y2="135" stroke="#fff" stroke-width="2" marker-end="url(#arrow)" />
+    
+    <!-- Robot Column -->
+    <rect x="550" y="50" width="200" height="50" fill="#1db954" />
+    <text x="650" y="80" text-anchor="middle" fill="#000" font-family="Poppins" font-size="14">
+      Raspberry Pi 4 (Robot)
+    </text>
+    
+<rect x="550" y="120" width="200" height="50" fill="#1db954" />
+<text x="650" y="140" text-anchor="middle" fill="#000" font-family="Poppins" font-size="12">
+  RTK GPS Module
+</text>
+<text x="650" y="160" text-anchor="middle" fill="#000" font-family="Poppins" font-size="12">
+  (RTK2B Board)
+</text>
+    
+    <!-- Arrow from Raspberry Pi 4 to RTK GPS Module -->
+    <line x1="650" y1="100" x2="650" y2="110" stroke="#fff" stroke-width="2" marker-end="url(#arrow)" />
+    
+    <!-- Diagram Title -->
+    <text x="350" y="380" text-anchor="middle" fill="#fff" font-family="Poppins" font-size="16">
+      RTK/NTRIP Architecture
+    </text>
+  </svg>
+</div>
+
+    
+    <!-- Base Station Setup -->
+    <h2>Base Station Setup</h2>
+    <p>
+      The RTK base station consists of a GPS board paired with a high-gain antenna and a telemetry module (Tx) that continuously transmits correction data (typically on top of a building). A Pi Zero W, deployed at a remote location that has internet access, receives these signals via an attached receiver module. This Pi Zero W then uploads RTCM correction data to an NTRIP server hosted on Rtk2go.com. This remote setup allows for centralized correction data to be made available over the internet.
+    </p>
+    <p>
+      At the robot end, the Raspberry Pi 4—connected to the internet—downloads the RTCM data from the NTRIP server and pushes it via USB to the RTK GPS module. The RTK2B board within the module processes these corrections internally and outputs highly accurate positional data.
+    </p>
+    
+    <!-- Robot Setup and Software Integration -->
+    <h2>Robot Setup and Software Integration</h2>
+    <p>
+      The robot is powered by a Raspberry Pi 4 running ROS, which integrates data from an RPlidar S2 and a Bosch BNO055 IMU to create a real-time map of its surroundings. The RTK corrections obtained via the NTRIP server are fused with lidar and inertial data using the robot_localization package, ensuring robust and precise localization. Waypoints defined in Mapviz are then used by the move_base node and TEB planner to autonomously guide the robot to its destination.
+    </p>
+    <div class="image-grid">
+      <img src="assets/images/projects/outdoorbot_project/1.jpg" alt="Chassis Assembly">
+      <img src="assets/images/projects/outdoorbot_project/2.jpg" alt="Powder Coated Frame">
+      <img src="assets/images/projects/outdoorbot_project/ckt1.gif" alt="PCB and Teensy Integration">
+      <img src="assets/images/projects/outdoorbot_project/4.jpg" alt="Completed Robot">
+      <img src="assets/images/projects/outdoorbot_project/ckt.jpg" alt="Completed Robot">
+      <img src="assets/images/projects/outdoorbot_project/3.jpg" alt="Completed Robot">
+      <img src="assets/images/projects/outdoorbot_project/5.jpg" alt="Completed Robot">
+
+
+    </div>
+    
+    <!-- Experimental Validation -->
+    <h2>Experimental Validation</h2>
+    <p>
+      Field tests demonstrated that the integration of RTK data significantly reduced odometry errors, enabling the robot to achieve centimeter-level accuracy in waypoint tracking. The robust sensor fusion and ROS-based navigation stack allowed the robot to navigate complex outdoor environments reliably.
+    </p>
+    
+    <!-- Conclusion -->
+    <h2>Conclusion</h2>
+    <p>
+      The developed autonomous outdoor navigation robot effectively integrates RTK-based positioning with advanced sensor fusion techniques, providing precise and reliable navigation in dynamic outdoor environments. This project highlights the feasibility of using low-cost hardware and innovative telemetry solutions for high-accuracy outdoor localization. Future improvements will focus on incorporating additional sensors and further optimizing the navigation algorithms.
+    </p>
+    
+    <!-- Future Scope -->
+    <h2>Future Scope</h2>
+    <ul>
+      <li>Integration of vision-based sensors for enhanced obstacle detection.</li>
+      <li>Optimization of sensor fusion algorithms for lower latency and improved accuracy.</li>
+      <li>Expansion of the navigation stack for complex mission planning and autonomous decision-making.</li>
+      <li>Scaling the system for industrial and commercial applications in harsh outdoor conditions.</li>
+    </ul>
+    
+    <!-- Acknowledgments -->
+
+    <!-- Google Photos Link -->
+    <div class="media-link" style="text-align: center; margin-top: 2rem;">
+      <p style="color: #fff; text-align: center;">For More Photos and Videos Visit</p>
+      <a href="https://photos.app.goo.gl/6sGMYqNPy4Vdwajf7" target="_blank" style="display: inline-block; padding: 0.5rem 1rem; background: #1db954; color: #fff; border-radius: 5px; text-decoration: none; font-size: 1.2rem;">
+        <i class="fab fa-google" style="font-size: 2rem; vertical-align: middle; margin-right: 0.5rem;"></i> Google Photos
+      </a>
+    </div>
+  
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
+<p style="text-align: center; margin-top: 2rem;">&copy; 2025 Jerin Peter. All rights reserved.</p>
+      </footer>
+</body>
+</html>
