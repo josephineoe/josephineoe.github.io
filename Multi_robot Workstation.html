@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi-robot Workstation ABB_RobotStudio</title>
+  <!-- Link your main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for GitHub icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Report container using the default dark theme */
+    .report-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #1a1a1a;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      line-height: 1.6;
+      color: #fff;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      text-align: left;
+      margin-bottom: 1rem;
+      color: #1db954;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .github-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .github-link a {
+      color: #1db954;
+      font-size: 2rem;
+      text-decoration: none;
+    }
+    .github-link a:hover {
+      color: #13a04a;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar (uses default styling from style.css) -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Jerin Peter</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#certifications">Certifications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Demo Video as Video Thumbnail -->
+  <div class="video-container">
+    <a href="assets/images/projects/multirobot/multi_robot system.mp4" target="_blank">
+      <img src="assets\images\projects\multirobot\multi_robotsystem.gif" alt="Demo Video Thumbnail">
+    </a>
+    <p style="text-align: center;">Click above to view the demo video</p>
+  </div>
+
+  <!-- Report Content -->
+  <div class="report-container">
+    <h1>Multi-robot Workstation ABB_RobotStudio</h1>
+    <p><em>Coordinated precision across three industrial robotic arms.</em></p>
+
+    <h2>Abstract</h2>
+    <p>
+      ...
+    </p>
+    <p><strong>Index Terms:</strong> robotics, inverse kinematics, PD control, I2C</p>
+
+    <h2>I. Introduction</h2>
+    <p>
+      ...
+    </p>
+
+    <h2>II. System Overview</h2>
+    <p>
+      ...
+    </p>
+
+    <h3>A. System Flowchart</h3>
+    <figure>
+      <img src="assets\images\projects\multirobot\multi_robotsystem.png" alt="System Flowchart" style="max-width: 400px; width: 100%;">
+      <figcaption>Fig. 1. System Flowchart</figcaption>
+    </figure>
+
+    <h3>B. Inverse Kinematics Method</h3>
+    <p>
+      Inverse kinematics (IK) is pivotal in determining the required joint angles for the robotic arm to achieve a specific
+      end-effector position and orientation. The numerical IK method is chosen for its robustness in handling the complex
+      configurations of the robotic arm. The IK problem is formulated as:
+    </p>
+    <pre><code>Find q such that T(q) = Td</code></pre>
+    <p>
+      where <em>q</em> is the vector of joint angles, <em>T(q)</em> is the transformation matrix representing the end-effector pose,
+      and <em>Td</em> is the desired end-effector pose.
+    </p>
+
+    <h3>C. Task Space Definition</h3>
+    <p>
+      The task space is defined to exclude the robot’s base area, ensuring safe operation. The boundaries are set as follows:
+    </p>
+    <ul>
+      <li>X-axis: <em>xmin</em> = 0.0 m, <em>xmax</em> = 0.32 m</li>
+      <li>Y-axis: <em>ymin</em> = –0.38 m, <em>ymax</em> = 0.32 m</li>
+      <li>Z-axis: <em>zplate</em> = 0.03 m (fixed plate height)</li>
+    </ul>
+
+    <h3>D. Plate Position Generation</h3>
+    <p>
+      A function is employed to generate random plate positions within the task space. The generated positions must ensure
+      no overlap between plates and maintain a minimum distance from the robot’s base. This is achieved through the following steps:
+    </p>
+    <ol>
+      <li><strong>Random Position Generation:</strong> A new position <em>Pnew</em> is generated within the task space boundaries.</li>
+      <li><strong>Distance Calculation:</strong> The Euclidean distances between <em>Pnew</em> and existing plate positions <em>Pi</em> are calculated.</li>
+      <li><strong>Validation:</strong> The new position is validated if the distances satisfy the minimum distance constraint
+          (<em>minDistance</em> = 0.28 m) and the distance from the base (<em>baseRadius</em> = 0.25 m).</li>
+    </ol>
+
+    <h2>III. Control and Motion Planning</h2>
+    <p>
+      The robot’s motion planning involves two primary phases: cleaning the plates using a spiral trajectory and transitioning
+      between plates.
+    </p>
+
+    <h3>A. Spiral Trajectory for Cleaning</h3>
+    <ol>
+      <li>
+        <strong>Parameters Definition:</strong>
+        <ul>
+          <li>Number of points (<em>npoints</em>): 55</li>
+          <li>Radius (<em>r</em>): 0.145 m</li>
+          <li>Number of turns (<em>nturns</em>): 3</li>
+          <li>Height above plate (<em>zabove plate</em>): 0.05 m</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Trajectory Equations:</strong>
+        <pre><code>
+θ = linspace(0, 2π · nturns, npoints)
+ri = linspace(0, r, npoints)
+xi = ri cos(θi) + xplate
+yi = ri sin(θi) + yplate
+zi = zplate + zabove plate
+        </code></pre>
+      </li>
+    </ol>
+
+    <h3>B. Transition Trajectory</h3>
+    <p>
+      Transitioning between plates requires generating smooth trajectories that avoid collisions with the robot’s base and other obstacles.
+      This is achieved using a cubic polynomial trajectory planning method, which ensures smooth acceleration and deceleration phases.
+    </p>
+    <ol>
+      <li><strong>Waypoints Definition:</strong> Define intermediate waypoints that guide the robot around the base, avoiding obstacles.</li>
+      <li><strong>Midpoint Angle Calculation:</strong> Calculate angles for the waypoints using the <code>atan2</code> function.</li>
+      <li><strong>Shortest Arc Calculation:</strong> Determine the shortest arc between angles.</li>
+      <li><strong>Midpoint Waypoints:</strong> Create intermediate waypoints along the arc at a safe distance from the base.</li>
+      <li><strong>Trajectory Planning:</strong> Use a cubic polynomial method (e.g., <code>cubicpolytraj</code> in MATLAB) to generate the trajectory.</li>
+    </ol>
+
+    <h2>IV. Trajectory Generation</h2>
+    <h3>A. Cleaning Trajectory</h3>
+    <p>
+      The spiral trajectory for cleaning is generated using a parametric approach, where the radius increases linearly with the
+      angle to form a spiral:
+    </p>
+    <pre><code>
+xi = ri cos(θi) + xplate
+yi = ri sin(θi) + yplate
+zi = zplate + zabove plate
+    </code></pre>
+
+    <h3>B. Transition Trajectory</h3>
+    <p>
+      The transition trajectory ensures smooth movement from one plate to another. It is defined by planning the robot’s motion between intermediate waypoints:
+    </p>
+    <pre><code>
+p(t) = a3 t³ + a2 t² + a1 t + a0
+    </code></pre>
+    <p>
+      where <em>p(t)</em> is the position at time <em>t</em> and the coefficients are determined by the initial and final conditions.
+    </p>
+
+    <h2>V. Experimental Setup and Results</h2>
+    <h3>A. Initial Setup</h3>
+    <p>
+      The robot starts at the origin with a zero joint configuration. Plates are placed randomly within the task space, ensuring spacing constraints.
+    </p>
+
+    <h3>B. Simulation Execution</h3>
+    <p>
+      The simulation proceeds with the robot identifying the nearest unvisited plate, executing the spiral cleaning motion, and transitioning to the next plate. This loop continues until all plates are cleaned.
+    </p>
+
+    <h3>C. Shortest Path Calculation</h3>
+    <pre><code>
+dist(i) = √((xcurrent - xi)² + (ycurrent - yi)²)
+    </code></pre>
+    <p>
+      The plate with the minimum distance is chosen as the next target.
+    </p>
+
+    <h2>V. Conclusion</h2>
+    <p>
+      The robotic system successfully demonstrates an industrial painting station operating synchronously. 
+      The implementation highlights the effectiveness of numerical IK methods and PD controllers in achieving precise and efficient robotic operations.
+    </p>
+
+    <h2>Rapid Code</h2>
+    <div class="github-link">
+      <a href="https://github.com/josephineoe/Multi-robot-Workstation-ABB_RobotStudio" target="_blank">
+        <i class="fab fa-github" style="font-size: 3rem;"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
+    <p>&copy; 2025 Josephine Odusanya. All rights reserved.</p>
+  </footer>
+</body>
+</html>
