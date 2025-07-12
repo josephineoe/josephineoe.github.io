@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>6-DOF Stewart Platform</title>
+  <!-- Link your main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Dark theme styling */
+    body {
+      background-color: #121212;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+    .report-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.8);
+      line-height: 1.6;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      color: #1db954;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container code {
+      background: #1a1a1a;
+      padding: 0.3rem;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #fff;
+    }
+    .report-container pre {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .video-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .video-container a {
+      display: inline-block;
+      text-decoration: none;
+    }
+    .video-container img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .media-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .media-link a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #1db954;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background 0.3s ease;
+    }
+    .media-link a:hover {
+      background: #13a04a;
+    }
+    .media-link img {
+      height: 2.5rem;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Josephine Odusanya</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#certifications">Certifications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Report Container -->
+  <div class="report-container">
+    <h1>6-DOF Stewart Platform</h1>
+    <h2>Dynamic balance through IMU-driven motion control.</h2>
+
+<div class="image-grid">
+      <img src="assets\images\projects\stewart\stewart.gif" alt="Stewart demo">
+    </div>
+    
+    <!-- Abstract -->
+    <h2>Abstract</h2>
+    <p>
+      pending
+    </p>
+    
+    <!-- Introduction -->
+    <h2>Introduction</h2>
+    <p>
+      pending.
+    </p>
+    
+    <!-- Tools and Frameworks Used -->
+    <h2>Tools and Frameworks Used</h2>
+    <ul>
+      <li><strong>Sensor Fusion:</strong>...</li>
+      <li><strong>Python:</strong> ...</li>
+      <li><strong>I2C:</strong> ...</li>
+    </ul>
+    
+    <!-- Methodology -->
+    <h2>Methodology</h2>
+    <p>
+      The project was divided into two major phases:
+    </p>
+    <ol>
+      <li>
+        <strong>Preliminary Testing:</strong>  
+        <ul>
+          <li><strong>Environment Setup:</strong> ...</li>
+          <li><strong>Reward System:</strong> ...</li>
+          <li><strong>Action Execution:</strong> ...</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Mathematics:</strong>  
+        <ul>
+          <li><strong>Forward Kinematics:</strong> ...</li>
+          <li><strong>Inverse Kinematics:</strong> ...</li>
+          <li><strong>Kalmen Filter:</strong> ...</li>
+        </ul>
+      </li>
+    </ol>
+    
+    
+    <!-- Results -->
+    <h2>Results</h2>
+    <p>
+      <strong>Title:</strong> ...
+    </p>
+    <p>
+      <strong>Title:</strong> ...
+    </p>
+    
+    <div class="image-grid">
+      <img src="assets/images/projects/stewart/image.png" alt="...">
+      <img src="assets/images/projects/stewart/stewart.gif/image.png" alt="...">
+
+
+    </div>
+    
+
+    <!-- Conclusion and Improvements -->
+    <h2>Conclusion and Improvements</h2>
+    <p>
+      ... 
+      Potential improvements include:
+    </p>
+    <ul>
+      <li><strong>Automated movement:</strong> Exploring advanced RL methods (e.g., PPO, SAC) for improved convergence 
+          and stability.</li>
+      <li><strong>Ball balancing:</strong> ...</li>
+    </ul>
+    
+    <!-- Footer or Additional Links -->
+    <div class="media-link">
+      <p>For More Details or Videos, Visit</p>
+      <a href="assets\images\projects\stewart\Stewart Platform up_down.mp4" target="_blank">
+        <i class="fab fa-video" style="font-size: 2rem; vertical-align: middle; margin-right: 0.5rem;"></i>
+        Click to View Full Demo
+      </a>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
+    <p>&copy; 2025 Josephine Odusanya. All rights reserved.</p>
+  </footer>
+</body>
+</html>
