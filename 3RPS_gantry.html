@@ -73,20 +73,27 @@
     <p><em>Team-driven design for stroke rehabilitation through 5-DOF robotic control.</em></p>
     <h2>Abstract</h2>
     <p>
-      Stroke rehabilitation often requires specialized tools to aid in balance and gait recovery. This project
-improves upon the previously explored stewart platform. Due to limited workspace and high
-potential for singularities in the translation of the leg, we decided to separate out the cartesian 2-d
-degree of freedom into a mechanism and the leg height + angle being the other mechanism and came
-up with the 3RPS fixed on a 2D- Cartesian gantry. This allows us to modify these parameters
-independentantly. Due to the requirement of continuous motion in multiple servos simultaneously,
-we use the Propeller activity board. We give 2 joysticks for the control of the system. While also
-providing the IMU values to adjust the pitch of the platform which would affect the leg’s orientation.
-Future work will focus on making this spline based control and creating data structures around it,
-and loading the complete spline on-board using the SD-card itself.
-Keywords : Parallax Propeller, Gait rehabilitation, IMU, Robotics, Stroke rehabilitation
+Stroke remains a leading cause of long-term disability, often impairing mobility and balance. Rehabilitation is critical to restoring motor function, particularly through gait training and postural re-education. 
+This two-phase project leverages robotic platforms to create a more adaptive, precise, and customizable rehabilitation system for stroke patients.
+
+<strong>Phase 1</strong>Conceptual Development and Kinematic Redesign:
+To overcome limitations of traditional Stewart platforms—namely restricted workspace and susceptibility to singularities—this phase introduces a hybrid architecture: a 3RPS (Revolute-Prismatic-Spherical) 
+parallel leg manipulator mounted on a 2D Cartesian gantry. This decouples translational and rotational motions, allowing independent control of leg height, angle, and position. Dual joysticks provide 
+manual control while an onboard IMU adjusts pitch for real-time orientation feedback. A Propeller Activity Board coordinates synchronized multi-servo motion. Future iterations will implement 
+spline-based motion control and preloaded trajectories from an SD card for smoother and programmable movements.
+
+<strong> Phase 2</strong>Clinical Application and Rehabilitation Integration:
+Building on the modular platform from Phase 1, this phase adapts the robotic system for clinical stroke rehabilitation, focusing on balance training and gait assessment. 
+The parallel manipulator's capacity for precise, multi-axis motion enables programmable, repeatable movement patterns that can be tailored to patient needs. By simulating uneven 
+terrains and dynamic balance conditions, the system offers a controlled environment for retraining motor skills and postural stability. The modularity also supports 
+integration with feedback systems for real-time monitoring and therapist supervision.
+
+<strong>Keywords : Parallax Propeller, Gait rehabilitation, IMU, Robotics, Stroke rehabilitation</strong>
     </p>
     <h2>Role in Project</h2>
     <ul>
+      <li><strong>...:</strong> ...</li>
+      <li><strong>...:</strong>...</li>
       <li><strong>
         Programmed sensor fusion pipeline using Python (UDP @100Hz) to integrate inertial (IMU) and visual feedback, 
         enabling real-time motion correction and patient-specific gait analysis.</strong></li>
@@ -94,12 +101,10 @@ Keywords : Parallax Propeller, Gait rehabilitation, IMU, Robotics, Stroke rehabi
         Applied principles of control systems and kinematics to enhance stability and adaptability during motion 
         cycles.
       </strong></li>
-      <li><strong>...:</strong> ...</li>
-      <li><strong>...:</strong>...</li>
     </ul>
     <figure>
       <img src="assets\images\projects\3rps_gantry\preview.png" alt="Full image of the prototype" style="max-width: 700px; width: 100%;">
-      <figcaption>Fig. 1 Title</figcaption>
+      <figcaption>Fig. 1 Prototype</figcaption>
     </figure>
     <h2>Methodology</h2>
     <h3>Environment and Robot Setup</h3>
@@ -136,16 +141,14 @@ Keywords : Parallax Propeller, Gait rehabilitation, IMU, Robotics, Stroke rehabi
 
     <h2>4. Results</h2>
     <p>
-      The system successfully demonstrated coordinated navigation and task execution for multiple TurtleBot3 robots. RMF efficiently managed task allocation and traffic, enabling robots to complete deliveries without collisions. The simulation validated the scalability and robustness of RMF for real-world multi-robot applications.
+      The system successfully demonstrated coordinated navigation and task execution for multiple TurtleBot3 robots. 
+      RMF efficiently managed task allocation and traffic, enabling robots to complete deliveries without collisions. 
+      The simulation validated the scalability and robustness of RMF for real-world multi-robot applications.
     </p>
         <div class="video-container" style="text-align: center; margin-top: 2rem;">
       <iframe width="640" height="360" src="assets\images\projects\3rps_gantry\prototype.mp4" title="Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <figcaption> 3RPS+Gantry System in Progress </figcaption>
     </div>
-    <h2>5. Conclusion</h2>
-    <p>
-      pending
-    </p>
     <div style="text-align:center; margin:2.5rem 0 0 0;">
       <a href="assets\images\projects\3rps_gantry\Project 2 Proposal.pdf" target="_blank" style="display:inline-block; padding:0.75rem 2rem; background:#1db954; color:#fff; border-radius:6px; font-size:1.2rem; font-weight:600; text-decoration:none; transition:background 0.2s;">📄 Full Report (PDF)</a>
     </div>
