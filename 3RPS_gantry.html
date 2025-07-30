@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>3RPS + Gantry system</title>
+  <title>Gait Rehabilitation System</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -69,20 +69,31 @@
     </div>
   </nav>
   <div class="report-container">
-    <h1>3RPS + Gantry system</h1>
+    <h1>Gait Rehabilitation System</h1>
     <p><em>Team-driven design for stroke rehabilitation through 5-DOF robotic control.</em></p>
     <h2>Abstract</h2>
     <p>
-      pending
+      Stroke rehabilitation often requires specialized tools to aid in balance and gait recovery. This project
+improves upon the previously explored stewart platform. Due to limited workspace and high
+potential for singularities in the translation of the leg, we decided to separate out the cartesian 2-d
+degree of freedom into a mechanism and the leg height + angle being the other mechanism and came
+up with the 3RPS fixed on a 2D- Cartesian gantry. This allows us to modify these parameters
+independentantly. Due to the requirement of continuous motion in multiple servos simultaneously,
+we use the Propeller activity board. We give 2 joysticks for the control of the system. While also
+providing the IMU values to adjust the pitch of the platform which would affect the leg’s orientation.
+Future work will focus on making this spline based control and creating data structures around it,
+and loading the complete spline on-board using the SD-card itself.
+Keywords : Parallax Propeller, Gait rehabilitation, IMU, Robotics, Stroke rehabilitation
     </p>
-    <h2>1. Introduction</h2>
-    <p>
-      pending
-    </p>
-    <h2>2. System Overview</h2>
+    <h2>Role in Project</h2>
     <ul>
-      <li><strong>...:</strong> ...</li>
-      <li><strong>...:</strong> ...</li>
+      <li><strong>
+        Programmed sensor fusion pipeline using Python (UDP @100Hz) to integrate inertial (IMU) and visual feedback, 
+        enabling real-time motion correction and patient-specific gait analysis.</strong></li>
+      <li><strong>
+        Applied principles of control systems and kinematics to enhance stability and adaptability during motion 
+        cycles.
+      </strong></li>
       <li><strong>...:</strong> ...</li>
       <li><strong>...:</strong>...</li>
     </ul>
@@ -90,14 +101,14 @@
       <img src="assets\images\projects\3rps_gantry\preview.png" alt="Full image of the prototype" style="max-width: 700px; width: 100%;">
       <figcaption>Fig. 1 Title</figcaption>
     </figure>
-    <h2>3. Methodology</h2>
-    <h3>3.1 Environment and Robot Setup</h3>
+    <h2>Methodology</h2>
+    <h3>Environment and Robot Setup</h3>
     <ul>
       <li>....</li>
       <li>...</li>
       <li>...</li>
     </ul>
-    <h3>3.2 Sensor Integration and Task Scheduling</h3>
+    <h3>Sensor Integration and Task Scheduling</h3>
     <ul>
       <li>...</li>
       <li>...</li>
@@ -107,7 +118,7 @@
       <img src="assets\images\projects\3rps_gantry\full_system.jpg" alt="RMF Web Dashboard" style="max-width: 700px; width: 100%;">
       <figcaption>Fig. 2. Title</figcaption>
     </figure>
-    <h3>3.3 Navigation, Traffic Management, and Coordination</h3>
+    <h3>Navigation, Traffic Management, and Coordination</h3>
     <ul>
       <li>...</li>
       <li>...</li>
@@ -117,7 +128,7 @@
       <img src="assets/images/projects/tb3_rmf_multirobotnav/task.png" alt="Task execution in simulation" style="max-width: 700px; width: 100%;">
       <figcaption>Fig. 3. Task execution and robot coordination implementation in real-world setting</figcaption>
     </figure>
-    <h3>3.4 Monitoring and Visualization</h3>
+    <h3>Monitoring and Visualization</h3>
     <ul>
       <li>System state is monitored using RViz and the RMF dashboard, providing real-time feedback on robot positions, task status, and traffic flow.</li>
       <li>Logs and metrics are collected for performance analysis and debugging.</li>
