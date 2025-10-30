@@ -56,6 +56,114 @@
   }
 }
 
+/* Personal Hero Section */
+@media (max-width: 968px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--spacing-xl);
+  }
+
+  .hero-info {
+    text-align: center;
+  }
+
+  .avatar-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-personal {
+    padding: var(--spacing-xl) 0;
+    min-height: auto;
+  }
+
+  .hero-name {
+    font-size: var(--font-size-3xl);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .hero-description {
+    font-size: var(--font-size-base);
+    max-width: none;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    gap: var(--spacing-lg);
+  }
+
+  .hero-actions {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-stats {
+    gap: var(--spacing-md);
+  }
+
+  .stat-number {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Skills Section */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .skill-category {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Projects Showcase */
+@media (max-width: 768px) {
+  .projects-grid-featured {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .project-media {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-info-featured {
+    padding: var(--spacing-md);
+  }
+
+  .project-media {
+    height: 140px;
+  }
+}
+
 /* Hero Sections */
 @media (max-width: 768px) {
   .hero-title,
