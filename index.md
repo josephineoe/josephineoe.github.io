@@ -5,10 +5,6 @@ layout: default
 <div class="hero-personal">
   <div class="container">
     <div class="hero-content">
-      <div class="hero-avatar">
-        <img src="{{ '/assets/images/profile.svg' | relative_url }}" alt="Profile Picture" class="avatar-image">
-        <div class="avatar-ring"></div>
-      </div>
       <div class="hero-info">
         <h1 class="hero-name">{{ site.author | default: "Your Name" }}</h1>
         <p class="hero-title">Robotics & Mechatronics Engineer</p>
@@ -57,52 +53,6 @@ layout: default
           <a href="mailto:{{ site.email | default: 'your.email@example.com' }}" class="social-link">
             <i class="fas fa-envelope"></i>
           </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="skills-section">
-  <div class="container">
-    <div class="skills-content">
-      <h2>Technical Expertise</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3><i class="fas fa-robot"></i> Robotics</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">ROS</span>
-            <span class="skill-tag">Kinematics</span>
-            <span class="skill-tag">Path Planning</span>
-            <span class="skill-tag">SLAM</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3><i class="fas fa-microchip"></i> Electronics</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Arduino</span>
-            <span class="skill-tag">ESP32</span>
-            <span class="skill-tag">PCB Design</span>
-            <span class="skill-tag">Sensors</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3><i class="fas fa-code"></i> Programming</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">C/C++</span>
-            <span class="skill-tag">MATLAB</span>
-            <span class="skill-tag">JavaScript</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3><i class="fas fa-cube"></i> CAD/Design</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">SolidWorks</span>
-            <span class="skill-tag">Fusion 360</span>
-            <span class="skill-tag">3D Printing</span>
-            <span class="skill-tag">KiCad</span>
-          </div>
         </div>
       </div>
     </div>
@@ -190,6 +140,52 @@ layout: default
         <i class="fas fa-th"></i>
         View All Projects
       </a>
+    </div>
+  </div>
+</div>
+
+<div class="skills-section">
+  <div class="container">
+    <div class="skills-content">
+      <h2>Technical Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3><i class="fas fa-robot"></i> Robotics</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">ROS</span>
+            <span class="skill-tag">Kinematics</span>
+            <span class="skill-tag">Path Planning</span>
+            <span class="skill-tag">SLAM</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-microchip"></i> Electronics</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Arduino</span>
+            <span class="skill-tag">ESP32</span>
+            <span class="skill-tag">PCB Design</span>
+            <span class="skill-tag">Sensors</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Programming</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">MATLAB</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-cube"></i> CAD/Design</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">SolidWorks</span>
+            <span class="skill-tag">Fusion 360</span>
+            <span class="skill-tag">3D Printing</span>
+            <span class="skill-tag">KiCad</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

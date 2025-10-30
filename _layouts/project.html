@@ -35,6 +35,27 @@ layout: default
     <div class="container">
         <div class="project-grid">
             
+            <!-- Components & Materials -->
+            {% if page.components %}
+            <section class="project-section" id="components">
+                <h2><i class="fas fa-tools"></i> Components & Materials</h2>
+                <div class="components-list">
+                    {% for component in page.components %}
+                    <div class="component-item">
+                        <h4>{{ component.name }}</h4>
+                        {% if component.quantity %}<span class="quantity">Qty: {{ component.quantity }}</span>{% endif %}
+                        {% if component.description %}<p>{{ component.description }}</p>{% endif %}
+                        {% if component.link %}
+                            <a href="{{ component.link }}" target="_blank" class="component-link">
+                                <i class="fas fa-external-link-alt"></i> View Product
+                            </a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+            
             <!-- 3D Models Section -->
             {% if page.models %}
             <section class="project-section" id="models">
@@ -119,27 +140,6 @@ layout: default
                     {{ content }}
                 </div>
             </section>
-            
-            <!-- Components & Materials -->
-            {% if page.components %}
-            <section class="project-section" id="components">
-                <h2><i class="fas fa-tools"></i> Components & Materials</h2>
-                <div class="components-list">
-                    {% for component in page.components %}
-                    <div class="component-item">
-                        <h4>{{ component.name }}</h4>
-                        {% if component.quantity %}<span class="quantity">Qty: {{ component.quantity }}</span>{% endif %}
-                        {% if component.description %}<p>{{ component.description }}</p>{% endif %}
-                        {% if component.link %}
-                            <a href="{{ component.link }}" target="_blank" class="component-link">
-                                <i class="fas fa-external-link-alt"></i> View Product
-                            </a>
-                        {% endif %}
-                    </div>
-                    {% endfor %}
-                </div>
-            </section>
-            {% endif %}
             
             <!-- Media Gallery -->
             {% if page.gallery %}
