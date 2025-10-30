@@ -5,8 +5,8 @@ description: "A comprehensive IoT-based environmental monitoring system with wir
 date: 2024-08-10
 categories: [IoT, Arduino, Mechatronics, Data Science]
 featured_image: "/assets/images/projects/iot-monitor/featured.jpg"
-github_url: "https://github.com/yourusername/iot-environmental-monitor"
-demo_url: "https://iot-monitor-demo.herokuapp.com"
+github_url: "https://github.com/aojedao/iot-environmental-monitor"
+demo_url: "#"
 
 models:
   - file: "/assets/models/iot-monitor/sensor-housing.gltf"
@@ -24,7 +24,7 @@ code_files:
   - name: "ESP32 Firmware"
     file: "main.cpp"
     language: "cpp"
-    download_url: "https://github.com/yourusername/iot-environmental-monitor/blob/main/firmware/main.cpp"
+    download_url: "https://github.com/aojedao/iot-environmental-monitor/blob/main/firmware/main.cpp"
     content: |
       #include <WiFi.h>
       #include <PubSubClient.h>
@@ -349,7 +349,7 @@ code_files:
   - name: "Data Processing"
     file: "data_processor.py"
     language: "python"
-    download_url: "https://github.com/yourusername/iot-environmental-monitor/blob/main/backend/data_processor.py"
+    download_url: "https://github.com/aojedao/iot-environmental-monitor/blob/main/backend/data_processor.py"
     content: |
       import json
       import sqlite3

@@ -5,8 +5,8 @@ description: "A sophisticated line-following robot built with Arduino Uno, featu
 date: 2024-10-15
 categories: [Robotics, Arduino, Mechatronics]
 featured_image: "/assets/images/projects/line-robot/featured.jpg"
-github_url: "https://github.com/yourusername/line-following-robot"
-demo_url: "https://youtu.be/your-demo-video"
+github_url: "https://github.com/aojedao/line-following-robot"
+demo_url: "#"
 
 # 3D Models - Support for STL, OBJ, GLTF, GLB formats
 models:
@@ -25,7 +25,7 @@ code_files:
   - name: "Main Control"
     file: "main.ino"
     language: "cpp"
-    download_url: "https://github.com/yourusername/line-following-robot/blob/main/src/main.ino"
+    download_url: "https://github.com/aojedao/line-following-robot/blob/main/src/main.ino"
     content: |
       #include <PID_v1.h>
       #include <SoftwareSerial.h>
@@ -140,7 +140,7 @@ code_files:
   - name: "PID Tuning"
     file: "pid_tuner.py"
     language: "python"
-    download_url: "https://github.com/yourusername/line-following-robot/blob/main/tools/pid_tuner.py"
+    download_url: "https://github.com/aojedao/line-following-robot/blob/main/tools/pid_tuner.py"
     content: |
       import serial
       import matplotlib.pyplot as plt

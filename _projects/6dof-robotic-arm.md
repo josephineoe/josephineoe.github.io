@@ -5,8 +5,8 @@ description: "An advanced 6-degree-of-freedom robotic arm with computer vision c
 date: 2024-09-20
 categories: [Robotics, Computer Vision, Machine Learning, 3D Printing]
 featured_image: "/assets/images/projects/robotic-arm/featured.jpg"
-github_url: "https://github.com/yourusername/6dof-robotic-arm"
-demo_url: "https://youtu.be/robotic-arm-demo"
+github_url: "https://github.com/aojedao/6dof-robotic-arm"
+demo_url: "#"
 
 models:
   - file: "/assets/models/robotic-arm/base.gltf"
@@ -26,7 +26,7 @@ code_files:
   - name: "Inverse Kinematics"
     file: "inverse_kinematics.py"
     language: "python"
-    download_url: "https://github.com/yourusername/6dof-robotic-arm/blob/main/src/inverse_kinematics.py"
+    download_url: "https://github.com/aojedao/6dof-robotic-arm/blob/main/src/inverse_kinematics.py"
     content: |
       import numpy as np
       import math
@@ -155,7 +155,7 @@ code_files:
   - name: "Computer Vision"
     file: "object_detection.py"
     language: "python"
-    download_url: "https://github.com/yourusername/6dof-robotic-arm/blob/main/src/object_detection.py"
+    download_url: "https://github.com/aojedao/6dof-robotic-arm/blob/main/src/object_detection.py"
     content: |
       import cv2
       import numpy as np

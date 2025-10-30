@@ -126,7 +126,7 @@ permalink: /about/
                 <a href="https://github.com/aojedao/MESGRO" class="btn-primary" target="_blank">
                     <i class="fab fa-github"></i> Get Started on GitHub
                 </a>
-                <a href="/projects/" class="btn-secondary">
+                <a href="{{ '/projects/' | relative_url }}" class="btn-secondary">
                     <i class="fas fa-eye"></i> View Example Projects
                 </a>
             </div>

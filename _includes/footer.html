@@ -41,7 +41,7 @@
                 <h4>Project Categories</h4>
                 <ul class="footer-links">
                     {% for category in site.project_categories %}
-                    <li><a href="/projects/#{{ category.slug }}">{{ category.name }}</a></li>
+                    <li><a href="{{ '/projects/' | relative_url }}#{{ category.slug }}">{{ category.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>

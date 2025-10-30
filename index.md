@@ -26,11 +26,11 @@ layout: default
         </div>
         
         <div class="hero-actions">
-          <a href="/projects/" class="btn-primary">
+          <a href="{{ '/projects/' | relative_url }}" class="btn-primary">
             <i class="fas fa-rocket"></i>
             View My Work
           </a>
-          <a href="/about/" class="btn-secondary">
+          <a href="{{ '/about/' | relative_url }}" class="btn-secondary">
             <i class="fas fa-user"></i>
             About Me
           </a>
@@ -136,7 +136,7 @@ layout: default
     </div>
     
     <div class="showcase-actions">
-      <a href="/projects/" class="btn-primary-large">
+      <a href="{{ '/projects/' | relative_url }}" class="btn-primary-large">
         <i class="fas fa-th"></i>
         View All Projects
       </a>
