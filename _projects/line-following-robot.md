@@ -10,19 +10,15 @@ demo_url: "https://youtu.be/your-demo-video"
 
 # 3D Models - Support for STL, OBJ, GLTF, GLB formats
 models:
-  - file: "/assets/models/line-robot/chassis.stl"
+  - file: "/assets/models/line-robot/chassis.gltf"
     description: "3D printed robot chassis with integrated sensor mounts"
-  - file: "/assets/models/line-robot/wheel-assembly.stl"
+  - file: "/assets/models/line-robot/wheel-assembly.gltf"
     description: "Custom wheel assembly with encoder integration"
 
 # Circuit Schematics - PNG, JPG, SVG, PDF formats
 schematics:
-  - file: "/assets/schematics/line-robot/main-circuit.png"
+  - file: "/assets/schematics/line-robot/main-circuit.svg"
     description: "Main control circuit with Arduino Uno and motor driver"
-  - file: "/assets/schematics/line-robot/sensor-board.png"
-    description: "IR sensor array PCB layout"
-  - file: "/assets/schematics/line-robot/power-distribution.png"
-    description: "Power distribution and battery management system"
 
 # Code Files with syntax highlighting
 code_files:

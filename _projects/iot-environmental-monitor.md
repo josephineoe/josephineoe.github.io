@@ -9,10 +9,8 @@ github_url: "https://github.com/yourusername/iot-environmental-monitor"
 demo_url: "https://iot-monitor-demo.herokuapp.com"
 
 models:
-  - file: "/assets/models/iot-monitor/sensor-housing.stl"
+  - file: "/assets/models/iot-monitor/sensor-housing.gltf"
     description: "Weatherproof housing for outdoor sensor deployment"
-  - file: "/assets/models/iot-monitor/mounting-bracket.stl"
-    description: "Adjustable mounting system for various installation scenarios"
 
 schematics:
   - file: "/assets/schematics/iot-monitor/main-board.png"

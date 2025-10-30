@@ -9,14 +9,10 @@ github_url: "https://github.com/yourusername/6dof-robotic-arm"
 demo_url: "https://youtu.be/robotic-arm-demo"
 
 models:
-  - file: "/assets/models/robotic-arm/base.stl"
+  - file: "/assets/models/robotic-arm/base.gltf"
     description: "Robotic arm base with servo mounting points"
-  - file: "/assets/models/robotic-arm/upper-arm.stl"
+  - file: "/assets/models/robotic-arm/upper-arm.gltf"
     description: "Upper arm segment with gear reduction"
-  - file: "/assets/models/robotic-arm/forearm.stl"
-    description: "Forearm with wrist rotation mechanism"
-  - file: "/assets/models/robotic-arm/end-effector.stl"
-    description: "Gripper end-effector with force feedback"
 
 schematics:
   - file: "/assets/schematics/robotic-arm/control-system.png"

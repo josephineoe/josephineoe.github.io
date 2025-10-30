@@ -108,12 +108,15 @@
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--spacing-xl);
   max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-stats {
   display: flex;
   gap: var(--spacing-xl);
   margin-bottom: var(--spacing-xl);
+  justify-content: center;
 }
 
 .stat {
@@ -139,11 +142,13 @@
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-xl);
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .social-links {
   display: flex;
   gap: var(--spacing-md);
+  justify-content: center;
 }
 
 .social-link {
