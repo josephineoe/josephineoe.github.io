@@ -13,7 +13,7 @@ models:
     description: "Weatherproof housing for outdoor sensor deployment"
 
 schematics:
-  - file: "/assets/schematics/iot-monitor/main-board.png"
+  - file: "/assets/schematics/iot-monitor/main-board.svg"
     description: "ESP32 main control board with sensor interfaces"
   - file: "/assets/schematics/iot-monitor/power-management.png"
     description: "Solar charging system with battery backup"
