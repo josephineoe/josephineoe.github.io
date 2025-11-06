@@ -35,6 +35,14 @@ layout: default
     <div class="container">
         <div class="project-grid">
             
+            <!-- Project Description -->
+            <section class="project-section" id="description">
+                <h2><i class="fas fa-info-circle"></i> Project Details</h2>
+                <div class="project-description-content">
+                    {{ content }}
+                </div>
+            </section>
+            
             <!-- Components & Materials -->
             {% if page.components %}
             <section class="project-section" id="components">
@@ -132,14 +140,6 @@ layout: default
                 </div>
             </section>
             {% endif %}
-            
-            <!-- Project Description -->
-            <section class="project-section" id="description">
-                <h2><i class="fas fa-info-circle"></i> Project Details</h2>
-                <div class="project-description-content">
-                    {{ content }}
-                </div>
-            </section>
             
             <!-- Media Gallery -->
             {% if page.gallery %}

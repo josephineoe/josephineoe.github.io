@@ -88,11 +88,17 @@
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--spacing-sm);
-  color: var(--text-primary);
+  color: var(--primary-color);
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+@supports not (-webkit-background-clip: text) {
+  .hero-name {
+    color: var(--primary-color);
+  }
 }
 
 .hero-title {

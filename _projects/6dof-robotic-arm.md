@@ -17,7 +17,7 @@ models:
 schematics:
   - file: "/assets/schematics/robotic-arm/control-system.svg"
     description: "Main control system with microcontroller and servo drivers"
-  - file: "/assets/schematics/robotic-arm/power-supply.png"
+  - file: "/assets/schematics/robotic-arm/basicTest.cir.svg"
     description: "Power distribution for servos and control electronics"
   - file: "/assets/schematics/robotic-arm/vision-module.png"
     description: "Camera module and processing unit connections"
