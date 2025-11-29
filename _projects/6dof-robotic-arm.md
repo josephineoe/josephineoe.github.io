@@ -17,9 +17,9 @@ models:
 schematics:
   - file: "/assets/schematics/robotic-arm/control-system.svg"
     description: "Main control system with microcontroller and servo drivers"
-  - file: "/assets/schematics/robotic-arm/basicTest.cir.svg"
+  - file: "/assets/schematics/robotic-arm/power-distribution.svg"
     description: "Power distribution for servos and control electronics"
-  - file: "/assets/schematics/robotic-arm/vision-module.png"
+  - file: "/assets/schematics/robotic-arm/vision-module.svg"
     description: "Camera module and processing unit connections"
 
 code_files:
@@ -350,24 +350,8 @@ components:
 
 gallery:
   - type: "image"
-    file: "/assets/images/projects/robotic-arm/assembly.jpg"
-    description: "Fully assembled 6-DOF robotic arm"
-    
-  - type: "image"
-    file: "/assets/images/projects/robotic-arm/gripper-detail.jpg"
-    description: "Close-up of the custom gripper mechanism"
-    
-  - type: "gif"
-    file: "/assets/images/projects/robotic-arm/pick-place.gif"
-    description: "Demonstration of pick and place operation"
-    
-  - type: "video"
-    file: "/assets/images/projects/robotic-arm/full-demo.mp4"
-    description: "Complete demonstration of vision-guided manipulation"
-    
-  - type: "image"
-    file: "/assets/images/projects/robotic-arm/control-interface.jpg"
-    description: "Custom control interface and monitoring dashboard"
+    file: "/assets/images/projects/robotic-arm/featured.jpg"
+    description: "6-DOF Robotic arm with vision system"
 ---
 
 ## Project Overview

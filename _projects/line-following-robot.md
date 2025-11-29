@@ -284,24 +284,8 @@ components:
 # Media gallery with images, videos, and GIFs
 gallery:
   - type: "image"
-    file: "/assets/images/projects/line-robot/assembly-1.jpg"
-    description: "Robot chassis assembly with mounted components"
-    
-  - type: "image"
-    file: "/assets/images/projects/line-robot/circuit-board.jpg"
-    description: "Custom PCB with IR sensor array"
-    
-  - type: "gif"
-    file: "/assets/images/projects/line-robot/robot-following.gif"
-    description: "Robot successfully following a curved line track"
-    
-  - type: "video"
-    file: "/assets/images/projects/line-robot/demo-video.mp4"
-    description: "Complete demonstration of line following and obstacle avoidance"
-    
-  - type: "image"
-    file: "/assets/images/projects/line-robot/pid-tuning.jpg"
-    description: "PID parameter tuning using the custom Python interface"
+    file: "/assets/images/projects/line-robot/featured.jpg"
+    description: "Line following robot overview"
 ---
 
 ## Project Overview

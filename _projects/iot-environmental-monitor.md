@@ -15,9 +15,9 @@ models:
 schematics:
   - file: "/assets/schematics/iot-monitor/main-board.svg"
     description: "ESP32 main control board with sensor interfaces"
-  - file: "/assets/schematics/iot-monitor/power-management.png"
+  - file: "/assets/schematics/iot-monitor/power-management.svg"
     description: "Solar charging system with battery backup"
-  - file: "/assets/schematics/iot-monitor/sensor-network.png"
+  - file: "/assets/schematics/iot-monitor/sensor-network.svg"
     description: "Wireless sensor network topology and communication"
 
 code_files:
@@ -758,24 +758,8 @@ components:
 
 gallery:
   - type: "image"
-    file: "/assets/images/projects/iot-monitor/complete-system.jpg"
-    description: "Complete IoT monitoring station deployed outdoors"
-    
-  - type: "image"
-    file: "/assets/images/projects/iot-monitor/pcb-assembly.jpg"
-    description: "Custom PCB with all sensors connected"
-    
-  - type: "image"
-    file: "/assets/images/projects/iot-monitor/dashboard.jpg"
-    description: "Real-time web dashboard showing environmental data"
-    
-  - type: "gif"
-    file: "/assets/images/projects/iot-monitor/data-flow.gif"
-    description: "Animated visualization of data collection and transmission"
-    
-  - type: "video"
-    file: "/assets/images/projects/iot-monitor/field-deployment.mp4"
-    description: "Field deployment and setup process"
+    file: "/assets/images/projects/iot-monitor/featured.jpg"
+    description: "IoT Environmental monitoring station"
 ---
 
 ## Project Overview
