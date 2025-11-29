@@ -118,6 +118,16 @@
   margin-right: auto;
 }
 
+/* Ensure hero-personal text is always visible */
+.hero-personal .hero-title,
+.hero-personal .hero-description {
+  color: var(--text-secondary);
+}
+
+.hero-personal .hero-title {
+  color: var(--primary-color);
+}
+
 .hero-stats {
   display: flex;
   gap: var(--spacing-xl);
@@ -443,14 +453,16 @@
   text-align: center;
 }
 
-.hero-title {
+.projects-hero .hero-title,
+.project-hero .hero-title {
   font-size: var(--font-size-5xl);
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--spacing-md);
   color: white;
 }
 
-.hero-description {
+.projects-hero .hero-description,
+.project-hero .hero-description {
   font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-xl);
   color: rgba(255, 255, 255, 0.9);

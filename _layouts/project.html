@@ -35,6 +35,37 @@ layout: default
     <div class="container">
         <div class="project-grid">
             
+            <!-- Media Gallery (Moved to top) -->
+            {% if page.gallery %}
+            <section class="project-section" id="gallery">
+                <h2><i class="fas fa-images"></i> Gallery</h2>
+                <div class="media-gallery">
+                    {% for media in page.gallery %}
+                    <div class="media-item">
+                        {% if media.type == 'image' %}
+                            <img src="{{ media.file | relative_url }}" 
+                                 alt="{{ media.description | default: page.title }}"
+                                 class="gallery-image"
+                                 data-zoomable>
+                        {% elsif media.type == 'video' %}
+                            <video controls class="gallery-video">
+                                <source src="{{ media.file | relative_url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        {% elsif media.type == 'gif' %}
+                            <img src="{{ media.file | relative_url }}" 
+                                 alt="{{ media.description | default: page.title }}"
+                                 class="gallery-gif">
+                        {% endif %}
+                        {% if media.description %}
+                            <p class="media-description">{{ media.description }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+            
             <!-- Project Description -->
             <section class="project-section" id="description">
                 <h2><i class="fas fa-info-circle"></i> Project Details</h2>
@@ -135,37 +166,6 @@ layout: default
                             {% endif %}
                         </div>
                         <pre><code class="language-{{ code_file.language | default: 'cpp' }}">{{ code_file.content }}</code></pre>
-                    </div>
-                    {% endfor %}
-                </div>
-            </section>
-            {% endif %}
-            
-            <!-- Media Gallery -->
-            {% if page.gallery %}
-            <section class="project-section" id="gallery">
-                <h2><i class="fas fa-images"></i> Gallery</h2>
-                <div class="media-gallery">
-                    {% for media in page.gallery %}
-                    <div class="media-item">
-                        {% if media.type == 'image' %}
-                            <img src="{{ media.file | relative_url }}" 
-                                 alt="{{ media.description | default: page.title }}"
-                                 class="gallery-image"
-                                 data-zoomable>
-                        {% elsif media.type == 'video' %}
-                            <video controls class="gallery-video">
-                                <source src="{{ media.file | relative_url }}" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        {% elsif media.type == 'gif' %}
-                            <img src="{{ media.file | relative_url }}" 
-                                 alt="{{ media.description | default: page.title }}"
-                                 class="gallery-gif">
-                        {% endif %}
-                        {% if media.description %}
-                            <p class="media-description">{{ media.description }}</p>
-                        {% endif %}
                     </div>
                     {% endfor %}
                 </div>
