@@ -60,13 +60,19 @@ class MESGROApp {
         
         if (!themeToggle) return;
 
-        // Check for saved theme preference or default to 'light'
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        // Check for saved theme preference or default to 'dark'
+        const currentTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', currentTheme);
         
         // Update icon based on current theme
-        if (currentTheme === 'dark') {
-            themeIcon?.classList.replace('fa-moon', 'fa-sun');
+        if (themeIcon) {
+            if (currentTheme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
         }
 
         // Toggle theme on button click
@@ -78,10 +84,14 @@ class MESGROApp {
             localStorage.setItem('theme', newTheme);
             
             // Update icon
-            if (newTheme === 'dark') {
-                themeIcon?.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                themeIcon?.classList.replace('fa-sun', 'fa-moon');
+            if (themeIcon) {
+                if (newTheme === 'dark') {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
             }
         });
     }

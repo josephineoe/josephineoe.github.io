@@ -88,16 +88,18 @@
 
 /* Dark Theme */
 [data-theme="dark"] {
-  --primary-color: #3b82f6;
-  --primary-dark: #2563eb;
-  --background-color: #111827;
-  --surface-color: #1f2937;
+  --primary-color: #1e40af;
+  --primary-dark: #1e3a8a;
+  --secondary-color: #00d4ff;
+  --accent-color: #00d4ff;
+  --background-color: #0a0a0f;
+  --surface-color: #12121a;
   --text-primary: #f9fafb;
   --text-secondary: #d1d5db;
   --text-muted: #9ca3af;
-  --border-color: #374151;
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --shadow-hover: rgba(0, 0, 0, 0.4);
+  --border-color: #1f2937;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --shadow-hover: rgba(0, 0, 0, 0.6);
 }
 
 /* Reset and Base Styles */

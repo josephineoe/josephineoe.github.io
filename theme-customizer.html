@@ -26,15 +26,16 @@
     <style>
         /* Base styles using CSS variables */
         :root {
-            --color-primary: #2563eb;
-            --color-secondary: #10b981;
-            --color-accent: #f59e0b;
+            --color-primary: #1e40af;
+            --color-secondary: #00d4ff;
+            --color-accent: #00d4ff;
             --bg-url: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80');
         }
         
         /* Background with overlay */
         .theme-background {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), var(--bg-url);
+            background-color: #0a0a0f;
+            background-image: linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.85)), var(--bg-url);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -43,7 +44,7 @@
         /* Loading animation */
         .loading-spinner {
             border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top-color: var(--color-primary);
+            border-top-color: var(--color-secondary);
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -52,6 +53,15 @@
         
         @keyframes spin {
             to { transform: rotate(360deg); }
+        }
+        
+        /* Glow effects for neon blue */
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(0, 212, 255, 0.1);
+        }
+        
+        .neon-glow-text {
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
         }
         
         /* Smooth transitions for theme changes */
@@ -267,9 +277,9 @@
     <script>
         // Default theme values (fallback)
         const defaultTheme = {
-            primaryColorHex: '#2563eb',
-            secondaryColorHex: '#10b981',
-            accentColorHex: '#f59e0b',
+            primaryColorHex: '#1e40af',
+            secondaryColorHex: '#00d4ff',
+            accentColorHex: '#00d4ff',
             backgroundImageURL: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80'
         };
         
