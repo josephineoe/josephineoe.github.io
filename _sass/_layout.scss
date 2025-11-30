@@ -61,9 +61,14 @@
   gap: var(--spacing-lg);
 }
 
-.nav-link {
-  position: relative;
+.nav-item {
   display: flex;
+  align-items: center;
+}
+
+a.nav-link {
+  position: relative;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
@@ -72,16 +77,17 @@
   border-radius: var(--radius-md);
   text-align: center;
   text-decoration: none;
+  line-height: 1;
   transition: all var(--transition-fast);
 }
 
-.nav-link:hover,
-.nav-link.active {
+a.nav-link:hover,
+a.nav-link.active {
   color: var(--primary-color);
   background-color: var(--surface-color);
 }
 
-.nav-link.active::after {
+a.nav-link.active::after {
   content: '';
   position: absolute;
   bottom: -1px;
