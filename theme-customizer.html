@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MESGRO Theme Customizer</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config for CSS Variables -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'var(--color-primary)',
+                        secondary: 'var(--color-secondary)',
+                        accent: 'var(--color-accent)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Base styles using CSS variables */
+        :root {
+            --color-primary: #2563eb;
+            --color-secondary: #10b981;
+            --color-accent: #f59e0b;
+            --bg-url: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80');
+        }
+        
+        /* Background with overlay */
+        .theme-background {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), var(--bg-url);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Loading animation */
+        .loading-spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: var(--color-primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Smooth transitions for theme changes */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="theme-background min-h-screen text-white">
+    
+    <!-- Loading State -->
+    <div id="loading" class="fixed inset-0 flex items-center justify-center bg-gray-900 z-50">
+        <div class="text-center">
+            <div class="loading-spinner mx-auto mb-4"></div>
+            <p class="text-gray-300">Loading theme...</p>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div id="content" class="hidden">
+        <!-- Navigation -->
+        <nav class="backdrop-blur-md bg-black/30 border-b border-white/10 sticky top-0 z-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl">⚡</span>
+                        <span class="font-bold text-xl" style="color: var(--color-primary)">MESGRO</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="hover:text-[var(--color-accent)] transition-colors">Home</a>
+                        <a href="#" class="hover:text-[var(--color-accent)] transition-colors">Projects</a>
+                        <a href="#" class="hover:text-[var(--color-accent)] transition-colors">About</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Hero Section -->
+        <header class="py-20 px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    Theme <span style="color: var(--color-primary)">Customization</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Customize your MESGRO portfolio appearance by editing the 
+                    <code class="px-2 py-1 rounded text-sm" style="background-color: var(--color-secondary); color: white;">theme.json</code> 
+                    file. Changes apply instantly across the entire site.
+                </p>
+                
+                <!-- Primary Button Demo -->
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button 
+                        class="px-8 py-3 rounded-lg font-semibold text-white shadow-lg hover:opacity-90 transform hover:scale-105 transition-all"
+                        style="background-color: var(--color-primary)">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                            Primary Button
+                        </span>
+                    </button>
+                    <button 
+                        class="px-8 py-3 rounded-lg font-semibold text-white shadow-lg hover:opacity-90 transform hover:scale-105 transition-all"
+                        style="background-color: var(--color-secondary)">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                            Secondary Button
+                        </span>
+                    </button>
+                    <button 
+                        class="px-8 py-3 rounded-lg font-semibold text-white shadow-lg hover:opacity-90 transform hover:scale-105 transition-all"
+                        style="background-color: var(--color-accent)">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                            </svg>
+                            Accent Button
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Cards Section -->
+        <section class="py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">
+                    Theme <span style="color: var(--color-accent)">Components</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Card 1 - Primary Header -->
+                    <div class="backdrop-blur-md bg-white/10 rounded-xl overflow-hidden border border-white/20 hover:border-[var(--color-primary)] transition-all hover:scale-105">
+                        <div class="p-4" style="background-color: var(--color-primary)">
+                            <h3 class="font-bold text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                                </svg>
+                                Primary Color
+                            </h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-300 mb-4">
+                                Used for main buttons, headers, and key interactive elements.
+                            </p>
+                            <code id="primary-hex" class="text-sm px-3 py-1 rounded bg-black/30 font-mono">
+                                #2563eb
+                            </code>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 - Secondary Header -->
+                    <div class="backdrop-blur-md bg-white/10 rounded-xl overflow-hidden border border-white/20 hover:border-[var(--color-secondary)] transition-all hover:scale-105">
+                        <div class="p-4" style="background-color: var(--color-secondary)">
+                            <h3 class="font-bold text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                                </svg>
+                                Secondary Color
+                            </h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-300 mb-4">
+                                Used for secondary buttons, cards, and supporting elements.
+                            </p>
+                            <code id="secondary-hex" class="text-sm px-3 py-1 rounded bg-black/30 font-mono">
+                                #10b981
+                            </code>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 - Accent Header -->
+                    <div class="backdrop-blur-md bg-white/10 rounded-xl overflow-hidden border border-white/20 hover:border-[var(--color-accent)] transition-all hover:scale-105">
+                        <div class="p-4" style="background-color: var(--color-accent)">
+                            <h3 class="font-bold text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                                Accent Color
+                            </h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-300 mb-4">
+                                Used for highlights, links, and attention-grabbing elements.
+                            </p>
+                            <code id="accent-hex" class="text-sm px-3 py-1 rounded bg-black/30 font-mono">
+                                #f59e0b
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Configuration Preview -->
+        <section class="py-16 px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">
+                    Current <span style="color: var(--color-primary)">Configuration</span>
+                </h2>
+                
+                <div class="backdrop-blur-md bg-black/40 rounded-xl p-6 border border-white/20">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-gray-400 font-mono text-sm">theme.json</span>
+                        <button 
+                            onclick="copyConfig()"
+                            class="px-3 py-1 text-sm rounded hover:bg-white/10 transition-colors flex items-center gap-2"
+                            style="color: var(--color-accent)">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+                            </svg>
+                            Copy
+                        </button>
+                    </div>
+                    <pre id="config-preview" class="text-sm font-mono text-gray-300 overflow-x-auto"></pre>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <p class="text-gray-400 mb-4">
+                        Edit <code class="px-2 py-1 rounded bg-white/10 text-sm">theme.json</code> in your repository root to customize these values.
+                    </p>
+                    <a 
+                        href="https://github.com/aojedao/MESGRO/edit/main/theme.json"
+                        target="_blank"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white hover:opacity-90 transition-all"
+                        style="background-color: var(--color-primary)">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        Edit on GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="py-8 px-4 border-t border-white/10">
+            <div class="max-w-6xl mx-auto text-center text-gray-400">
+                <p>
+                    <span style="color: var(--color-primary)">MESGRO</span> Theme Customizer • 
+                    <a href="https://github.com/aojedao/MESGRO" target="_blank" class="hover:text-white transition-colors" style="color: var(--color-accent)">
+                        View on GitHub
+                    </a>
+                </p>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Theme Loading Script -->
+    <script>
+        // Default theme values (fallback)
+        const defaultTheme = {
+            primaryColorHex: '#2563eb',
+            secondaryColorHex: '#10b981',
+            accentColorHex: '#f59e0b',
+            backgroundImageURL: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80'
+        };
+        
+        // Apply theme to CSS variables
+        function applyTheme(theme) {
+            const root = document.documentElement;
+            
+            // Set CSS custom properties
+            root.style.setProperty('--color-primary', theme.primaryColorHex);
+            root.style.setProperty('--color-secondary', theme.secondaryColorHex);
+            root.style.setProperty('--color-accent', theme.accentColorHex);
+            root.style.setProperty('--bg-url', `url('${theme.backgroundImageURL}')`);
+            
+            // Update displayed hex codes
+            document.getElementById('primary-hex').textContent = theme.primaryColorHex;
+            document.getElementById('secondary-hex').textContent = theme.secondaryColorHex;
+            document.getElementById('accent-hex').textContent = theme.accentColorHex;
+            
+            // Update config preview
+            document.getElementById('config-preview').textContent = JSON.stringify(theme, null, 2);
+            
+            console.log('Theme applied:', theme);
+        }
+        
+        // Copy config to clipboard
+        function copyConfig() {
+            const config = document.getElementById('config-preview').textContent;
+            navigator.clipboard.writeText(config).then(() => {
+                // Show brief feedback
+                const btn = event.target.closest('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+        
+        // Fetch and apply theme
+        async function loadTheme() {
+            try {
+                // Try to fetch theme.json from multiple possible locations
+                const possiblePaths = [
+                    '/theme.json',
+                    './theme.json',
+                    '/MESGRO/theme.json'
+                ];
+                
+                let theme = null;
+                
+                for (const path of possiblePaths) {
+                    try {
+                        const response = await fetch(path);
+                        if (response.ok) {
+                            theme = await response.json();
+                            console.log(`Theme loaded from: ${path}`);
+                            break;
+                        }
+                    } catch (e) {
+                        console.log(`Failed to load from ${path}:`, e.message);
+                    }
+                }
+                
+                // Apply theme (use default if fetch failed)
+                applyTheme(theme || defaultTheme);
+                
+            } catch (error) {
+                console.warn('Failed to load theme.json, using defaults:', error);
+                applyTheme(defaultTheme);
+            } finally {
+                // Hide loading, show content
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('content').classList.remove('hidden');
+            }
+        }
+        
+        // Initialize on DOM ready
+        document.addEventListener('DOMContentLoaded', loadTheme);
+    </script>
+</body>
+</html>
