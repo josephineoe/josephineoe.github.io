@@ -63,10 +63,15 @@
 
 .nav-link {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text-secondary);
   font-weight: var(--font-weight-medium);
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
+  text-align: center;
+  text-decoration: none;
   transition: all var(--transition-fast);
 }
 

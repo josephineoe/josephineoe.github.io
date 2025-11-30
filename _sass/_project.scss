@@ -5,13 +5,13 @@
 
 /* Project Layout */
 .project-content {
-  padding: var(--spacing-2xl) 0;
+  padding: var(--spacing-xl) 0;
 }
 
 .project-grid {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3xl);
+  gap: var(--spacing-xl);
 }
 
 .project-section {
@@ -25,11 +25,11 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
   margin: 0;
   background-color: var(--surface-color);
   border-bottom: 1px solid var(--border-color);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   color: var(--text-primary);
 }
 
@@ -40,20 +40,20 @@
 /* Project Header */
 .project-header {
   text-align: center;
-  padding: var(--spacing-2xl) 0;
+  padding: var(--spacing-lg) 0;
 }
 
 .project-title {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   color: white;
 }
 
 .project-description {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -70,9 +70,9 @@
 /* 3D Model Viewer */
 .models-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: var(--spacing-xl);
-  padding: var(--spacing-lg);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md);
 }
 
 .model-viewer-container {
@@ -166,9 +166,9 @@
 /* Circuit Schematics */
 .schematics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: var(--spacing-xl);
-  padding: var(--spacing-lg);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md);
 }
 
 .schematic-container {

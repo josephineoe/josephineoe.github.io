@@ -2,6 +2,24 @@
 
 Utility scripts for the MESGRO (Mechanical, Electrical, Software Gallery for Robots) project.
 
+## 📂 Where to Put Your Files
+
+All converted models should go in the `assets/` folder:
+
+```
+assets/
+├── images/projects/your-project/    # Project images
+│   ├── featured.jpg                 # Main image
+│   └── gallery/                     # Additional photos
+├── models/your-project/             # 🤖 3D Models (GLTF/GLB)
+│   ├── base.gltf                    # Converted from STL/STEP
+│   └── assembly.gltf
+└── schematics/your-project/         # ⚡ Circuit diagrams
+    └── main-board.svg
+```
+
+---
+
 ## CAD-to-GLTF Converter
 
 Converts CAD files (STL, STEP) to optimized GLTF format for web-based 3D viewing on GitHub Pages.

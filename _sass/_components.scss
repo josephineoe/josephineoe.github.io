@@ -449,22 +449,22 @@
 .project-hero {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-2xl) 0;
   text-align: center;
 }
 
 .projects-hero .hero-title,
 .project-hero .hero-title {
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   color: white;
 }
 
 .projects-hero .hero-description,
 .project-hero .hero-description {
   font-size: var(--font-size-lg);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
   color: rgba(255, 255, 255, 0.9);
   max-width: 600px;
   margin-left: auto;

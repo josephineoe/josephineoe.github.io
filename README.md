@@ -102,20 +102,45 @@ MESGRO/
 │   ├── _components.scss       # Component styles
 │   ├── _project.scss          # Project-specific styles
 │   └── _responsive.scss       # Responsive design
-├── _projects/                  # Your project files
+├── _projects/                  # Your project markdown files
 │   └── example-project.md     # Example project
-├── assets/                     # Static assets
+├── assets/                     # ⭐ STATIC ASSETS (Add your files here!)
 │   ├── css/                   # Compiled CSS
 │   ├── js/                    # JavaScript files
-│   ├── images/                # Images and photos
-│   ├── models/                # 3D model files (STL, OBJ, etc.)
-│   └── schematics/            # Circuit diagrams
-├── pages/                      # Static pages
-│   ├── projects.md            # Projects gallery
-│   └── about.md               # About page
+│   ├── images/                # 🖼️ Images and photos
+│   │   └── projects/          # Project-specific images
+│   ├── models/                # 🤖 3D model files (STL, GLTF, GLB)
+│   │   └── your-project/      # Create a folder per project
+│   └── schematics/            # ⚡ Circuit diagrams (SVG, PNG)
+│       └── your-project/      # Create a folder per project
+├── scripts/                    # 🛠️ Utility scripts
+│   ├── cad_to_gltf.py         # CAD to GLTF converter
+│   ├── spice_to_svg.py        # SPICE to SVG schematic generator
+│   ├── requirements.txt       # Python dependencies
+│   └── README.md              # Scripts documentation
 ├── Gemfile                     # Ruby dependencies
 └── README.md                   # This file
 ```
+
+### 📂 Adding Your Project Assets
+
+To add a new project, create the following folder structure:
+
+```bash
+assets/
+├── images/projects/your-project/
+│   ├── featured.jpg           # Main project image
+│   └── gallery/               # Additional photos
+├── models/your-project/
+│   └── model.gltf             # 3D models (use cad_to_gltf.py to convert)
+└── schematics/your-project/
+    └── circuit.svg            # Circuit diagrams
+```
+
+> **💡 Tip:** Use the CAD-to-GLTF converter script to convert your STL/STEP files:
+> ```bash
+> conda run -n mesgro python scripts/cad_to_gltf.py -i model.stl -o assets/models/your-project/model.gltf
+> ```
 
 ## 📝 Creating Projects
 
@@ -236,6 +261,31 @@ Add or modify reusable components in `_includes/`:
 - Ruby 2.7+ with Bundler
 - Node.js 14+ (optional, for additional tooling)
 - Git
+- Python 3.11+ with conda (for CAD converter scripts)
+
+### CAD-to-GLTF Converter
+
+Convert your CAD files (STL, STEP) to web-ready GLTF format:
+
+```bash
+# Setup (one-time)
+conda create -n mesgro python=3.11 -y
+conda activate mesgro
+pip install -r scripts/requirements.txt
+
+# Convert STL to GLTF
+python scripts/cad_to_gltf.py -i model.stl -o output.gltf
+
+# Convert STEP to GLTF
+python scripts/cad_to_gltf.py -i assembly.step -o output.gltf
+```
+
+**Supported formats:** `.stl`, `.step`, `.stp`
+
+> **Note:** SolidWorks (`.sldprt`) and Autodesk (`.f3d`) files are not directly supported.
+> Export to STL or STEP from your CAD software first.
+
+See [scripts/README.md](scripts/README.md) for detailed documentation.
 
 ### Local Development
 ```bash
