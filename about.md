@@ -4,10 +4,10 @@ title: About
 permalink: /about/
 ---
 
-<div class="hero-section">
+<div class="hero-section" style="padding: 100px 0; background: var(--background-color); border-bottom: 1px solid var(--border-color); text-align: center;">
     <div class="container">
-        <h1>About MESGRO</h1>
-        <p>An open-source portfolio template designed specifically for robotics and mechatronics engineers to showcase their innovative projects.</p>
+        <h1 style="font-size: var(--font-size-3xl); letter-spacing: -0.02em; color: var(--text-primary);">About MESGRO</h1>
+        <p style="color: var(--text-secondary); opacity: 0.7; max-width: 600px; margin: 0 auto; font-weight: 300;">An open-source portfolio template designed specifically for robotics and mechatronics engineers to showcase their innovative projects.</p>
     </div>
 </div>
 
@@ -155,7 +155,9 @@ permalink: /about/
     color: var(--text-primary);
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-sm);
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    font-size: var(--font-size-2xl);
+    letter-spacing: -0.01em;
 }
 
 .features-list {
@@ -168,8 +170,15 @@ permalink: /about/
 .feature-item {
     padding: var(--spacing-lg);
     background-color: var(--surface-color);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    border: none;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.feature-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px var(--shadow-hover);
 }
 
 .feature-item h3 {
@@ -227,7 +236,7 @@ permalink: /about/
 
 .tech-item i {
     font-size: var(--font-size-2xl);
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 .tech-item span {

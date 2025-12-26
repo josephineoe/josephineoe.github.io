@@ -4,10 +4,10 @@ title: Projects
 permalink: /projects/
 ---
 
-<div class="projects-hero">
+<div class="projects-hero" style="padding: 100px 0; background: var(--background-color); border-bottom: 1px solid var(--border-color);">
     <div class="container">
-        <h1>Projects</h1>
-        <p>Explore my robotics and mechatronics projects featuring 3D models, circuit schematics, and interactive demonstrations.</p>
+        <h1 style="color: var(--text-primary); font-size: var(--font-size-3xl); letter-spacing: -0.02em;">Archive</h1>
+        <p style="color: var(--text-secondary); opacity: 0.7; max-width: 600px; margin: 0 auto; font-weight: 300;">An index of robotics research, engineering prototypes, and design systems developed over the years.</p>
     </div>
 </div>
 
@@ -15,8 +15,8 @@ permalink: /projects/
     <div class="container">
         
         <!-- Filter Buttons -->
-        <div class="projects-filters">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
+        <div class="projects-filters" style="margin: 60px 0;">
+            <button class="filter-btn active" data-filter="all">All Works</button>
             {% for category in site.project_categories %}
                 <button class="filter-btn" data-filter="{{ category.slug }}">{{ category.name }}</button>
             {% endfor %}

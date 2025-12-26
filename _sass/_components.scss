@@ -23,24 +23,33 @@
 
 .btn-primary {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--background-color);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+  padding: var(--spacing-md) var(--spacing-xl);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--shadow-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px var(--shadow-hover);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--primary-color);
-  border-color: var(--primary-color);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+  padding: var(--spacing-md) var(--spacing-xl);
 }
 
 .btn-secondary:hover {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--surface-color);
+  border-color: var(--text-primary);
+  color: var(--text-primary);
 }
 
 .btn-github {
@@ -85,27 +94,20 @@
 }
 
 .hero-name {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-5xl);
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--spacing-sm);
-  color: var(--primary-color);
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-@supports not (-webkit-background-clip: text) {
-  .hero-name {
-    color: var(--primary-color);
-  }
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .hero-title {
-  font-size: var(--font-size-xl);
-  color: var(--primary-color);
+  font-size: var(--font-size-lg);
+  color: var(--accent-color);
   font-weight: var(--font-weight-medium);
   margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .hero-description {
@@ -113,9 +115,10 @@
   color: var(--text-secondary);
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--spacing-xl);
-  max-width: 500px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  font-weight: var(--font-weight-light);
 }
 
 /* Ensure hero-personal text is always visible */
@@ -280,15 +283,16 @@
 
 .project-card-featured {
   background-color: var(--surface-color);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  border: none;
   overflow: hidden;
   transition: all var(--transition-normal);
+  box-shadow: 0 4px 20px var(--shadow-color);
 }
 
 .project-card-featured:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px var(--shadow-hover);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px var(--shadow-hover);
 }
 
 .project-media {
@@ -798,6 +802,7 @@
     transform: translateX(100%);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -805,8 +810,13 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
@@ -814,6 +824,7 @@
     transform: translateY(20px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;

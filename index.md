@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="hero-personal">
+<div class="hero-personal" style="padding: 120px 0;">
   <div class="container">
     <div class="hero-content">
       <div class="hero-info">
@@ -10,48 +10,27 @@ layout: default
         <p class="hero-title">Robotics & Mechatronics Engineer</p>
         <p class="hero-description">Passionate about creating intelligent systems that bridge the gap between mechanical design, electronics, and software. Specializing in autonomous robotics, computer vision, and IoT solutions.</p>
         
-        <div class="hero-stats">
+        <div class="hero-stats" style="margin-top: 40px; margin-bottom: 60px; opacity: 0.8;">
           <div class="stat">
-            <span class="stat-number">{{ site.projects.size | default: "8" }}+</span>
+            <span class="stat-number" style="font-weight: 300;">{{ site.projects.size | default: "8" }}+</span>
             <span class="stat-label">Projects</span>
           </div>
           <div class="stat">
-            <span class="stat-number">3+</span>
+            <span class="stat-number" style="font-weight: 300;">3+</span>
             <span class="stat-label">Years Experience</span>
           </div>
           <div class="stat">
-            <span class="stat-number">15+</span>
+            <span class="stat-number" style="font-weight: 300;">15+</span>
             <span class="stat-label">Technologies</span>
           </div>
         </div>
         
-        <div class="hero-actions">
+        <div class="hero-actions" style="margin-top: 40px;">
           <a href="{{ '/projects/' | relative_url }}" class="btn-primary">
-            <i class="fas fa-rocket"></i>
             View My Work
           </a>
           <a href="{{ '/about/' | relative_url }}" class="btn-secondary">
-            <i class="fas fa-user"></i>
             About Me
-          </a>
-          <a href="mailto:{{ site.email }}" class="btn-outline">
-            <i class="fas fa-envelope"></i>
-            Get In Touch
-          </a>
-        </div>
-        
-        <div class="social-links">
-          <a href="https://github.com/{{ site.github_username | default: 'aojedao' }}" target="_blank" class="social-link">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://linkedin.com/in/{{ site.linkedin_username | default: 'your-linkedin' }}" target="_blank" class="social-link">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://twitter.com/{{ site.twitter_username | default: 'your-twitter' }}" target="_blank" class="social-link">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="mailto:{{ site.email | default: 'your.email@example.com' }}" class="social-link">
-            <i class="fas fa-envelope"></i>
           </a>
         </div>
       </div>
@@ -59,11 +38,11 @@ layout: default
   </div>
 </div>
 
-<div class="projects-showcase">
+<div class="projects-showcase" style="padding: 100px 0; border-top: 1px solid var(--border-color);">
   <div class="container">
-    <div class="section-header">
-      <h2>Featured Projects</h2>
-      <p>Explore my latest robotics and mechatronics projects</p>
+    <div class="section-header" style="margin-bottom: 80px;">
+      <h2 style="font-size: var(--font-size-3xl); letter-spacing: -0.01em;">Selected Works</h2>
+      <p style="text-transform: uppercase; font-size: var(--font-size-xs); letter-spacing: 0.1em; opacity: 0.6;">A curated collection of my research and design</p>
     </div>
     
     <div class="projects-grid-featured">
