@@ -245,6 +245,7 @@
   background-color: var(--surface-color);
   border-bottom: 1px solid var(--border-color);
   overflow-x: auto;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 .tab-button {
@@ -261,8 +262,8 @@
 
 .tab-button:hover,
 .tab-button.active {
-  color: var(--primary-color);
-  background-color: var(--background-color);
+  color: var(--text-primary);
+  background-color: var(--code-bg);
 }
 
 .tab-button.active {
@@ -286,8 +287,8 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-sm) var(--spacing-lg);
-  background-color: var(--surface-color);
-  border-bottom: 1px solid var(--border-color);
+  background-color: var(--code-bg);
+  border-bottom: 1px solid var(--code-border);
 }
 
 .file-name {
@@ -317,12 +318,98 @@
 
 .tab-content pre {
   margin: 0;
-  border-radius: 0;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   border: none;
-  background-color: var(--surface-color);
+  background-color: var(--code-bg);
+  color: var(--code-text);
   max-height: 500px;
   overflow-y: auto;
+  padding: var(--spacing-lg);
 }
+
+/* Syntax Highlighting (Rouge/Jekyll Defaults) */
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cp,
+.highlight .cs {
+  color: #6a9955;
+}
+
+/* Comments */
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt {
+  color: #569cd6;
+  font-weight: bold;
+}
+
+/* Keywords */
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sa,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .ss {
+  color: #ce9178;
+}
+
+/* Strings */
+.highlight .n,
+.highlight .na,
+.highlight .nc,
+.highlight .nd,
+.highlight .ne,
+.highlight .nf,
+.highlight .ni,
+.highlight .nl,
+.highlight .nn,
+.highlight .no,
+.highlight .nt,
+.highlight .nv,
+.highlight .nx {
+  color: #dcdcaa;
+}
+
+/* Names/Functions */
+.highlight .m,
+.highlight .mb,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .il,
+.highlight .mo,
+.highlight .mx {
+  color: #b5cea8;
+}
+
+/* Numbers */
+.highlight .o,
+.highlight .ow {
+  color: #d4d4d4;
+}
+
+/* Operators */
+.highlight .gd {
+  color: #f44747;
+}
+
+/* Diff Delete */
+.highlight .gi {
+  color: #6a9955;
+}
+
+/* Diff Insert */
 
 /* Components List */
 .components-list {

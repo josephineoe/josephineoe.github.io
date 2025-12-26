@@ -2,35 +2,21 @@
 layout: default
 ---
 
-<div class="hero-personal" style="padding: 120px 0;">
+<div class="hero-personal" style="padding: 60px 0 40px 0;">
   <div class="container">
-    <div class="hero-content">
-      <div class="hero-info">
-        <h1 class="hero-name">{{ site.author | default: "Your Name" }}</h1>
-        <p class="hero-title">Robotics & Mechatronics Engineer</p>
-        <p class="hero-description">Passionate about creating intelligent systems that bridge the gap between mechanical design, electronics, and software. Specializing in autonomous robotics, computer vision, and IoT solutions.</p>
-        
-        <div class="hero-stats" style="margin-top: 40px; margin-bottom: 60px; opacity: 0.8;">
-          <div class="stat">
-            <span class="stat-number" style="font-weight: 300;">{{ site.projects.size | default: "8" }}+</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number" style="font-weight: 300;">3+</span>
-            <span class="stat-label">Years Experience</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number" style="font-weight: 300;">15+</span>
-            <span class="stat-label">Technologies</span>
-          </div>
+    <div class="hero-content" style="align-items: flex-start; text-align: left;">
+      <div class="hero-info" style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+        <div>
+           <h1 class="hero-name" style="font-size: var(--font-size-3xl); margin-bottom: 0;">{{ site.author | default: "Your Name" }}</h1>
+           <p class="hero-title" style="font-size: var(--font-size-sm); margin-bottom: 0; opacity: 0.7;">Robotics & Mechatronics</p>
         </div>
         
-        <div class="hero-actions" style="margin-top: 40px;">
-          <a href="{{ '/projects/' | relative_url }}" class="btn-primary">
-            View My Work
+        <div class="hero-actions" style="margin: 0;">
+          <a href="{{ '/about/' | relative_url }}" class="btn-secondary" style="font-size: 12px; padding: 8px 16px;">
+            About
           </a>
-          <a href="{{ '/about/' | relative_url }}" class="btn-secondary">
-            About Me
+           <a href="mailto:{{ site.email }}" class="btn-secondary" style="font-size: 12px; padding: 8px 16px;">
+            Contact
           </a>
         </div>
       </div>
@@ -38,7 +24,7 @@ layout: default
   </div>
 </div>
 
-<div class="projects-showcase" style="padding: 100px 0; border-top: 1px solid var(--border-color);">
+<div class="projects-showcase" style="padding: 20px 0 100px 0; border-top: none;">
   <div class="container">
     <div class="section-header" style="margin-bottom: 80px;">
       <h2 style="font-size: var(--font-size-3xl); letter-spacing: -0.01em;">Selected Works</h2>
