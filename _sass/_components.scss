@@ -74,9 +74,9 @@
 
 /* Personal Hero Section */
 .hero-personal {
-  background: var(--background-color);
-  padding: var(--spacing-3xl) 0;
-  min-height: 80vh;
+  background: transparent;
+  padding: var(--spacing-xl) 0;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   position: relative;
