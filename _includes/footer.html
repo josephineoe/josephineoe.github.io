@@ -1,67 +1,38 @@
 <footer class="site-footer">
     <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
+        <div class="footer-simple">
+            <div class="footer-brand">
                 <h3>{{ site.title | split: ' ' | first }}</h3>
                 <p>{{ site.description }}</p>
-                <div class="social-links">
-                    {% if site.github_username %}
-                        <a href="https://github.com/{{ site.github_username }}" target="_blank" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    {% endif %}
-                    {% if site.linkedin_username %}
-                        <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    {% endif %}
-                    {% if site.twitter_username %}
-                        <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    {% endif %}
-                    {% if site.email %}
-                        <a href="mailto:{{ site.email }}" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    {% endif %}
-                </div>
             </div>
-            
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    {% for nav_item in site.navigation %}
-                    <li><a href="{{ nav_item.url | relative_url }}">{{ nav_item.title }}</a></li>
-                    {% endfor %}
-                </ul>
+
+            <div class="social-links-center">
+                {% if site.github_username %}
+                <a href="https://github.com/{{ site.github_username }}" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                {% endif %}
+                {% if site.linkedin_username %}
+                <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                {% endif %}
+                {% if site.twitter_username %}
+                <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                {% endif %}
+                {% if site.email %}
+                <a href="mailto:{{ site.email }}" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                {% endif %}
             </div>
-            
-            <div class="footer-section">
-                <h4>Project Categories</h4>
-                <ul class="footer-links">
-                    {% for category in site.project_categories %}
-                    <li><a href="{{ '/projects/' | relative_url }}#{{ category.slug }}">{{ category.name }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Resources</h4>
-                <ul class="footer-links">
-                    <li><a href="https://jekyllrb.com/" target="_blank">Jekyll</a></li>
-                    <li><a href="https://pages.github.com/" target="_blank">GitHub Pages</a></li>
-                    <li><a href="https://threejs.org/" target="_blank">Three.js</a></li>
-                    <li><a href="https://modelviewer.dev/" target="_blank">Model Viewer</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="footer-divider"></div>
+
             <div class="footer-credits">
-                <p>&copy; {{ 'now' | date: '%Y' }} {{ site.author | default: site.title }}. Built with ❤️ using Jekyll.</p>
-                <p><a href="https://github.com/aojedao/MESGRO" target="_blank">MESGRO Template</a> - Open Source Portfolio for Robotics & Mechatronics</p>
+                <p>&copy; {{ 'now' | date: '%Y' }} {{ site.author | default: site.title }}. Built with ❤️ using Jekyll.
+                </p>
+                <p><a href="https://github.com/aojedao/MESGRO" target="_blank">MESGRO Template</a></p>
             </div>
         </div>
     </div>

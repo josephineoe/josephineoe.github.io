@@ -54,45 +54,51 @@ class MESGROApp {
     /**
      * Theme toggle functionality
      */
+    /**
+     * Theme toggle functionality
+     */
     setupThemeToggle() {
         const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle?.querySelector('i');
+        // Allow for the icon to be finding more flexibly
+        const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
         
-        if (!themeToggle) return;
-
-        // Check for saved theme preference or default to 'dark'
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        
-        // Update icon based on current theme
-        if (themeIcon) {
-            if (currentTheme === 'dark') {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
+        if (!themeToggle) {
+            console.warn('Theme toggle button not found');
+            return;
         }
 
+        // Check for saved theme preference or default to 'dark'
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // Function to update icon
+        const updateIcon = (theme) => {
+            if (!themeIcon) return;
+            
+            // Remove both potentially to be safe
+            themeIcon.classList.remove('fa-moon', 'fa-sun');
+            
+            if (theme === 'dark') {
+                themeIcon.classList.add('fa-sun'); // Sun icon for dark mode (switch to light)
+            } else {
+                themeIcon.classList.add('fa-moon'); // Moon icon for light mode (switch to dark)
+            }
+        };
+
+        // Initial icon update
+        updateIcon(savedTheme);
+
         // Toggle theme on button click
-        themeToggle.addEventListener('click', () => {
+        themeToggle.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent any default button behavior
+            
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             
-            // Update icon
-            if (themeIcon) {
-                if (newTheme === 'dark') {
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                } else {
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                }
-            }
+            updateIcon(newTheme);
         });
     }
 

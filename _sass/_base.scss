@@ -89,18 +89,18 @@
 
 /* Dark Theme (Deep Space) */
 [data-theme="dark"] {
-  --primary-color: #ffffff;
-  --primary-dark: #f0f0f0;
+  --primary-color: #f0f0f0;
+  --primary-dark: #ffffff;
   --secondary-color: #94a3b8;
-  --accent-color: #c5a059;
-  --background-color: #0d0d0e;
-  --surface-color: #161618;
-  --text-primary: #f5f5f7;
+  --accent-color: #e0c070;
+  --background-color: #050505;
+  --surface-color: #121212;
+  --text-primary: #ededed;
   --text-secondary: #a1a1aa;
   --text-muted: #71717a;
-  --border-color: #27272a;
-  --shadow-color: rgba(0, 0, 0, 0.4);
-  --shadow-hover: rgba(0, 0, 0, 0.5);
+  --border-color: #2a2a2a;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --shadow-hover: rgba(0, 0, 0, 0.7);
 
   /* Code Blocks - Dark */
   --code-bg: #1e1e1e;

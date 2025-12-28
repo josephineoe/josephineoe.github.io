@@ -2,20 +2,20 @@
 layout: default
 ---
 
-<div class="hero-personal" style="padding: 60px 0 40px 0;">
+<div class="hero-personal">
   <div class="container">
-    <div class="hero-content" style="align-items: flex-start; text-align: left;">
-      <div class="hero-info" style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
-        <div>
-           <h1 class="hero-name" style="font-size: var(--font-size-3xl); margin-bottom: 0;">{{ site.author | default: "Your Name" }}</h1>
-           <p class="hero-title" style="font-size: var(--font-size-sm); margin-bottom: 0; opacity: 0.7;">Robotics & Mechatronics</p>
+    <div class="hero-content">
+      <div class="hero-info-wrapper" style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+        <div class="hero-text">
+           <h1 class="hero-name">{{ site.author | default: "Your Name" }}</h1>
+           <p class="hero-title">Robotics & Mechatronics</p>
         </div>
         
-        <div class="hero-actions" style="margin: 0;">
-          <a href="{{ '/about/' | relative_url }}" class="btn-secondary" style="font-size: 12px; padding: 8px 16px;">
+        <div class="hero-actions">
+          <a href="{{ '/about/' | relative_url }}" class="btn-secondary">
             About
           </a>
-           <a href="mailto:{{ site.email }}" class="btn-secondary" style="font-size: 12px; padding: 8px 16px;">
+           <a href="mailto:{{ site.email }}" class="btn-secondary">
             Contact
           </a>
         </div>
@@ -24,11 +24,11 @@ layout: default
   </div>
 </div>
 
-<div class="projects-showcase" style="padding: 20px 0 100px 0; border-top: none;">
+<div class="projects-showcase">
   <div class="container">
-    <div class="section-header" style="margin-bottom: 80px;">
-      <h2 style="font-size: var(--font-size-3xl); letter-spacing: -0.01em;">Selected Works</h2>
-      <p style="text-transform: uppercase; font-size: var(--font-size-xs); letter-spacing: 0.1em; opacity: 0.6;">A curated collection of my research and design</p>
+    <div class="section-header">
+      <h2>Selected Works</h2>
+      <p class="section-subtitle">A curated collection of my research and design</p>
     </div>
     
     <div class="projects-grid-featured">
