@@ -584,10 +584,12 @@
 
 /* Revised Project Layout for Two-Column Design */
 
+/* Revised Project Layout for Two-Column Design */
+
 .project-split-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-2xl);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--spacing-xl);
   padding: var(--spacing-xl) 0;
 
   @media (max-width: 900px) {
@@ -643,30 +645,78 @@
   color: var(--text-secondary);
 }
 
-/* Compact Components List */
-.components-list-compact {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
+/* Components Table */
+.components-table {
+  width: 100%;
+  border-collapse: collapse;
   font-size: 0.9rem;
-  /* Smaller text as requested */
-}
-
-.component-item-compact {
-  display: flex;
-  justify-content: space-between;
-  padding: var(--spacing-xs) 0;
-  border-bottom: 1px dashed var(--border-color);
   color: var(--text-secondary);
 }
 
-.component-name {
-  font-weight: 500;
+.components-table th,
+.components-table td {
+  padding: var(--spacing-sm) var(--spacing-xs);
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.components-table th {
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.components-table tr:last-child td {
+  border-bottom: none;
 }
 
 .component-qty {
-  color: var(--text-muted);
   font-family: monospace;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Collapsible Code Section */
+details.code-details {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface-color);
+}
+
+details.code-details summary {
+  padding: var(--spacing-md);
+  cursor: pointer;
+  background: var(--background-color);
+  font-weight: 500;
+  list-style: none;
+  /* Hide default marker */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s;
+}
+
+details.code-details summary::-webkit-details-marker {
+  display: none;
+}
+
+details.code-details summary:hover {
+  background-color: var(--surface-color-hover);
+}
+
+details.code-details summary::after {
+  content: '+';
+  font-weight: bold;
+}
+
+details.code-details[open] summary::after {
+  content: '-';
+}
+
+details.code-details .code-links-compact {
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
 }
 
 /* Compact Code */

@@ -9,12 +9,6 @@ layout: default
             <p class="project-description">{{ page.description }}</p>
 
             <div class="project-meta">
-                <div class="project-categories">
-                    {% for category in page.categories %}
-                    <span class="category-tag">{{ category }}</span>
-                    {% endfor %}
-                </div>
-
                 {% if page.github_url %}
                 <a href="{{ page.github_url }}" class="btn-github" target="_blank">
                     <i class="fab fa-github"></i> View on GitHub
@@ -55,32 +49,42 @@ layout: default
                 {% if page.components %}
                 <section class="project-section-clean" id="components">
                     <h3>Components & Materials</h3>
-                    <div class="components-list-compact">
-                        {% for component in page.components %}
-                        <div class="component-item-compact">
-                            <span class="component-name">{{ component.name }}</span>
-                            {% if component.quantity %}<span class="component-qty">x{{ component.quantity }}</span>{%
-                            endif %}
-                        </div>
-                        {% endfor %}
-                    </div>
+                    <table class="components-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Qty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for component in page.components %}
+                            <tr>
+                                <td>{{ component.name }}</td>
+                                <td class="component-qty">{% if component.quantity %}x{{ component.quantity }}{% endif
+                                    %}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </section>
                 {% endif %}
 
-                <!-- Code Section -->
+                <!-- Code Section (Collapsible) -->
                 {% if page.code_files %}
                 <section class="project-section-clean" id="code">
-                    <h3>Code</h3>
-                    <div class="code-links-compact">
-                        {% for code_file in page.code_files %}
-                        <div class="code-file-item">
-                            <i class="fas fa-code"></i> {{ code_file.name }}
-                            {% if code_file.download_url %}
-                            <a href="{{ code_file.download_url }}" download><i class="fas fa-download"></i></a>
-                            {% endif %}
+                    <details class="code-details">
+                        <summary>Code Files</summary>
+                        <div class="code-links-compact">
+                            {% for code_file in page.code_files %}
+                            <div class="code-file-item">
+                                <i class="fas fa-code"></i> {{ code_file.name }}
+                                {% if code_file.download_url %}
+                                <a href="{{ code_file.download_url }}" download><i class="fas fa-download"></i></a>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
-                    </div>
+                    </details>
                 </section>
                 {% endif %}
 

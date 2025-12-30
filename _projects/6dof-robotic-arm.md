@@ -360,19 +360,19 @@ This project presents the design and implementation of a sophisticated 6-degree-
 
 ## Key Features
 
-### 🦾 Mechanical Design
+### Mechanical Design
 - **6 Degrees of Freedom**: Full spatial manipulation capability
 - **Precision Joints**: Ball bearing supported joints for smooth operation
 - **Custom Gripper**: Force-feedback enabled end-effector
 - **Modular Design**: Easy maintenance and component replacement
 
-### 🧠 Intelligent Control System
+### Intelligent Control System
 - **Inverse Kinematics**: Real-time calculation of joint angles for desired positions
 - **Path Planning**: Smooth trajectory generation with obstacle avoidance
 - **Force Control**: Gentle object handling with force feedback
 - **Safety Limits**: Joint limit protection and collision detection
 
-### 👁️ Computer Vision
+### Computer Vision
 - **Real-time Object Detection**: YOLO-based detection of common objects
 - **3D Position Estimation**: Convert 2D detections to 3D world coordinates
 - **Object Classification**: Identify and categorize manipulation targets
@@ -702,8 +702,3 @@ plt.show()
 - **Dual-Arm Coordination**: Two-arm system for complex assembly tasks
 - **Human-Robot Collaboration**: Safe interaction with human operators
 
-## Conclusion
-
-This 6-DOF robotic arm with computer vision demonstrates the successful integration of mechanical engineering, electronics, and software to create an intelligent manipulation system. The project showcases advanced concepts in robotics including inverse kinematics, computer vision, and real-time control systems.
-
-The system's performance validates the design choices and demonstrates practical applications in automated manufacturing, quality inspection, and research environments. The modular architecture and open-source approach make it an excellent platform for further robotics research and education.

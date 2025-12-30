@@ -294,17 +294,17 @@ This project demonstrates the design and implementation of an autonomous line-fo
 
 ## Key Features
 
-### 🤖 Advanced Control System
+### Advanced Control System
 - **PID Controller**: Implements a sophisticated PID control algorithm for precise line following
 - **Sensor Fusion**: Uses a 5-sensor IR array for accurate line position detection
 - **Adaptive Speed**: Automatically adjusts speed based on track curvature
 
-### 📡 Wireless Monitoring
+### Wireless Monitoring
 - **Real-time Telemetry**: Sends sensor data and control parameters via Bluetooth
 - **Parameter Tuning**: Live PID parameter adjustment using custom Python GUI
 - **Performance Logging**: Records track performance for analysis and optimization
 
-### 🛡️ Safety Features
+### Safety Features
 - **Obstacle Detection**: Ultrasonic sensor for collision avoidance
 - **Battery Management**: Low voltage detection and automatic shutdown
 - **Emergency Stop**: Wireless emergency stop functionality
@@ -467,8 +467,3 @@ After extensive testing and PID tuning, the robot achieved:
 3. Install Python dependencies for the tuning interface
 4. Run initial calibration and PID tuning procedures
 
-## Conclusion
-
-This line-following robot project successfully demonstrates the integration of mechanical design, electronics, and software programming in a complete mechatronics system. The use of PID control and wireless tuning capabilities makes it an excellent educational platform for learning robotics and control theory.
-
-The project serves as a foundation for more advanced autonomous vehicle projects and provides hands-on experience with embedded systems programming, sensor integration, and control algorithms.
