@@ -7,24 +7,24 @@ layout: default
         <div class="project-header">
             <h1 class="project-title">{{ page.title }}</h1>
             <p class="project-description">{{ page.description }}</p>
-            
+
             <div class="project-meta">
                 <div class="project-categories">
                     {% for category in page.categories %}
-                        <span class="category-tag">{{ category }}</span>
+                    <span class="category-tag">{{ category }}</span>
                     {% endfor %}
                 </div>
-                
+
                 {% if page.github_url %}
-                    <a href="{{ page.github_url }}" class="btn-github" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
+                <a href="{{ page.github_url }}" class="btn-github" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
                 {% endif %}
-                
+
                 {% if page.demo_url %}
-                    <a href="{{ page.demo_url }}" class="btn-demo" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
-                    </a>
+                <a href="{{ page.demo_url }}" class="btn-demo" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
                 {% endif %}
             </div>
         </div>
@@ -33,145 +33,142 @@ layout: default
 
 <div class="project-content">
     <div class="container">
-        <div class="project-grid">
-            
-            <!-- Media Gallery (Top) -->
-            {% if page.gallery %}
-            <section class="project-section" id="gallery">
-                <h2><i class="fas fa-images"></i> Gallery</h2>
-                <div class="media-gallery">
-                    {% for media in page.gallery %}
-                    <div class="media-item">
-                        {% if media.type == 'image' %}
-                            <img src="{{ media.file | relative_url }}" 
-                                 alt="{{ media.description | default: page.title }}"
-                                 class="gallery-image"
-                                 data-zoomable>
-                        {% elsif media.type == 'video' %}
+
+        <div class="project-header-simple">
+            <h1 class="project-title-simple">{{ page.title }}</h1>
+        </div>
+
+        <div class="project-split-layout">
+            <!-- Left Column: Text & Info -->
+            <div class="project-left-panel">
+
+                <!-- Overview / Description -->
+                <section class="project-section-clean" id="description">
+                    <h3>Overview</h3>
+                    <div class="project-description-content">
+                        <p class="project-lead">{{ page.description }}</p>
+                        {{ content }}
+                    </div>
+                </section>
+
+                <!-- Components & Materials -->
+                {% if page.components %}
+                <section class="project-section-clean" id="components">
+                    <h3>Components & Materials</h3>
+                    <div class="components-list-compact">
+                        {% for component in page.components %}
+                        <div class="component-item-compact">
+                            <span class="component-name">{{ component.name }}</span>
+                            {% if component.quantity %}<span class="component-qty">x{{ component.quantity }}</span>{%
+                            endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
+
+                <!-- Code Section -->
+                {% if page.code_files %}
+                <section class="project-section-clean" id="code">
+                    <h3>Code</h3>
+                    <div class="code-links-compact">
+                        {% for code_file in page.code_files %}
+                        <div class="code-file-item">
+                            <i class="fas fa-code"></i> {{ code_file.name }}
+                            {% if code_file.download_url %}
+                            <a href="{{ code_file.download_url }}" download><i class="fas fa-download"></i></a>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
+
+                <!-- Meta / Actions (Moved to bottom of left) -->
+                <div class="project-meta-bottom">
+
+                    <div class="project-actions-small">
+                        {% if page.github_url %}
+                        <a href="{{ page.github_url }}" class="btn-small" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        {% endif %}
+
+                        {% if page.demo_url %}
+                        <a href="{{ page.demo_url }}" class="btn-small" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                        {% endif %}
+                    </div>
+
+                    <div class="project-categories-bottom">
+                        {% for category in page.categories %}
+                        <span class="category-tag-small">{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Media -->
+            <div class="project-right-panel">
+
+                <!-- 3D Models Section -->
+                {% if page.models %}
+                <section class="project-media-group" id="models">
+                    <div class="models-grid-compact">
+                        {% for model in page.models %}
+                        <div class="model-viewer-container">
+                            <model-viewer src="{{ model.file | relative_url }}"
+                                alt="{{ model.description | default: page.title }}" camera-controls
+                                auto-rotate="{{ site.models.auto_rotate | default: false }}"
+                                background-color="{{ site.models.default_background | default: '#f0f0f0' }}"
+                                shadow-intensity="1" class="model-viewer">
+                            </model-viewer>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
+
+                <!-- Media Gallery -->
+                {% if page.gallery %}
+                <section class="project-media-group" id="gallery">
+                    <div class="media-gallery-stack">
+                        {% for media in page.gallery %}
+                        <div class="media-item">
+                            {% if media.type == 'image' %}
+                            <img src="{{ media.file | relative_url }}"
+                                alt="{{ media.description | default: page.title }}" class="gallery-image" data-zoomable>
+                            {% elsif media.type == 'video' %}
                             <video controls class="gallery-video">
                                 <source src="{{ media.file | relative_url }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                        {% elsif media.type == 'gif' %}
-                            <img src="{{ media.file | relative_url }}" 
-                                 alt="{{ media.description | default: page.title }}"
-                                 class="gallery-gif">
-                        {% endif %}
-                        {% if media.description %}
-                            <p class="media-description">{{ media.description }}</p>
-                        {% endif %}
-                    </div>
-                    {% endfor %}
-                </div>
-            </section>
-            {% endif %}
-            
-            <!-- 3D Models Section (Top) -->
-            {% if page.models %}
-            <section class="project-section" id="models">
-                <h2><i class="fas fa-cube"></i> 3D Models</h2>
-                <div class="models-grid">
-                    {% for model in page.models %}
-                    <div class="model-viewer-container">
-                        <model-viewer
-                            src="{{ model.file | relative_url }}"
-                            alt="{{ model.description | default: page.title }}"
-                            camera-controls
-                            auto-rotate="{{ site.models.auto_rotate | default: false }}"
-                            background-color="{{ site.models.default_background | default: '#f0f0f0' }}"
-                            shadow-intensity="1"
-                            class="model-viewer">
-                        </model-viewer>
-                        {% if model.description %}
-                            <p class="model-description">{{ model.description }}</p>
-                        {% endif %}
-                    </div>
-                    {% endfor %}
-                </div>
-            </section>
-            {% endif %}
-            
-            <!-- Circuit Schematics Section (Top) -->
-            {% if page.schematics %}
-            <section class="project-section" id="schematics">
-                <h2><i class="fas fa-microchip"></i> Circuit Schematics</h2>
-                <div class="schematics-grid">
-                    {% for schematic in page.schematics %}
-                    <div class="schematic-container">
-                        <img src="{{ schematic.file | relative_url }}" 
-                             alt="{{ schematic.description | default: 'Circuit Schematic' }}"
-                             class="schematic-image"
-                             data-zoomable>
-                        {% if schematic.description %}
-                            <p class="schematic-description">{{ schematic.description }}</p>
-                        {% endif %}
-                    </div>
-                    {% endfor %}
-                </div>
-            </section>
-            {% endif %}
-            
-            <!-- Project Description -->
-            <section class="project-section" id="description">
-                <h2><i class="fas fa-info-circle"></i> Project Details</h2>
-                <div class="project-description-content">
-                    {{ content }}
-                </div>
-            </section>
-            
-            <!-- Components & Materials -->
-            {% if page.components %}
-            <section class="project-section" id="components">
-                <h2><i class="fas fa-tools"></i> Components & Materials</h2>
-                <div class="components-list">
-                    {% for component in page.components %}
-                    <div class="component-item">
-                        <h4>{{ component.name }}</h4>
-                        {% if component.quantity %}<span class="quantity">Qty: {{ component.quantity }}</span>{% endif %}
-                        {% if component.description %}<p>{{ component.description }}</p>{% endif %}
-                        {% if component.link %}
-                            <a href="{{ component.link }}" target="_blank" class="component-link">
-                                <i class="fas fa-external-link-alt"></i> View Product
-                            </a>
-                        {% endif %}
-                    </div>
-                    {% endfor %}
-                </div>
-            </section>
-            {% endif %}
-            
-            <!-- Code Section -->
-            {% if page.code_files %}
-            <section class="project-section" id="code">
-                <h2><i class="fas fa-code"></i> Code</h2>
-                <div class="code-tabs" id="code-tabs">
-                    {% for code_file in page.code_files %}
-                    <button class="tab-button {% if forloop.first %}active{% endif %}" 
-                            data-tab="{{ forloop.index }}">
-                        {{ code_file.name }}
-                    </button>
-                    {% endfor %}
-                </div>
-                
-                <div class="code-content">
-                    {% for code_file in page.code_files %}
-                    <div class="tab-content {% if forloop.first %}active{% endif %}" 
-                         id="tab-{{ forloop.index }}">
-                        <div class="code-header">
-                            <span class="file-name">{{ code_file.file }}</span>
-                            {% if code_file.download_url %}
-                                <a href="{{ code_file.download_url }}" class="download-btn" download>
-                                    <i class="fas fa-download"></i> Download
-                                </a>
                             {% endif %}
                         </div>
-                        <pre><code class="language-{{ code_file.language | default: 'cpp' }}">{{ code_file.content }}</code></pre>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
-            </section>
-            {% endif %}
-            
+                </section>
+                {% endif %}
+
+                <!-- Circuit Schematics -->
+                {% if page.schematics %}
+                <section class="project-media-group" id="schematics">
+                    <h4>Schematics</h4>
+                    <div class="schematics-stack">
+                        {% for schematic in page.schematics %}
+                        <div class="schematic-container">
+                            <img src="{{ schematic.file | relative_url }}"
+                                alt="{{ schematic.description | default: 'Circuit Schematic' }}" class="schematic-image"
+                                data-zoomable>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
+
+            </div>
         </div>
     </div>
 </div>
@@ -181,33 +178,32 @@ layout: default
     <div class="container">
         {% assign project_array = site.projects | sort: 'date' %}
         {% for project in project_array %}
-            {% if project.url == page.url %}
-                {% assign current_index = forloop.index %}
-                {% break %}
-            {% endif %}
+        {% if project.url == page.url %}
+        {% assign current_index = forloop.index %}
+        {% break %}
+        {% endif %}
         {% endfor %}
-        
+
         <div class="nav-links">
             {% if current_index > 1 %}
-                {% assign prev_project = project_array[current_index | minus: 2] %}
-                <a href="{{ prev_project.url | relative_url }}" class="nav-link prev">
-                    <i class="fas fa-chevron-left"></i>
-                    <span>{{ prev_project.title }}</span>
-                </a>
+            {% assign prev_project = project_array[current_index | minus: 2] %}
+            <a href="{{ prev_project.url | relative_url }}" class="nav-link prev">
+                <i class="fas fa-chevron-left"></i>
+                <span>{{ prev_project.title }}</span>
+            </a>
             {% endif %}
-            
+
             <a href="{{ '/projects/' | relative_url }}" class="nav-link all-projects">
                 <i class="fas fa-th"></i>
                 <span>All Projects</span>
             </a>
-            
-            {% if current_index < project_array.size %}
-                {% assign next_project = project_array[current_index] %}
-                <a href="{{ next_project.url | relative_url }}" class="nav-link next">
-                    <span>{{ next_project.title }}</span>
-                    <i class="fas fa-chevron-right"></i>
+
+            {% if current_index < project_array.size %} {% assign next_project=project_array[current_index] %} <a
+                href="{{ next_project.url | relative_url }}" class="nav-link next">
+                <span>{{ next_project.title }}</span>
+                <i class="fas fa-chevron-right"></i>
                 </a>
-            {% endif %}
+                {% endif %}
         </div>
     </div>
 </div>
