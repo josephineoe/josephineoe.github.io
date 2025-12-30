@@ -873,7 +873,7 @@ This IoT Environmental Monitoring Station is a comprehensive system designed to 
 
 <details class="assembly-details">
 <summary>Installation & Deployment</summary>
-<div class="assembly-content">
+<div class="assembly-content" markdown="1">
 
 ### Site Preparation
 1. **Location Selection**: Clear view of sky for solar panel

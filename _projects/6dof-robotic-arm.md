@@ -442,7 +442,7 @@ For the first three joints (positioning the wrist):
 
 <details class="assembly-details">
 <summary>Assembly Instructions</summary>
-<div class="assembly-content">
+<div class="assembly-content" markdown="1">
 
 ### Mechanical Assembly
 1. **Base Assembly**: Mount servos to the base plate using M3 screws.

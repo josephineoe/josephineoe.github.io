@@ -738,6 +738,99 @@ details.code-details .code-links-compact {
   color: var(--text-primary);
 }
 
+
+/* Code Section Styles */
+.code-list-container {
+  padding: var(--spacing-sm) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.code-file-summary {
+  padding: var(--spacing-sm) var(--spacing-md);
+  cursor: pointer;
+  background: var(--surface-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  transition: background-color 0.2s;
+  list-style: none;
+}
+
+.code-file-summary:hover {
+  background-color: var(--surface-color-hover);
+}
+
+.code-file-summary::-webkit-details-marker {
+  display: none;
+}
+
+.code-file-wrapper:first-child .code-file-summary {
+  border-top: 1px solid var(--border-color);
+}
+
+.code-file-details[open] .code-file-summary {
+  background-color: var(--background-color);
+  font-weight: 500;
+  border-bottom: none;
+}
+
+.file-name i {
+  margin-right: var(--spacing-sm);
+  color: var(--text-muted);
+}
+
+.file-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.lang-tag {
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.file-download-icon {
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.file-download-icon:hover {
+  color: var(--primary-color);
+}
+
+.code-block-content {
+  background: #1e1e1e;
+  /* Dark background for code */
+  border-bottom: 1px solid var(--border-color);
+  overflow-x: auto;
+}
+
+.code-block-content pre {
+  margin: 0;
+  padding: var(--spacing-md);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Prism Overrides for consistency */
+code[class*="language-"],
+pre[class*="language-"] {
+  text-shadow: none !important;
+  font-family: 'Fira Code', monospace !important;
+}
+
 /* Bottom Meta / Actions */
 .project-meta-bottom {
   margin-top: auto;

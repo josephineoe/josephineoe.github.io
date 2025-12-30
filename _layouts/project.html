@@ -74,12 +74,32 @@ layout: default
                 <section class="project-section-clean" id="code">
                     <details class="code-details">
                         <summary>Code Files</summary>
-                        <div class="code-links-compact">
+                        <div class="code-list-container">
                             {% for code_file in page.code_files %}
-                            <div class="code-file-item">
-                                <i class="fas fa-code"></i> {{ code_file.name }}
-                                {% if code_file.download_url %}
-                                <a href="{{ code_file.download_url }}" download><i class="fas fa-download"></i></a>
+                            <div class="code-file-wrapper">
+                                {% if code_file.content %}
+                                <details class="code-file-details">
+                                    <summary class="code-file-summary">
+                                        <span class="file-name"><i class="fas fa-code"></i> {{ code_file.name }}</span>
+                                        <div class="file-meta">
+                                            <span class="lang-tag">{{ code_file.language }}</span>
+                                            {% if code_file.download_url %}
+                                            <a href="{{ code_file.download_url }}" class="file-download-icon" download
+                                                title="Download"><i class="fas fa-download"></i></a>
+                                            {% endif %}
+                                        </div>
+                                    </summary>
+                                    <div class="code-block-content">
+                                        <pre><code class="language-{{ code_file.language }}">{{ code_file.content | escape }}</code></pre>
+                                    </div>
+                                </details>
+                                {% else %}
+                                <div class="code-file-item">
+                                    <i class="fas fa-code"></i> {{ code_file.name }}
+                                    {% if code_file.download_url %}
+                                    <a href="{{ code_file.download_url }}" download><i class="fas fa-download"></i></a>
+                                    {% endif %}
+                                </div>
                                 {% endif %}
                             </div>
                             {% endfor %}

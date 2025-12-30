@@ -452,7 +452,7 @@ After extensive testing and PID tuning, the robot achieved:
 
 <details class="assembly-details">
 <summary>Assembly Instructions</summary>
-<div class="assembly-content">
+<div class="assembly-content" markdown="1">
 
 ### Step 1: Mechanical Assembly
 1. 3D print the chassis using the provided STL files
