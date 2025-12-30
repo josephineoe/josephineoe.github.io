@@ -27,7 +27,7 @@ layout: default
 <div class="projects-showcase">
   <div class="container">
     <div class="section-header">
-      <h2>Selected Works</h2>
+      <h2>Portfolio</h2>
       <p class="section-subtitle">A curated collection of my research and design</p>
     </div>
     

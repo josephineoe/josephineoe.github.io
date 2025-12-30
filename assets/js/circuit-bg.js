@@ -28,7 +28,7 @@ class CircuitBackground {
     initNodes() {
         this.nodes = [];
         // Density based on screen size
-        const density = Math.floor((this.width * this.height) / 25000);
+        const density = Math.floor((this.width * this.height) / 9000);
 
         for (let i = 0; i < density; i++) {
             this.nodes.push({

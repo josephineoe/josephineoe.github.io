@@ -161,29 +161,70 @@ a.nav-link.active::after {
 
 /* Footer */
 .site-footer {
-  background-color: var(--surface-color);
-  border-top: 1px solid var(--border-color);
+  background: linear-gradient(180deg, var(--surface-color) 0%, #0a0a0a 100%);
+  border-top: 2px solid var(--border-color);
   margin-top: var(--spacing-3xl);
   padding: var(--spacing-3xl) 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0.5;
+  }
 }
 
 .footer-simple {
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-brand {
   margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(5px);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.footer-brand h3 {
+.mesgro-title {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 2.5rem;
+  letter-spacing: 0.2em;
   color: var(--text-primary);
   margin-bottom: var(--spacing-sm);
+  text-transform: uppercase;
+  background: linear-gradient(45deg, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
 }
 
-.footer-brand p {
+.mesgro-definition {
+  font-family: 'Inter', sans-serif;
   color: var(--text-muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+.def-highlight {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .social-links-center {
