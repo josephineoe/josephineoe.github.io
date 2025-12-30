@@ -870,6 +870,11 @@ This IoT Environmental Monitoring Station is a comprehensive system designed to 
 
 ## Installation & Deployment
 
+
+<details class="assembly-details">
+<summary>Installation & Deployment</summary>
+<div class="assembly-content">
+
 ### Site Preparation
 1. **Location Selection**: Clear view of sky for solar panel
 2. **Mounting**: Secure pole or structure installation
@@ -881,6 +886,9 @@ This IoT Environmental Monitoring Station is a comprehensive system designed to 
 2. **MQTT Broker**: Configure cloud or local message broker
 3. **Alert Thresholds**: Set customized warning and critical levels
 4. **Sampling Intervals**: Optimize for battery life vs. data resolution
+
+</div>
+</details>
 
 # Environmental Data Analysis & Visualization
 

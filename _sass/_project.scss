@@ -825,5 +825,55 @@ details.code-details .code-links-compact {
 .model-viewer {
   width: 100%;
   height: 400px;
-  /* Adjust height as needed for right column */
+
+}
+
+/* Assembly Instructions Dropdown */
+details.assembly-details {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface-color);
+  margin-bottom: var(--spacing-lg);
+}
+
+details.assembly-details summary {
+  padding: var(--spacing-md);
+  cursor: pointer;
+  background: var(--background-color);
+  font-weight: 500;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s;
+  color: var(--text-primary);
+}
+
+details.assembly-details summary::-webkit-details-marker {
+  display: none;
+}
+
+details.assembly-details summary:hover {
+  background-color: var(--surface-color-hover);
+}
+
+details.assembly-details summary::after {
+  content: '+';
+  font-weight: bold;
+}
+
+details.assembly-details[open] summary::after {
+  content: '-';
+}
+
+details.assembly-details .assembly-content {
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+details.assembly-details .assembly-content h3,
+details.assembly-details .assembly-content h4 {
+  margin-top: 0;
 }

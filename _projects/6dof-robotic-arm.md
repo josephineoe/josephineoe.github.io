@@ -439,6 +439,24 @@ For the first three joints (positioning the wrist):
 - **Coordinate Transformation**: Converts from camera to robot base coordinates
 - **Position Validation**: Checks if objects are within reachable workspace
 
+
+<details class="assembly-details">
+<summary>Assembly Instructions</summary>
+<div class="assembly-content">
+
+### Mechanical Assembly
+1. **Base Assembly**: Mount servos to the base plate using M3 screws.
+2. **Arm Segments**: Connect the lower and upper arm segments, ensuring smooth bearing rotation.
+3. **Gripper**: Attach the custom gripper to the wrist servo.
+
+### Electronics Assembly
+1. **Wiring**: Connect all servos to the PCA9685 driver board.
+2. **Controller**: Connect the Raspberry Pi and Arduino via USB.
+3. **Power**: Connect the 12V power supply to the servo driver.
+
+</div>
+</details>
+
 ## Control Strategy
 
 ### Motion Planning

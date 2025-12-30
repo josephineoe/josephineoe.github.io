@@ -449,6 +449,11 @@ After extensive testing and PID tuning, the robot achieved:
 
 ## Build Instructions
 
+
+<details class="assembly-details">
+<summary>Assembly Instructions</summary>
+<div class="assembly-content">
+
 ### Step 1: Mechanical Assembly
 1. 3D print the chassis using the provided STL files
 2. Mount the motors and wheels to the chassis
@@ -466,4 +471,7 @@ After extensive testing and PID tuning, the robot achieved:
 2. Upload the main control code to the Arduino
 3. Install Python dependencies for the tuning interface
 4. Run initial calibration and PID tuning procedures
+
+</div>
+</details>
 

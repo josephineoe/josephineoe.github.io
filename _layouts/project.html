@@ -156,6 +156,12 @@ layout: default
                 </section>
                 {% endif %}
 
+                <!-- Interactive Data Plot -->
+                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                <div class="project-media-group">
+                    {% include interactive-plot.html %}
+                </div>
+
                 <!-- Circuit Schematics -->
                 {% if page.schematics %}
                 <section class="project-media-group" id="schematics">

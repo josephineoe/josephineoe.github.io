@@ -13,7 +13,6 @@ class ProjectViewer {
         this.setupSchematicZoom();
         this.setupCodeTabs();
         this.setupImageZoom();
-        this.setupThemeToggle();
     }
 
     /**
@@ -21,7 +20,7 @@ class ProjectViewer {
      */
     setupModelViewers() {
         const modelViewers = document.querySelectorAll('model-viewer');
-        
+
         modelViewers.forEach(viewer => {
             // Add loading state
             viewer.addEventListener('load', () => {
@@ -46,7 +45,7 @@ class ProjectViewer {
         const container = viewer.parentElement;
         const controls = document.createElement('div');
         controls.className = 'model-controls';
-        
+
         controls.innerHTML = `
             <button class="control-btn" data-action="reset" title="Reset View">
                 <i class="fas fa-home"></i>
@@ -86,7 +85,7 @@ class ProjectViewer {
      */
     toggleAutoRotate(viewer, button) {
         const isRotating = viewer.hasAttribute('auto-rotate');
-        
+
         if (isRotating) {
             viewer.removeAttribute('auto-rotate');
             button.classList.remove('active');
@@ -122,7 +121,7 @@ class ProjectViewer {
                 <small>Please check the file format and path</small>
             </div>
         `;
-        
+
         viewer.parentElement.appendChild(errorDiv);
         viewer.style.display = 'none';
     }
@@ -132,12 +131,12 @@ class ProjectViewer {
      */
     setupSchematicZoom() {
         const schematicImages = document.querySelectorAll('.schematic-image[data-zoomable]');
-        
+
         schematicImages.forEach(img => {
             // Create zoom container
             const container = document.createElement('div');
             container.className = 'zoomable-container';
-            
+
             img.parentNode.insertBefore(container, img);
             container.appendChild(img);
 
@@ -158,7 +157,7 @@ class ProjectViewer {
                     <i class="fas fa-expand"></i>
                 </button>
             `;
-            
+
             container.appendChild(controls);
 
             // Initialize zoom functionality
@@ -197,7 +196,7 @@ class ProjectViewer {
                     this.toggleImageFullscreen(img.parentElement);
                     return;
             }
-            
+
             this.updateImageTransform(img, scale, pointX, pointY);
         });
 
@@ -261,11 +260,11 @@ class ProjectViewer {
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const tabId = button.dataset.tab;
-                
+
                 // Remove active class from all tabs and contents
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 tabContents.forEach(content => content.classList.remove('active'));
-                
+
                 // Add active class to clicked tab and corresponding content
                 button.classList.add('active');
                 document.getElementById(`tab-${tabId}`).classList.add('active');
@@ -300,7 +299,7 @@ class ProjectViewer {
         themeToggle.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
+
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             this.updateThemeIcon(themeToggle, newTheme);
