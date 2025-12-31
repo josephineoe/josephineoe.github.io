@@ -13,6 +13,7 @@ class ProjectViewer {
         this.setupSchematicZoom();
         this.setupCodeTabs();
         this.setupImageZoom();
+        this.setupCollapsibleSections();
     }
 
     /**
@@ -269,6 +270,66 @@ class ProjectViewer {
                 button.classList.add('active');
                 document.getElementById(`tab-${tabId}`).classList.add('active');
             });
+        });
+    }
+
+    /**
+     * Convert project description headers into collapsible sections
+     */
+    setupCollapsibleSections() {
+        // Find the main content container
+        const contentContainer = document.querySelector('.project-description-content');
+        if (!contentContainer) return;
+
+        // Get all H2 and H3 elements that haven't been processed
+        // We exclude elements already inside a details tag
+        const headers = Array.from(contentContainer.querySelectorAll('h2, h3')).filter(
+            header => !header.closest('details')
+        );
+
+        headers.forEach(header => {
+            // Create details structure
+            const details = document.createElement('details');
+            details.className = 'section-details';
+
+            const summary = document.createElement('summary');
+            summary.className = 'section-summary';
+            summary.textContent = header.textContent; // Transfer text
+
+            // Move original header content to summary and replace header
+            // Actually better to keep header styling? No, summary replaces the header visual.
+            // Let's make summary look decent.
+
+            details.appendChild(summary);
+
+            // Create content wrapper
+            const wrapper = document.createElement('div');
+            wrapper.className = 'section-content';
+            details.appendChild(wrapper);
+
+            // Collect all siblings until next header of same or higher level
+            let nextNode = header.nextSibling;
+            const nodesToMove = [];
+
+            const currentLevel = parseInt(header.tagName.substring(1));
+
+            while (nextNode) {
+                // If it's a header of same or higher importance (lower number), stop.
+                if (nextNode.nodeType === 1 && /^H[1-6]$/.test(nextNode.tagName)) {
+                    const nextLevel = parseInt(nextNode.tagName.substring(1));
+                    if (nextLevel <= currentLevel) break;
+                }
+
+                nodesToMove.push(nextNode);
+                nextNode = nextNode.nextSibling;
+            }
+
+            // Replace header with details
+            header.parentNode.insertBefore(details, header);
+            header.remove(); // Remove original header
+
+            // Move collected nodes into wrapper
+            nodesToMove.forEach(node => wrapper.appendChild(node));
         });
     }
 
