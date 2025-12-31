@@ -294,10 +294,18 @@ class ProjectViewer {
             }
         );
 
+        let firstSection = true;
+
         headers.forEach(header => {
             // Create details structure
             const details = document.createElement('details');
             details.className = 'section-details';
+
+            // Open the first section by default
+            if (firstSection) {
+                details.open = true;
+                firstSection = false;
+            }
 
             const summary = document.createElement('summary');
             summary.className = 'section-summary';

@@ -86,6 +86,30 @@ layout: default
                 </section>
                 {% endif %}
 
+                <!-- Components & Materials -->
+                {% if page.components %}
+                <section class="project-section-clean" id="components" style="margin-top: var(--spacing-lg);">
+                    <h3>Components & Materials</h3>
+                    <table class="components-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Qty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for component in page.components %}
+                            <tr>
+                                <td>{{ component.name }}</td>
+                                <td class="component-qty">{% if component.quantity %}x{{ component.quantity }}{% endif
+                                    %}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+                {% endif %}
+
                 <!-- Meta / Actions (Moved to bottom of left) -->
                 <div class="project-meta-bottom">
 
@@ -176,31 +200,6 @@ layout: default
                         {% endfor %}
                     </div>
             </div>
-            </section>
-            {% endif %}
-
-            <!-- Components & Materials (Moved to End of Right) -->
-            {% if page.components %}
-            <section class="project-media-group" id="components"
-                style="padding: var(--spacing-md); margin-top: var(--spacing-md);">
-                <h4 style="margin-bottom: var(--spacing-sm);">Components & Materials</h4>
-                <table class="components-table">
-                    <thead>
-                        <tr>
-                            <th>Component</th>
-                            <th>Qty</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for component in page.components %}
-                        <tr>
-                            <td>{{ component.name }}</td>
-                            <td class="component-qty">{% if component.quantity %}x{{ component.quantity }}{% endif %}
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
             </section>
             {% endif %}
 
