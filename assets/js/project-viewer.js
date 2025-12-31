@@ -283,8 +283,15 @@ class ProjectViewer {
 
         // Get all H2 and H3 elements that haven't been processed
         // We exclude elements already inside a details tag
+        // AND exclude specific sections like "Overview" or "Introduction" if requested
         const headers = Array.from(contentContainer.querySelectorAll('h2, h3')).filter(
-            header => !header.closest('details')
+            header => {
+                const text = header.textContent.trim().toLowerCase();
+                return !header.closest('details') &&
+                    text !== 'overview' &&
+                    text !== 'introduction' &&
+                    text !== 'description';
+            }
         );
 
         headers.forEach(header => {

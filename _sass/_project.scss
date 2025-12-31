@@ -779,6 +779,17 @@ details.code-details .code-links-compact {
   border-bottom: none;
 }
 
+.code-file-summary::after {
+  content: '+';
+  font-weight: bold;
+  margin-left: auto;
+  padding-left: var(--spacing-sm);
+}
+
+.code-file-details[open] .code-file-summary::after {
+  content: '-';
+}
+
 .file-name i {
   margin-right: var(--spacing-sm);
   color: var(--text-muted);
