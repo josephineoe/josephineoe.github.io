@@ -69,6 +69,26 @@
     min-height: auto;
   }
 
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-info-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+  }
+
+  .hero-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   .hero-name {
     font-size: var(--font-size-3xl);
   }
@@ -150,6 +170,7 @@
 
 /* Hero Sections */
 @media (max-width: 768px) {
+
   .hero-title,
   .project-title {
     font-size: var(--font-size-3xl);
@@ -203,6 +224,7 @@
 
 /* Project Content */
 @media (max-width: 968px) {
+
   .models-grid,
   .schematics-grid {
     grid-template-columns: 1fr;
@@ -386,7 +408,9 @@
 }
 
 /* High DPI Displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
   .project-image,
   .gallery-image {
     image-rendering: -webkit-optimize-contrast;
@@ -396,6 +420,7 @@
 
 /* Print Styles */
 @media print {
+
   .site-header,
   .site-footer,
   .project-navigation,

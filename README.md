@@ -2,7 +2,7 @@
 
 ![Project Page Screenshot](assets/images/project_screenshot.png)
 
-**MESGRO** (Mechatronics Engineering Showcase Gallery for Robotics Operations) is a comprehensive Jekyll template designed specifically for robotics and mechatronics engineers to create stunning portfolios that showcase their technical projects with interactive 3D models, circuit schematics, and detailed documentation.
+**MESGRO** (Mechatronics Engineering Showcase Gallery for Robotics) is a comprehensive Jekyll template designed specifically for robotics and mechatronics engineers to create stunning portfolios that showcase their technical projects with interactive 3D models, circuit schematics, and detailed documentation.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-green.svg)](https://pages.github.com/)
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.3+-red.svg)](https://jekyllrb.com/)

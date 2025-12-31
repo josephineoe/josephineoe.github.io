@@ -5,7 +5,7 @@ layout: default
 <div class="hero-personal">
   <div class="container">
     <div class="hero-content">
-      <div class="hero-info-wrapper" style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+      <div class="hero-info-wrapper">
         <div class="hero-text">
            <h1 class="hero-name">{{ site.author | default: "Your Name" }}</h1>
            <p class="hero-title">Robotics & Mechatronics</p>

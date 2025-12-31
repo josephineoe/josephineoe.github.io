@@ -94,6 +94,15 @@
   align-items: flex-start;
 }
 
+.hero-info-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+}
+
 .hero-info {
   text-align: center;
 }
