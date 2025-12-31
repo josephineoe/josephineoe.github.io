@@ -7,6 +7,7 @@ categories: [IoT, Arduino, Mechatronics, Data Science]
 featured_image: "/assets/images/projects/iot-monitor/featured.jpg"
 github_url: "https://github.com/aojedao/iot-environmental-monitor"
 demo_url: "#"
+interactive_plot: true
 
 models:
   - file: "/assets/models/iot-monitor/sensor-housing.gltf"

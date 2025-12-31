@@ -165,14 +165,18 @@ layout: default
                     <div class="media-gallery-stack">
                         {% for media in page.gallery %}
                         <div class="media-item">
-                            {% if media.type == 'image' %}
-                            <img src="{{ media.file | relative_url }}"
-                                alt="{{ media.description | default: page.title }}" class="gallery-image" data-zoomable>
-                            {% elsif media.type == 'video' %}
+                            {% assign file_extension = media.file | split: '.' | last | downcase %}
+                            {% if file_extension == 'mp4' or file_extension == 'webm' or file_extension == 'avi' %}
                             <video controls class="gallery-video">
-                                <source src="{{ media.file | relative_url }}" type="video/mp4">
+                                <source src="{{ media.file | relative_url }}" type="video/{{ file_extension }}">
                                 Your browser does not support the video tag.
                             </video>
+                            {% else %}
+                            <img src="{{ media.file | relative_url }}"
+                                alt="{{ media.description | default: page.title }}" class="gallery-image" data-zoomable>
+                            {% endif %}
+                            {% if media.description %}
+                            <p class="media-caption">{{ media.description }}</p>
                             {% endif %}
                         </div>
                         {% endfor %}
@@ -180,11 +184,13 @@ layout: default
                 </section>
                 {% endif %}
 
-                <!-- Interactive Data Plot -->
+                <!-- Interactive Data Plot (only if page has interactive_plot: true) -->
+                {% if page.interactive_plot %}
                 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
                 <div class="project-media-group">
                     {% include interactive-plot.html %}
                 </div>
+                {% endif %}
 
                 <!-- Circuit Schematics -->
                 {% if page.schematics %}

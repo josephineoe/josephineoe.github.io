@@ -7,6 +7,7 @@ categories: [Robotics, Computer Vision, Machine Learning, 3D Printing]
 featured_image: "/assets/images/projects/robotic-arm/featured.jpg"
 github_url: "https://github.com/aojedao/6dof-robotic-arm"
 demo_url: "#"
+interactive_plot: true
 
 models:
   - file: "/assets/models/robotic-arm/base.gltf"
