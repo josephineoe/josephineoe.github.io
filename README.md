@@ -44,7 +44,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 MESGRO/
@@ -72,7 +72,113 @@ MESGRO/
 └── scripts/                    # Utility scripts
 ```
 
-## Customization
+### Adding Your Project Assets
+
+To add a new project, create the following folder structure:
+
+```bash
+assets/
+├── images/projects/your-project/
+│   ├── featured.jpg           # Main project image
+│   └── gallery/               # Additional photos
+├── models/your-project/
+│   └── model.gltf             # 3D models (use cad_to_gltf.py to convert)
+└── schematics/your-project/
+    └── circuit.svg            # Circuit diagrams
+```
+
+> **💡 Tip:** Use the CAD-to-GLTF converter script to convert your STL/STEP files:
+> ```bash
+> conda run -n mesgro python scripts/cad_to_gltf.py -i model.stl -o assets/models/your-project/model.gltf
+> ```
+
+## 📝 Creating Projects
+
+### Project Front Matter
+Each project is a Markdown file in the `_projects/` directory with YAML front matter:
+
+```yaml
+---
+layout: project
+title: "Your Project Title"
+description: "Brief project description"
+date: 2024-10-30
+categories: [Robotics, Arduino, Mechatronics]
+featured_image: "/assets/images/projects/your-project/featured.jpg"
+github_url: "https://github.com/yourusername/your-project"
+demo_url: "https://youtu.be/your-demo-video"
+
+# 3D Models
+models:
+  - file: "/assets/models/your-project/model.stl"
+    description: "Your 3D model description"
+
+# Circuit Schematics
+schematics:
+  - file: "/assets/schematics/your-project/circuit.png"
+    description: "Your circuit description"
+
+# Code Files
+code_files:
+  - name: "Main Code"
+    file: "main.cpp"
+    language: "cpp"
+    download_url: "https://github.com/yourusername/your-project/blob/main/src/main.cpp"
+    content: |
+      // Your code here
+      #include <Arduino.h>
+      
+      void setup() {
+        Serial.begin(9600);
+      }
+      
+      void loop() {
+        // Main loop
+      }
+
+# Components List
+components:
+  - name: "Arduino Uno"
+    quantity: 1
+    description: "Main microcontroller"
+    link: "https://store.arduino.cc/products/arduino-uno-rev3"
+
+# Media Gallery
+gallery:
+  - type: "image"
+    file: "/assets/images/projects/your-project/photo1.jpg"
+    description: "Project photo description"
+  - type: "video"
+    file: "/assets/images/projects/your-project/demo.mp4"
+    description: "Demo video description"
+---
+
+Your project content goes here. Use Markdown for formatting.
+
+## Project Overview
+Describe your project here...
+
+## Technical Details
+Add technical specifications, algorithms, etc...
+```
+
+### Supported File Formats
+
+#### 3D Models
+- **STL**: Most common 3D printing format
+- **OBJ**: Wavefront OBJ files with materials
+- **GLTF**: Modern 3D format with PBR materials
+- **GLB**: Binary GLTF format
+
+#### Schematics
+- **PNG/JPG**: Raster images
+- **SVG**: Scalable vector graphics
+- **PDF**: Portable document format
+
+#### Code Languages
+- C/C++, Arduino, Python, JavaScript, MATLAB, Java, and 15+ more
+
+## 🎨 Customization
 
 ### Themes
 The template includes both light and dark themes. Users can toggle between them using the theme switcher in the header.
@@ -85,6 +191,6 @@ Customize colors by editing the CSS custom properties in `_sass/_base.scss`.
 **Alejandro Ojeda Olarte**
 
 - GitHub: [@aojedao](https://github.com/aojedao)
-- Website: [aojedao.github.io](https://aojedao.github.io)
+- Website: [aojedao.github.io](https://aojedao.github.io/neumorphism)
 
 Built with ❤️ for the robotics and mechatronics community.
