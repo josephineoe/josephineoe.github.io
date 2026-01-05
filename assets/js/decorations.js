@@ -10,8 +10,8 @@
   const config = {
     floatingPetals: {
       enabled: true,
-      count: 8,
-      interval: 3000, // milliseconds between petals
+      count: 5, // Moderate amount
+      interval: 4000, // milliseconds between petals
       colors: ['#f4c2c2', '#e8a8a8', '#d89494', '#ffd4d4']
     },
     animateVines: true,
@@ -105,7 +105,7 @@
   function addRoseHoverEffects() {
     if (!config.hoverEffects) return;
     
-    const roses = document.querySelectorAll('.rose-decoration');
+    const roses = document.querySelectorAll('.rose-accent');
     
     roses.forEach(rose => {
       rose.addEventListener('mouseenter', () => {
@@ -115,7 +115,7 @@
         sparkle.style.top = '50%';
         sparkle.style.left = '50%';
         sparkle.style.transform = 'translate(-50%, -50%)';
-        sparkle.style.fontSize = '1.5rem';
+        sparkle.style.fontSize = '1.2rem';
         sparkle.textContent = '✨';
         sparkle.style.animation = 'fade-out 1s ease-out forwards';
         sparkle.style.pointerEvents = 'none';
@@ -131,7 +131,7 @@
    * Create rose burst effect on click
    */
   function addRoseClickEffect() {
-    const roses = document.querySelectorAll('.rose-decoration');
+    const roses = document.querySelectorAll('.rose-accent');
     
     roses.forEach(rose => {
       rose.style.cursor = 'pointer';
@@ -141,19 +141,19 @@
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
         
-        // Create burst of small petals
-        for (let i = 0; i < 6; i++) {
+        // Create burst of small petals (fewer for moderate effect)
+        for (let i = 0; i < 4; i++) {
           const petal = document.createElement('div');
           petal.style.position = 'fixed';
           petal.style.left = centerX + 'px';
           petal.style.top = centerY + 'px';
-          petal.style.width = '10px';
-          petal.style.height = '10px';
+          petal.style.width = '8px';
+          petal.style.height = '8px';
           petal.style.pointerEvents = 'none';
           petal.style.zIndex = '9999';
           
-          const angle = (Math.PI * 2 * i) / 6;
-          const distance = 50;
+          const angle = (Math.PI * 2 * i) / 4;
+          const distance = 40;
           const endX = Math.cos(angle) * distance;
           const endY = Math.sin(angle) * distance;
           

@@ -1,119 +1,161 @@
 <!-- 
   Roses & Vines Decorative Components
+  Moderate decorations with side vines and small flower accents
   Create this as _includes/decorations.html in your Jekyll project
 -->
 
-<!-- SVG Definitions (reusable) -->
-<svg width="0" height="0" style="position: absolute;">
+<!-- SVG Definitions (reusable) - Hidden -->
+<svg width="0" height="0" style="position: absolute; visibility: hidden;">
   <defs>
-    <!-- Rose SVG -->
-    <g id="rose-icon">
-      <circle cx="20" cy="20" r="8" fill="#f4c2c2" opacity="0.9"/>
-      <circle cx="20" cy="20" r="5" fill="#e8a8a8" opacity="0.8"/>
-      <circle cx="20" cy="20" r="2.5" fill="#d89494" opacity="0.9"/>
+    <!-- Small Rose Icon -->
+    <g id="rose-small">
+      <circle cx="10" cy="10" r="4" fill="#f4c2c2" opacity="0.8"/>
+      <circle cx="10" cy="10" r="2.5" fill="#e8a8a8" opacity="0.7"/>
+      <circle cx="10" cy="10" r="1.2" fill="#d89494" opacity="0.8"/>
       
       <!-- Petals -->
-      <ellipse cx="14" cy="16" rx="4" ry="6" fill="#f4c2c2" opacity="0.7" transform="rotate(-30 14 16)"/>
-      <ellipse cx="26" cy="16" rx="4" ry="6" fill="#f4c2c2" opacity="0.7" transform="rotate(30 26 16)"/>
-      <ellipse cx="20" cy="12" rx="5" ry="4" fill="#f4c2c2" opacity="0.7"/>
-      <ellipse cx="15" cy="23" rx="5" ry="4" fill="#f4c2c2" opacity="0.7" transform="rotate(-20 15 23)"/>
-      <ellipse cx="25" cy="23" rx="5" ry="4" fill="#f4c2c2" opacity="0.7" transform="rotate(20 25 23)"/>
+      <ellipse cx="7" cy="8" rx="2" ry="3" fill="#f4c2c2" opacity="0.6" transform="rotate(-30 7 8)"/>
+      <ellipse cx="13" cy="8" rx="2" ry="3" fill="#f4c2c2" opacity="0.6" transform="rotate(30 13 8)"/>
+      <ellipse cx="10" cy="6" rx="2.5" ry="2" fill="#f4c2c2" opacity="0.6"/>
       
-      <!-- Stem -->
-      <path d="M20,28 Q18,35 20,40" stroke="#555d50" stroke-width="1.5" fill="none"/>
-      
-      <!-- Leaves -->
-      <ellipse cx="17" cy="33" rx="3" ry="5" fill="#7a8171" opacity="0.8" transform="rotate(-45 17 33)"/>
-      <ellipse cx="23" cy="36" rx="3" ry="5" fill="#7a8171" opacity="0.8" transform="rotate(45 23 36)"/>
+      <!-- Tiny leaves -->
+      <ellipse cx="8" cy="13" rx="1.5" ry="2.5" fill="#7a8171" opacity="0.7" transform="rotate(-30 8 13)"/>
+      <ellipse cx="12" cy="13" rx="1.5" ry="2.5" fill="#7a8171" opacity="0.7" transform="rotate(30 12 13)"/>
     </g>
 
-    <!-- Vine Corner Pattern -->
-    <g id="vine-corner">
-      <path d="M0,0 Q20,20 40,15 Q60,10 80,25 Q100,40 110,60" 
+    <!-- Vertical Vine Pattern for Sides -->
+    <g id="vine-vertical">
+      <!-- Main vine stem -->
+      <path d="M20,0 Q15,50 20,100 Q25,150 20,200 Q15,250 20,300 Q25,350 20,400" 
             stroke="#555d50" 
             stroke-width="2" 
             fill="none" 
-            opacity="0.5"/>
-      <path d="M10,5 Q25,15 35,20" 
-            stroke="#7a8171" 
-            stroke-width="1.5" 
-            fill="none" 
             opacity="0.4"/>
-      <circle cx="15" cy="10" r="3" fill="#f4c2c2" opacity="0.6"/>
-      <circle cx="45" cy="18" r="2.5" fill="#f4c2c2" opacity="0.6"/>
-      <circle cx="75" cy="30" r="3" fill="#e8a8a8" opacity="0.6"/>
       
-      <!-- Small leaves -->
-      <ellipse cx="25" cy="12" rx="2" ry="4" fill="#7a8171" opacity="0.6" transform="rotate(-30 25 12)"/>
-      <ellipse cx="50" cy="15" rx="2" ry="4" fill="#7a8171" opacity="0.6" transform="rotate(20 50 15)"/>
-      <ellipse cx="85" cy="35" rx="2" ry="4" fill="#7a8171" opacity="0.6" transform="rotate(-15 85 35)"/>
+      <!-- Branching vines -->
+      <path d="M20,50 Q10,60 5,70" stroke="#7a8171" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M20,150 Q30,160 35,170" stroke="#7a8171" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M20,250 Q10,260 5,270" stroke="#7a8171" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M20,350 Q30,360 35,370" stroke="#7a8171" stroke-width="1.5" fill="none" opacity="0.3"/>
+      
+      <!-- Small flowers along the vine -->
+      <circle cx="20" cy="100" r="3" fill="#f4c2c2" opacity="0.6"/>
+      <circle cx="20" cy="200" r="3" fill="#e8a8a8" opacity="0.6"/>
+      <circle cx="20" cy="300" r="3" fill="#f4c2c2" opacity="0.6"/>
+      
+      <!-- Leaves -->
+      <ellipse cx="12" cy="75" rx="2" ry="4" fill="#7a8171" opacity="0.5" transform="rotate(-20 12 75)"/>
+      <ellipse cx="28" cy="175" rx="2" ry="4" fill="#7a8171" opacity="0.5" transform="rotate(20 28 175)"/>
+      <ellipse cx="12" cy="275" rx="2" ry="4" fill="#7a8171" opacity="0.5" transform="rotate(-20 12 275)"/>
+      <ellipse cx="28" cy="375" rx="2" ry="4" fill="#7a8171" opacity="0.5" transform="rotate(20 28 375)"/>
     </g>
 
-    <!-- Vine Divider -->
+    <!-- Vine Divider (for between sections) -->
     <g id="vine-divider-pattern">
       <path d="M0,30 Q50,10 100,25 Q150,40 200,25 Q250,10 300,30" 
             stroke="#555d50" 
             stroke-width="2" 
             fill="none" 
-            opacity="0.6"/>
-      <path d="M0,30 Q50,50 100,35 Q150,20 200,35 Q250,50 300,30" 
-            stroke="#7a8171" 
-            stroke-width="1.5" 
-            fill="none" 
-            opacity="0.4"/>
+            opacity="0.5"/>
       
-      <!-- Roses along the vine -->
-      <circle cx="100" cy="25" r="5" fill="#f4c2c2" opacity="0.8"/>
-      <circle cx="200" cy="25" r="5" fill="#e8a8a8" opacity="0.8"/>
+      <!-- Small flowers -->
+      <circle cx="100" cy="25" r="4" fill="#f4c2c2" opacity="0.7"/>
+      <circle cx="200" cy="25" r="4" fill="#e8a8a8" opacity="0.7"/>
       
       <!-- Leaves -->
-      <ellipse cx="50" cy="20" rx="3" ry="6" fill="#7a8171" opacity="0.7" transform="rotate(-30 50 20)"/>
-      <ellipse cx="150" cy="30" rx="3" ry="6" fill="#7a8171" opacity="0.7" transform="rotate(30 150 30)"/>
-      <ellipse cx="250" cy="20" rx="3" ry="6" fill="#7a8171" opacity="0.7" transform="rotate(-30 250 20)"/>
+      <ellipse cx="50" cy="20" rx="2" ry="4" fill="#7a8171" opacity="0.6" transform="rotate(-30 50 20)"/>
+      <ellipse cx="150" cy="30" rx="2" ry="4" fill="#7a8171" opacity="0.6" transform="rotate(30 150 30)"/>
+      <ellipse cx="250" cy="20" rx="2" ry="4" fill="#7a8171" opacity="0.6" transform="rotate(-30 250 20)"/>
+    </g>
+
+    <!-- Single Petal for floating animation -->
+    <g id="petal-shape">
+      <ellipse cx="5" cy="7" rx="4" ry="6" fill="#f4c2c2" opacity="0.7" transform="rotate(15 5 7)"/>
     </g>
   </defs>
 </svg>
 
-<!-- Corner Vines -->
-<div class="vine-decoration vine-top-left">
-  <svg viewBox="0 0 120 120" preserveAspectRatio="xMinYMin meet">
-    <use href="#vine-corner"/>
-  </svg>
+<!-- Side Vine Decorations Container -->
+<div class="page-vines" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+  
+  <!-- Left Side Vine -->
+  <div class="vine-side vine-left" style="position: absolute; left: 10px; top: 80px; width: 40px; height: calc(100vh - 160px); opacity: 0.7;">
+    <svg viewBox="0 0 40 400" preserveAspectRatio="xMinYMin slice" style="width: 100%; height: 100%;">
+      <use href="#vine-vertical"/>
+    </svg>
+  </div>
+
+  <!-- Right Side Vine -->
+  <div class="vine-side vine-right" style="position: absolute; right: 10px; top: 80px; width: 40px; height: calc(100vh - 160px); opacity: 0.7; transform: scaleX(-1);">
+    <svg viewBox="0 0 40 400" preserveAspectRatio="xMaxYMin slice" style="width: 100%; height: 100%;">
+      <use href="#vine-vertical"/>
+    </svg>
+  </div>
+
+  <!-- Small Rose Accents (scattered) -->
+  <!-- Top Left -->
+  <div class="rose-accent" style="position: absolute; top: 100px; left: 50px; width: 20px; height: 20px; opacity: 0.7;">
+    <svg viewBox="0 0 20 20" style="width: 100%; height: 100%;">
+      <use href="#rose-small"/>
+    </svg>
+  </div>
+
+  <!-- Top Right -->
+  <div class="rose-accent" style="position: absolute; top: 120px; right: 50px; width: 20px; height: 20px; opacity: 0.7;">
+    <svg viewBox="0 0 20 20" style="width: 100%; height: 100%;">
+      <use href="#rose-small"/>
+    </svg>
+  </div>
+
+  <!-- Mid Left -->
+  <div class="rose-accent" style="position: absolute; top: 40%; left: 45px; width: 18px; height: 18px; opacity: 0.6;">
+    <svg viewBox="0 0 20 20" style="width: 100%; height: 100%;">
+      <use href="#rose-small"/>
+    </svg>
+  </div>
+
+  <!-- Mid Right -->
+  <div class="rose-accent" style="position: absolute; top: 50%; right: 45px; width: 18px; height: 18px; opacity: 0.6;">
+    <svg viewBox="0 0 20 20" style="width: 100%; height: 100%;">
+      <use href="#rose-small"/>
+    </svg>
+  </div>
+
+  <!-- Lower Left -->
+  <div class="rose-accent" style="position: absolute; bottom: 150px; left: 52px; width: 20px; height: 20px; opacity: 0.7;">
+    <svg viewBox="0 0 20 20" style="width: 100%; height: 100%;">
+      <use href="#rose-small"/>
+    </svg>
+  </div>
+
+  <!-- Lower Right -->
+  <div class="rose-accent" style="position: absolute; bottom: 180px; right: 52px; width: 20px; height: 20px; opacity: 0.7;">
+    <svg viewBox="0 0 20 20" style="width: 100%; height: 100%;">
+      <use href="#rose-small"/>
+    </svg>
+  </div>
 </div>
 
-<div class="vine-decoration vine-top-right">
-  <svg viewBox="0 0 120 120" preserveAspectRatio="xMaxYMin meet">
-    <use href="#vine-corner"/>
-  </svg>
-</div>
+<!-- Responsive adjustments -->
+<style>
+  /* Hide side vines on smaller screens, keep rose accents */
+  @media (max-width: 1024px) {
+    .vine-side {
+      display: none;
+    }
+  }
 
-<!-- Rose Decorations -->
-<div class="rose-decoration rose-medium rose-top-left">
-  <svg viewBox="0 0 40 40">
-    <use href="#rose-icon"/>
-  </svg>
-</div>
+  @media (max-width: 768px) {
+    .rose-accent {
+      width: 15px !important;
+      height: 15px !important;
+      opacity: 0.5 !important;
+    }
+  }
 
-<div class="rose-decoration rose-medium rose-top-right">
-  <svg viewBox="0 0 40 40">
-    <use href="#rose-icon"/>
-  </svg>
-</div>
-
-<!-- Divider Component (use between sections) -->
-<div class="vine-divider">
-  <svg viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet">
-    <use href="#vine-divider-pattern"/>
-  </svg>
-</div>
-
-<!-- Example: Decorated Section Header -->
-<div class="section-header-decorated">
-  <h2>Your Section Title</h2>
-</div>
-
-<!-- Example: Decorated Card -->
-<div class="decorated-card">
-  <h3>Card Title</h3>
-  <p>Your content here...</p>
-</div>
+  @media (max-width: 480px) {
+    .page-vines {
+      display: none;
+    }
+  }
+</style>
