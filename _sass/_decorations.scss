@@ -1,0 +1,314 @@
+/**
+ * Roses & Vines Decorative Elements
+ * Add to your _sass/_components.scss or create _sass/_decorations.scss
+ */
+
+/* ============================================
+   VINE DECORATIONS
+   ============================================ */
+
+.vine-decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+/* Corner Vines */
+.vine-top-left {
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+}
+
+.vine-top-right {
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  transform: scaleX(-1);
+}
+
+.vine-bottom-left {
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  transform: scaleY(-1);
+}
+
+.vine-bottom-right {
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  transform: scale(-1);
+}
+
+/* Side Vines */
+.vine-left-border {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 400px;
+}
+
+.vine-right-border {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleX(-1);
+  width: 80px;
+  height: 400px;
+}
+
+/* Header Vine Divider */
+.vine-divider {
+  width: 100%;
+  height: 60px;
+  position: relative;
+  margin: var(--spacing-2xl) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vine-divider svg {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+/* ============================================
+   ROSE DECORATIONS
+   ============================================ */
+
+.rose-decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  animation: gentle-sway 6s ease-in-out infinite;
+}
+
+.rose-small {
+  width: 40px;
+  height: 40px;
+}
+
+.rose-medium {
+  width: 60px;
+  height: 60px;
+}
+
+.rose-large {
+  width: 80px;
+  height: 80px;
+}
+
+/* Rose Positions */
+.rose-top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.rose-top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.rose-header {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes gentle-sway {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(-2deg);
+  }
+}
+
+@keyframes vine-grow {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.vine-animated {
+  stroke-dasharray: 1000;
+  animation: vine-grow 3s ease-out forwards;
+}
+
+@keyframes petal-float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.floating-petal {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  animation: petal-float 10s linear infinite;
+}
+
+/* ============================================
+   CONTAINER DECORATIONS
+   ============================================ */
+
+.decorated-container {
+  position: relative;
+  padding: var(--spacing-3xl);
+}
+
+.decorated-card {
+  position: relative;
+  background: var(--surface-color);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  overflow: hidden;
+}
+
+.decorated-card::before,
+.decorated-card::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10,50 Q30,20 50,30 Q70,20 90,50' stroke='%23555d50' stroke-width='2' fill='none' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+}
+
+.decorated-card::before {
+  top: -10px;
+  left: -10px;
+}
+
+.decorated-card::after {
+  bottom: -10px;
+  right: -10px;
+  transform: rotate(180deg);
+}
+
+/* ============================================
+   SECTION HEADERS WITH ROSES
+   ============================================ */
+
+.section-header-decorated {
+  position: relative;
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+  margin: var(--spacing-3xl) 0;
+}
+
+.section-header-decorated h2 {
+  display: inline-block;
+  position: relative;
+  padding: 0 var(--spacing-xl);
+}
+
+.section-header-decorated h2::before,
+.section-header-decorated h2::after {
+  content: '🌹';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--font-size-2xl);
+  opacity: 0.7;
+}
+
+.section-header-decorated h2::before {
+  left: 0;
+}
+
+.section-header-decorated h2::after {
+  right: 0;
+}
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+
+.rose-decoration:hover {
+  animation: gentle-sway 1s ease-in-out infinite;
+  transform: scale(1.1);
+  transition: transform var(--transition-normal);
+}
+
+/* ============================================
+   THEME-SPECIFIC COLORS
+   ============================================ */
+
+[data-theme="light"] .vine-decoration {
+  filter: brightness(1);
+}
+
+[data-theme="dark"] .vine-decoration {
+  filter: brightness(0.8) contrast(1.2);
+  opacity: 0.4;
+}
+
+[data-theme="dark"] .rose-decoration {
+  filter: brightness(1.1);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .vine-top-left,
+  .vine-top-right,
+  .vine-bottom-left,
+  .vine-bottom-right {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .vine-left-border,
+  .vine-right-border {
+    display: none;
+  }
+  
+  .rose-large {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .decorated-container {
+    padding: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .vine-decoration {
+    display: none;
+  }
+  
+  .rose-small,
+  .rose-medium {
+    width: 30px;
+    height: 30px;
+  }
+}
