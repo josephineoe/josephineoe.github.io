@@ -1,11 +1,11 @@
 # Site settings
 title: "MESGRO - Robotics & Mechatronics Portfolio"
 description: "An open-source template for showcasing robotics and mechatronics projects with 3D models, schematics, and code"
-url: "https://aojedao.github.io"
-baseurl: "/MESGRO"
+url: "https://thattjennie.github.io"
+baseurl: "/Portfolio-1"
 author: "Alejandro Ojeda"
 email: "your.email@example.com"
-github_username: "aojedao"
+github_username: "thattjennie"
 linkedin_username: "your-linkedin"
 twitter_username: "your-twitter"
 
