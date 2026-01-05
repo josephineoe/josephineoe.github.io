@@ -5,9 +5,9 @@ url: "https://thattjennie.github.io"
 baseurl: "/Portfolio-1"
 author: "Josephine Odusanya"
 email: "joo9964@nyu.edu"
-github_username: "JosephineOE"
-linkedin_username: "Josephine Odusanya"
-twitter_username: "your-twitter"
+github_username: "josephineoe"
+linkedin_username: "josephineodusanya"
+
 
 # Build settings
 markdown: kramdown
