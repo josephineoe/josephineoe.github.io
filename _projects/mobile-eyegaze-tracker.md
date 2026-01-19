@@ -5,7 +5,7 @@ description: "A custom-designed assistive technology system integrating mobile e
 date: 2024-12-10
 categories: [Cerebral Palsy, Assistive Technology, Rehabilitation Technology, Computer Vision, Hardware Design, Accessibility]
 featured_image: "/assets/images/projects/mobile_eyegaze_tracker/preview.png"
-github_url: "https://github.com/josephineoe/iSee"
+project_website: "https://wp.nyu.edu/ap_classes_dat_f25/isee/"
 interactive_plot: true
 
 code_files:
