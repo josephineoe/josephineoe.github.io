@@ -1,8 +1,8 @@
 # Site settings
 title: "Robotics & Mechatronics Portfolio"
 description: "A Portfolio showcasing robotics and mechatronics projects with 3D models, schematics, and code"
-url: "https://thattjennie.github.io"
-baseurl: "/Portfolio-1"
+url: "https://josephineoe.github.io"
+baseurl: ""
 author: "Josephine Odusanya"
 email: "joo9964@nyu.edu"
 github_username: "josephineoe"
