@@ -4,16 +4,9 @@ title: "Mobile Eye-Gaze Tracker for Cerebral Palsy Rehabilitation (iSee)"
 description: "A custom-designed assistive technology system integrating mobile eye-tracking with specialized rehabilitation software to provide real-time gaze feedback and communication support for patients with cerebral palsy. Features precision 3D-printed hardware components, computer vision algorithms, and personalized therapy exercises."
 date: 2024-12-10
 categories: [Cerebral Palsy, Assistive Technology, Rehabilitation Technology, Computer Vision, Hardware Design, Accessibility]
-featured_image: "/assets/images/projects/mobile_eyegaze_tracker/system_overview.jpg"
+featured_image: "/assets/images/projects/mobile_eyegaze_tracker/preview.png"
 github_url: "https://github.com/josephineoe/iSee"
-demo_url: "#"
 interactive_plot: true
-
-models:
-  - file: "/assets/models/mobile_eyegaze_tracker/top_mount.gltf"
-    description: "Top mounting bracket for eye-tracking camera"
-  - file: "/assets/models/mobile_eyegaze_tracker/bottom_housing.gltf"
-    description: "Bottom housing component for sensor and electronics enclosure"
 
 code_files:
   - name: "Eye Tracking Core Algorithm"
@@ -238,7 +231,7 @@ components:
 
 gallery:
   - type: "image"
-    file: "/assets/images/projects/mobile_eyegaze_tracker/system_overview.jpg"
+    file: "/assets/images/projects/mobile_eyegaze_tracker/preview.png"
     description: "Complete iSee mobile eye-gaze tracker system"
   - type: "video"
     file: "/assets/images/projects/mobile_eyegaze_tracker/Animation Disassembly DAT v1 v2.avi"
@@ -651,8 +644,10 @@ While originally conceptualized as a rehabilitation tool, iSee's primary applica
 - **Hardware Concepts**: Compact pen-sized design vs. traditional desktop setups
 - **Software Prototype**: WebGazer.js-based browser simulation with calibration UI
 - **Interaction Design**: Addressing sunlight interference and small icon selection
-- [Presentation Video](https://www.youtube.com/watch?v=rIoDeln3XJw)
-- [Presentation Slides](https://figma.com/design/djyWW2wGiASZ8g0luf5ggn/Jessica-Tobii-User-Journey-Map)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rIoDeln3XJw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+- [View Presentation Slides](https://figma.com/design/djyWW2wGiASZ8g0luf5ggn/Jessica-Tobii-User-Journey-Map)
 
 ### Final Project Presentation (December 2025)
 **Focus**: Research synthesis, design validation, and future directions
@@ -661,8 +656,8 @@ While originally conceptualized as a rehabilitation tool, iSee's primary applica
 - **Software Architecture**: Eye-gaze detection pipeline with sunlight compensation
 - **User-Centered Solutions**: Enlarged hit zones, iOS app integration, AAC compatibility
 - **Future Roadmap**: Mobile deployment, deep learning optimization, clinical validation
-- [Final Presentation Video](https://stream.nyu.edu/media/iSee+Group_DAT+Final+Presentation/1_ydz5a8zk)
-- [Final Presentation Slides](https://wp.nyu.edu/ap_classes_dat_f25/isee/final-project/)
+
+**[Final Presentation Video](https://stream.nyu.edu/media/iSee+Group_DAT+Final+Presentation/1_ydz5a8zk)** | **[View Presentation Slides](https://wp.nyu.edu/ap_classes_dat_f25/isee/final-project/)**
 
 ## Technical Challenges & Solutions
 
