@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "POV (Persistent on Visibility) Quadrotor System"
+title: "POV (Persistence of Vision) Quadrotor System"
 description: "An autonomous quadrotor-mounted sensor system designed to maintain persistent visual surveillance of moving targets. Features custom mechanical design, real-time tracking algorithms, and synchronized multi-sensor payload integration."
 date: 2024-11-15
 categories: [Robotics, Autonomous Systems, Computer Vision, Mechanical Design, Embedded Systems]
@@ -26,7 +26,7 @@ gallery:
 
 ## Project Overview
 
-**POV (Persistent on Visibility)** is an autonomous quadrotor system designed to maintain continuous visual surveillance of moving targets. The system combines mechanical precision, real-time computer vision algorithms, and coordinated sensor control to track and monitor objects of interest with minimal human intervention.
+**POV (Persistence of Vision)** is an autonomous quadrotor system designed to maintain continuous visual surveillance of moving targets. The system combines mechanical precision, real-time computer vision algorithms, and coordinated sensor control to track and monitor objects of interest with minimal human intervention.
 
 This project integrates:
 - **Aerodynamic platform**: Quadrotor-based aerial system for mobility and maneuverability

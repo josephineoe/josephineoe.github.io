@@ -2,7 +2,7 @@
 layout: project
 title: "Simple Maze Navigation with ROS and RViz"
 description: "An autonomous robot navigation system demonstrating path planning, obstacle avoidance, and real-time visualization in a simulated maze environment. Built with ROS (Robot Operating System) and visualized using RViz, featuring SLAM algorithms and autonomous exploration."
-date: 2024-09-10
+date: 2023
 categories: [ROS, Robot Navigation, Path Planning, Autonomous Systems, Simulation, Computer Vision]
 featured_image: "/assets/images/projects/rviz_maze/maze.gif"
 github_url: "https://github.com/josephineoe/Simple-Maze-Nav-with-ROS"
