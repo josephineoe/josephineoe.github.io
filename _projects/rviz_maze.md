@@ -9,9 +9,6 @@ github_url: "https://github.com/josephineoe/Simple-Maze-Nav-with-ROS"
 interactive_plot: true
 
 gallery:
-  - type: "image"
-    file: "/assets/images/projects/rviz_maze/maze.gif"
-    description: "Robot navigating through maze with real-time path planning visualization"
   - type: "video"
     file: "/assets/images/projects/rviz_maze/Ros mapping simulation.mp4"
     description: "Complete ROS SLAM mapping and autonomous navigation simulation"

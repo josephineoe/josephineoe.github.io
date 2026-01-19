@@ -166,8 +166,8 @@ layout: default
                         {% for media in page.gallery %}
                         <div class="media-item">
                             {% assign file_extension = media.file | split: '.' | last | downcase %}
-                            {% if file_extension == 'mp4' or file_extension == 'webm' or file_extension == 'avi' %}
-                            <video controls class="gallery-video">
+                            {% if file_extension == 'mp4' or file_extension == 'webm' or file_extension == 'avi' or (file_extension == 'gif' and media.type == 'video') %}
+                            <video controls class="gallery-video" {% if file_extension == 'gif' %}autoplay loop muted{% endif %}>
                                 <source src="{{ media.file | relative_url }}" type="video/{{ file_extension }}">
                                 Your browser does not support the video tag.
                             </video>
