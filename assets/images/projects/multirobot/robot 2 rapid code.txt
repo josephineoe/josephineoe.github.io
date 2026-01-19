@@ -1,0 +1,69 @@
+CONST robtarget p_home_2:=[[945,0,1295],[0,0,1,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p_pick_2:=[[-149.999978635,-1249.999993452,730.000064104],[0.000000016,-0.000000041,1,-0.000000092],[-2,0,-2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget production_1:=[[101.581132074,1162.788026705,757.491864367],[0.000000067,0.000000006,1,-0.000000088],[0,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget rough_position:=[[1249.999990899,0.000222497,560.000248869],[0.000000053,-0.000000045,1,-0.000000088],[0,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    !***********************************************************
+    !
+    ! Module:  Module1
+    !
+    ! Description:
+    !   <Insert description here>
+    !
+    ! Author: Josephine
+    !
+    ! Version: 1.0
+    !
+    !***********************************************************
+    
+    
+    !***********************************************************
+    !
+    ! Procedure main
+    !
+    !   This is the entry point of your program
+    !
+    !***********************************************************
+    PROC main()
+        !Add your code here
+         MoveJ p_home_2, v1000, fine, tcp_sucker2;
+        FOR xx FROM 0 TO 2 DO
+            FOR yy FROM 0 TO 1 DO
+                Reset do_sucker_2;
+                Reset do_place;
+                
+                MoveJ Offs(p_pick_2, 400*xx, 400*yy, 200), v1000, fine, tcp_sucker2;
+                MoveL Offs(p_pick_2, 400*xx, 400*yy, 0), v200, fine, tcp_sucker2;
+                Set do_sucker_2;
+                WaitTime 0.5;
+                
+                MoveL Offs(p_pick_2, 400*xx, 400*yy, 200), v200, fine, tcp_sucker2;
+                MoveJ Offs(rough_position, 0, 0, 200), v1000, fine, tcp_sucker2;
+                MoveL rough_position, v200, fine, tcp_sucker2;
+                Reset do_sucker_2;
+                WaitTime 0.5;
+                
+                MoveJ p_home_2, v1000, fine, tcp_sucker2;
+                Set do_place;
+                WaitTime 0.5;
+                Reset do_place;
+                
+                WaitUntil di_finish=1;
+                
+                MoveJ Offs(rough_position, 0, 0, 200), v1000, fine, tcp_sucker2;
+                MoveL rough_position, v200, fine, tcp_sucker2;
+                Set do_sucker_2;
+                WaitTime 0.5;
+                
+                MoveL Offs(rough_position, 0, 0, 200), v200, fine, tcp_sucker2;
+                MoveJ Offs(production_1, 0, 0, 200), v1000, fine, tcp_sucker2;
+                MoveL production_1, v200, fine, tcp_sucker2;
+                Reset do_sucker_2;
+                WaitTime 0.5;
+                
+                MoveL Offs(production_1, 0, 0, 200), v200, fine, tcp_sucker2;
+                MoveJ p_home_2, v1000, fine, tcp_sucker2;
+            ENDFOR
+        ENDFOR
+        WaitTime 10;
+    ENDPROC
+ENDMODULE

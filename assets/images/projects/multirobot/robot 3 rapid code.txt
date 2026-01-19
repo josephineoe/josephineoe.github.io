@@ -1,0 +1,54 @@
+MODULE Module1
+	CONST robtarget p_home_3:=[[870,0,1030],[0,0,1,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget pick_production_1:=[[1098.418903825,37.211757549,757.492438381],[0.000000008,0.000000002,1,0.000000001],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget place_production_1:=[[150.000234544,-1049.999941719,560.000160168],[0.000000015,-0.000000051,1,0.000000006],[-1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    !***********************************************************
+    !
+    ! Module:  Module1
+    !
+    ! Description:
+    !   <Insert description here>
+    !
+    ! Author: Josephine
+    !
+    ! Version: 1.0
+    !
+    !***********************************************************
+    
+    
+    !***********************************************************
+    !
+    ! Procedure main
+    !
+    !   This is the entry point of your program
+    !
+    !***********************************************************
+    PROC main()
+        !Add your code here
+        Set do_finish_3;
+        WaitUntil di_sensed_product = 1;
+        MoveJ p_home_3, v1000, fine, tcp_sucker_3;
+        
+        FOR zz FROM 0 TO 5 DO
+            Reset do_suck;
+            
+            MoveJ Offs(pick_production_1,0,0,200),v1000,fine,tcp_sucker_3;
+            MoveL Offs(pick_production_1,0,0,0),v200,fine,tcp_sucker_3;
+            Set do_suck;
+            WaitTime 0.5;
+            
+            MoveL Offs(pick_production_1,0,0,200),v200,fine,tcp_sucker_3;
+            MoveJ Offs(place_production_1,0,0,50*zz+200),v1000,fine,tcp_sucker_3;
+            MoveL Offs(place_production_1,0,0,50*zz),v200,fine,tcp_sucker_3;
+            Reset do_suck;
+            Reset do_finish_3;
+            WaitTime 0.5;
+            MoveL Offs(place_production_1,0,0,50*zz+200),v1000,fine,tcp_sucker_3;
+            
+            MoveJ p_home_3, v1000, fine, tcp_sucker_3;
+            Set do_finish_3;
+            WaitUntil di_sensed_product = 1;
+            
+        ENDFOR 
+    ENDPROC
+ENDMODULE

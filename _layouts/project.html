@@ -171,6 +171,9 @@ layout: default
                                 <source src="{{ media.file | relative_url }}" type="video/{{ file_extension }}">
                                 Your browser does not support the video tag.
                             </video>
+                            {% elsif file_extension == 'gif' %}
+                            <img src="{{ media.file | relative_url }}"
+                                alt="{{ media.description | default: page.title }}" class="gallery-image gallery-gif" data-zoomable decoding="async">
                             {% else %}
                             <img src="{{ media.file | relative_url }}"
                                 alt="{{ media.description | default: page.title }}" class="gallery-image" data-zoomable>

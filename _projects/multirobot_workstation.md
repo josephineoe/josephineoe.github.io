@@ -188,7 +188,7 @@ components:
 
 gallery:
   - type: "video"
-    file: "/assets/images/projects/multirobot/multi_robot system.mp4"
+    file: "/assets/images/projects/multirobot/multi_robot_system.mp4"
     description: "Complete workstation system demonstration and operation video"
   - type: "image"
     file: "/assets/images/projects/multirobot/multi_robotsystem.gif"
