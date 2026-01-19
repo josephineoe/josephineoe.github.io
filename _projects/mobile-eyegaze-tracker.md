@@ -229,25 +229,20 @@ components:
     quantity: 1
     description: "Adjustable positioning for user comfort and optimal eye tracking angle"
 
+models:
+  - file: "/assets/models/mobile_eyegaze_tracker/UMS3_bottom_v3.3mf"
+    description: "Bottom housing component - Version 3 (3D model file)"
+
 gallery:
   - type: "image"
     file: "/assets/images/projects/mobile_eyegaze_tracker/preview.png"
     description: "Complete iSee mobile eye-gaze tracker system"
   - type: "video"
-    file: "/assets/images/projects/mobile_eyegaze_tracker/Animation Disassembly DAT v1 v2.avi"
-    description: "Detailed assembly animation - Version 1 and 2"
+    file: "/assets/images/projects/mobile_eyegaze_tracker/full_DAT.mp4"
+    description: "Complete system demonstration and assembly overview"
   - type: "video"
-    file: "/assets/images/projects/mobile_eyegaze_tracker/Animation Disassembly DAT v3.avi"
-    description: "Final assembly animation - Version 3 (optimized)"
-  - type: "document"
-    file: "/assets/images/projects/mobile_eyegaze_tracker/Team Notes.pdf"
-    description: "Comprehensive team notes and project documentation"
-  - type: "document"
-    file: "/assets/images/projects/mobile_eyegaze_tracker/iSee_Assistive Technology_Midterm Presentation.pptx"
-    description: "Midterm presentation slides"
-  - type: "document"
-    file: "/assets/images/projects/mobile_eyegaze_tracker/iSee - Final Presentation Slides.pptx"
-    description: "Final presentation slides with complete project summary"
+    file: "/assets/images/projects/mobile_eyegaze_tracker/Animation_Disassembly_DAT_v3.mp4"
+    description: "Detailed disassembly and assembly animation - Version 3"
 
 ---
 
@@ -619,16 +614,16 @@ While originally conceptualized as a rehabilitation tool, iSee's primary applica
 
 ## Performance Metrics
 
-### System Benchmarks
-| Metric | Value | Notes |
-|--------|-------|-------|
-| **Accuracy** | ±1.5° | Under ideal conditions |
-| **Latency** | <50ms | Full pipeline |
-| **Frame Rate** | 30-60fps | Configurable |
-| **Battery Life** | 4-6 hours | Continuous operation |
-| **Calibration Time** | 2-3 min | 9-point protocol |
-| **Warm-up Time** | <30sec | Ready for use |
-| **Device Weight** | ~280g | Including all mounts |
+### System Specifications
+| Specification | Value |
+|---|---|
+| **Accuracy** | ±1.5° of visual angle |
+| **Latency** | <50ms end-to-end |
+| **Frame Rate** | 30-60 FPS |
+| **Calibration Time** | 2-3 minutes |
+| **Device Weight** | ~280g total |
+| **Camera Resolution** | 640×480 to 1280×720 |
+| **IR LED Wavelength** | 850nm |
 
 ### User Experience Metrics
 - **Setup Time**: <5 minutes (experienced user)
@@ -645,9 +640,7 @@ While originally conceptualized as a rehabilitation tool, iSee's primary applica
 - **Software Prototype**: WebGazer.js-based browser simulation with calibration UI
 - **Interaction Design**: Addressing sunlight interference and small icon selection
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rIoDeln3XJw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-- [View Presentation Slides](https://figma.com/design/djyWW2wGiASZ8g0luf5ggn/Jessica-Tobii-User-Journey-Map)
+[Midterm Presentation Video](https://www.youtube.com/watch?v=rIoDeln3XJw) | [Presentation Slides](https://figma.com/design/djyWW2wGiASZ8g0luf5ggn/Jessica-Tobii-User-Journey-Map)
 
 ### Final Project Presentation (December 2025)
 **Focus**: Research synthesis, design validation, and future directions

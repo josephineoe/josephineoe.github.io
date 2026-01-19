@@ -1,0 +1,620 @@
+
+--- PAGE 1 ---
+Mechatronics Project Report
+Persistence of Vision Educational Kit with Basic
+Stamp 2
+Vedvyas Danturi - vsd2027
+Josephine Odusanya - joo9964
+Sven Sunny Kottuppallil - ssk10038
+1
+
+--- PAGE 2 ---
+Table of Contents
+1.Abstract......................................................................................................................3
+2.Introduction................................................................................................................4
+2.1ResearchBackgroundandSignificance...........................................................4
+3.Related Work.............................................................................................................6
+4.Hardware Design and WorkingPrinciple..................................................................8
+4.1Stage I..............................................................................................................8
+4.1.1Workingprinciple.......................................................................................11
+4.1.2Results.................................................................................................12
+4.2Stage II...........................................................................................................12
+4.3Bill-of-material..............................................................................................17
+4.4 Hardware Debugging....................................................................................18
+5.Software Design andWorking Principle.................................................................19
+5.1Mathematical Background of POV................................................................19
+5.2.1Proportional ControlAlgorithm..........................................................20
+6.Persistence ofVision Robotics Educational Kit......................................................22
+6.1Product Description:......................................................................................22
+6.1.1KitOverview:.....................................................................................22
+6.1.4CostAnalysis for Mass Production....................................................24
+7.Conclusion...............................................................................................................26
+8.References................................................................................................................27
+9.APPENDIX..............................................................................................................28
+2
+
+--- PAGE 3 ---
+1. Abstract
+This document presents the conceptualisation and development of a Persistence of
+Vision Educational Robotics Kit. Our objective is to design a mechatronics enabled
+pre-college level science experiment which will rival the basic robot car kits we see
+on the market today. A persistence of vision display is a device that creates the
+illusion ofa stable image ortext by rapidly moving a set of LEDS in aspecific pattern.
+Using this concept, students will be equiped to explore signal modelling of two types
+of outputs :- mechanical and optical in a fun and creative way. Our implementation
+of LED’s will change based on the measurement of ambient light as our sensory
+feedback. In the first stage of the implementation of this project, members of the
+development team mainly focused on the research of RGB LEDS and it’s integration
+with the Basic Stamp 2. During its development, we used PBasic language
+programming to develop rudimentary code for control of the motor and the sequence
+of 6 RGB LEDS. We realize that to improve on optical sensation created by the
+incident rays, we still need more investment in software and hardware, and to
+integrate the developed code with an IC that preferably has more than 2KB of
+memory. This bring us to the second stage of the project, where we implement an IC
+4.1 solely as the LED driver, as it can directly address the integrated drivers
+embedded within Adafruit Neopixel Ring. The purpose of the two stages is to show
+students the scalability of such projects and promote problem-solving, critical
+thinkingand innovation.
+Keywords:BasicStamp 2,Persistence ofVision(POV), LEDs,Educational Kit
+3
+
+--- PAGE 4 ---
+2. Introduction
+In this report, the aim is to create a kit that teaches the concepts of memory efficient
+programming, gearing and mechanical structures via Persistence of Vision display as
+well as the introduction to components like the ambient light sensor (photodiode),
+potentiometer, hall effect sensor, DC motorand finally, the Basic Stamp2.
+By using the Basic Stamp 2, students gain experience in programming a
+microcontroller to control the timing and synchronization of the RGB LED array,
+which is essential for creating the dynamic light patterns needed for POV. The
+incorporation of the ambient light sensor allows for the detection of ambient light
+intensity, providing immediate feedback that can be used along with the digital
+potentiometer as the user interface to adjust light brightness and control parameters.
+In darkness, it will turn the light up lower so it does not hurt our eyes while in
+brightness, itturns it uphigherto showthe effect clearly.
+The Hall effect sensor and DC motor add a dynamic element to the experiment,
+enabling the rotation of the LED array to simulate motion. The Hall effect sensor
+allows us to calculate the motors RPM, which can be used to synchronize the LED
+array with themotor’s rotation, enhancing thePOVeffect.
+The significance of this project lies in its interdisciplinary nature, combining aspects
+of electronics, programming, physics, and engineering. It encourages critical thinking,
+problem-solving, and creativity, helping students develop technical skills and an
+understanding of how various components can work together to create a functional
+system. Moreover, the experience gained from this project will be essential in fields
+ranging from digital media torobotics and product design.
+2.1 Research Background and Significance
+A reoccuring problem amongst Robotics enthusiast has to do with the cost of the
+materials. It is said to be out-of-date, difficult to use or sometimes too expensive or
+scarce to acquire. With the growing field of technology too, people are itching for
+ways to diversy their portfolio. With this in mind, we came up with something that is
+both educational and different from what we regularly see on the market. Thus we
+introduceyou to Persistence ofVision Educational Robotics kit.
+Whatis persistence ofvision?
+The ability to recall information, whether visual or otherwise, immediately after it has
+been presented differs from person to person. Persistence of Vision (POV) takes
+advantage of that, it being an optical phenomenon where the human eye perceives a
+visual image for longer than its actual duration.[1]
+It was first defined by English-Swiss physicist Peter Mark Roget[2] in the nineteenth
+century and its phenomenon can be linked back to many inventions made to exploit
+4
+
+--- PAGE 5 ---
+persistence of vision and the phi phenomenon to create a false sense of moving
+objects. In this project, instead of keeping all the LEDs continuosly active, we will
+implement flicker fusion threshold where rapid flickering to simulate constant
+illumination.[3] The two concepts form the basis of motion perception. This rapid
+flickering will give the appearance of steady light which ha an added benefit of
+reducing theoverall powerconsumption.
+Figure1: How theeyes process light[4]
+POV is only possible because the human eye can only process 10 to 12 seperate
+images per second, retaining an image for up to a fifteenth of a second. As the
+subsequent image replaces it in this period of time, it will create the illusion of
+continuity[5].
+5
+
+--- PAGE 6 ---
+3. Related Work
+Figure2:BoeBot Kit
+Parallax BoeBotRobotKit:
+ Boring
+ Expensive
+ Manydiscontinued components
+Figure3:Arduino Science Kit
+ArduinoScienceKit:
+ Expensive
+ Limited learning ability
+Figure4: POV Product Label
+Persistenceof VisionEducational Robotics Kit:
+6
+
+--- PAGE 7 ---
+ Fun
+ Unique
+ Inexpensivecompared to competitors
+7
+
+--- PAGE 8 ---
+4. Hardware Design and Working Principle
+Stage I
+Hardware Components
+Qty Components
+1 Basic Stamp2
+1 DC Motor
+1 Hall Effect Sensor
+1 Digital Potentiometer
+6 RGBLEDs
+1 Ambientlight sensor
+1 Magnet
+1 Slipring
+~pcs 3Dprinted motormount
+Figure 5:BS2 module
+Basic Stamp 2 (BS2): The BS2 acts as the primary controller for the system,
+processing data from sensors (like the photodiode) and controlling the RGB LEDs to
+createthedesired Persistence ofVision (POV) patterns.
+Figure6: DC Motor
+DC Motor: The DC motor drives the rotation of the LED array, achieving the high-
+speed spinning necessary toproduce thePOVeffect.
+8
+
+--- PAGE 9 ---
+Figure7:Hall Effect Sensor
+Hall Effect Sensor: This sensor detects the position of the stationary magnet,
+providing synchronization signals to ensure the LED patterns align accurately with
+themotor’s rotation.
+Figure8:Digital Potentiometer
+Digital Potentiometer: Used in Stage 1, the potentiometer allows manual control of
+LEDbrightness and system parameters byadjustingresistance.
+Figure9: RGBLED
+RGB LEDs: These LEDs form the core visual component, emitting light in
+programmable colors and patterns to create thePOVeffect asthe array spins.
+Figure10: AmbientLight Sensor
+9
+
+--- PAGE 10 ---
+Ambient Light Sensor (Photodiode): The photodiode measures ambient light levels
+and sends the data to the BS2, which adjusts the brightness of the LEDs for optimal
+visibilityunder varying lighting conditions.
+Figure11:Magnet
+Magnet: The magnet works with the Hall effect sensor to provide positional feedback,
+enabling precisesynchronization ofthe LED patterns with therotation of themotor.
+Figure12:Slip ring
+Slip Ring: The slip ring allows continuous electrical connection to the rotating LED
+array, enabling power and data transfer without tangling wires during rotation. One
+consideration to note is with high RPMs, the wires tend to burn. That is why people
+develop their own sliprings. Another avenue for innovation!
+Figure13:3DLEDMount
+10
+
+--- PAGE 11 ---
+3D Printed Motor Mount (for stage I): This custom mount securely holds the motor
+in place, ensuring stability during high-speed rotations and alignment of the POV
+display components.
+Figure14:Pushbutton
+Killswitch: With a simple pushbutton, users can easily press it which would send a
+lowpulseto all theconnected components, effectively shutting it off.
+4.1.1 Working principle
+Figure15:StageI CircuitDiagram
+In this stage, a Persistence of Vision (POV) display is created and controlled by the
+BasicStamp 2 (BS2) microcontroller. Six RGBLEDs are connected in series and spin
+at x </= 1800 rotations per second using a 16k RPM motor. The BS2 controls the
+LED brightness and patterns through programming (see Appendix A), while a Hall
+effect sensor detects the passing magnet, changing the LED patterns in real-time.
+Additionally, a photodiode feeds ambient light data to the BS2, allowing it to adjust
+the LED light intensity based on the surrounding light conditions. This setup creates
+dynamic visual effects using rapid LED flashing synchronized with motor speed and
+11
+
+--- PAGE 12 ---
+sensor input. We made use of a 4:1 gearing toget 4k RPM output out of the 16k RPM
+motorandfurther control thePWM through a MOSFET gate.
+4.1.2Results
+Below is a successful implementation of the components to create a visually aesthetic
+ring oflight (better seens inperson).
+Figure16:Prototypeof StageI
+4.2 Stage II
+Belowisan updated list ofcomponents being used.
+Qty Components
+1 BasicStamp 2
+1 DC Motor
+1 Hall Effect Sensor
+1 6RGB LEDs Adafruit 24LEDNeopixel
+Ring
+1 Ambient Light Sensor
+3 Magnet
+1 Slipring
+~ 3Dprinted motormount
+1 ADC
+1 Digital potentiometer
+1 555Timer
+1 Teensy 4.1
+12
+
+--- PAGE 13 ---
+Figure 17:ADC
+ADC (Analog-to-Digital Converter): Converts analog signals (e.g., from the
+photodiode)into digital data forprocessing bytheBS2.
+Figure18: 555Timer
+555Timer: Potentiallyused forgenerating precisetiming signals or PWM control.
+Figure19: LEDRing
+Adafruit NeoPixel Ring : The NeoPixel Ring integrates 24 individually addressable
+RGB LEDs, enhancing the display's resolution and scalability compared to the
+original 6 RGB LEDs. This compact design simplifies wiring while enabling a wider
+range ofcolors and patterns, making thePOVeffects more vibrant and detailed.
+13
+
+--- PAGE 14 ---
+Figure20: WS2812b Chip
+Specialnote onWS2812bSMD AdressableRGB LED:
+The WS2812B SMD Addressable RGB LED is a powerful and versatile component
+for creating dynamic lighting effects in projects. However, its direct integration with
+theBasicStamp 2(BS2) microcontrollerpresents significant challenges:
+-Timing Requirements: The WS2812B requires precise timing for data transmission,
+typically in the range of microseconds1. The BS2, with its PBASIC interpreter, may
+notbe ableto meet thesestrict timingrequirements consistently.
+-Protocol Complexity: The WS2812B uses a single-wire protocol that requires
+carefully timed pulses to transmit data. Implementing this protocol efficiently in
+PBASIC can bechallenging dueto thelanguage's limitations.
+-Limited Resources: The BS2 has limited memory and processing power compared to
+more modern microcontrollers. This can make it difficult to handle the data
+processingrequired forcomplex LED animations orlong LEDstrips.
+To overcome these incompatibility issues, we considered using a dedicated LED
+driver chip (Figure ) as an intermediary between the BS2 and the WS2812B LEDs.
+This approach would allow the BS2 to focus on higher-level control while offloading
+thetiming-critical operationstoamore suitabledevice.
+Teensy IC 4.1 : The Teensy IC 4.1 replaces the digital potentiometer as the primary
+driver for the Adafruit NeoPixel Ring, providing advanced computational power and
+flexibility. It enables precise control of the LEDs, allowing for intricate patterns,
+smooth transitions, and rapid updates to the display, essential for creating detailed
+Persistence of Vision (POV) effects. Students should note any IC could be used for
+this advanced processing compatible with the WS2812b LED found in the Adafruit
+Neopixelring, but we chose thisonefor its simplicity and price point.
+Figure21:Teensy 4.1LEDDriver
+3DPrinted Mount(forstage II):
+14
+
+--- PAGE 15 ---
+Figure22: 3DLEDMount
+4.2.1 Working principle - Stage II
+Figure23:Rough Circuit Diagram
+Highlight
+Basic Stamp 2 Intergration with Teensy IC 4.1 : It is important to note that the
+Teensy is purely being used as a LED driver. All the user interface, actuator control
+and other instructionswill still besent or received bythe BS2.
+In Stage 2 of this project, the scalability of the Persistence of Vision (POV) display is
+explored by incorporating the Adafruit NeoPixel Ring, which consists of 24
+individually addressable LEDs, and replacing the potentiometer with the Teensy 4.1
+microcontroller to drive the LED array. The photodiode is used to measure ambient
+light levels and control the light intensity of the LEDs. The BS2 processes the
+15
+
+--- PAGE 16 ---
+ambient light information and uses it, along with control signals, to define and adjust
+the LED patterns on the NeoPixel Ring. The Hall Effect sensor continues to play a
+critical role by synchronizing the motor speed, ensuring the LEDs spin at the correct
+rotational speed for optimal POV effect. The Teensy 4.1 microcontroller provides
+enhanced processing power, allowing for more complex and scalable control of the
+LED patterns, enabling smoother transitions and more intricate visual effects
+compared to Stage 1. This setup demonstrates the potential to scale the POV display
+by increasing the number of LEDs while maintaining synchronization between the
+LEDpatterns and themotorspeed.
+4.2.2 Results
+Successfully managed to createa simpledisplay.
+16
+
+--- PAGE 17 ---
+Figures 24:Prototypeof Stage2
+4.3 Bill-of-material
+Qty Parts Cost/item ($)
+10 RGBLEDs 0.99
+1 Micro MotorDC 7V6700-6900RPM Motor 8.99
+2 Sliprings 8.00
+1 MOSFET with protector 3.66
+1 Adafruit NeopixelRing 11.50
+1 BasicStamp 2module 49.00
+1 Ambientlight sensor (Photodiode) 2.00
+1 Digital potentiometer 1.52
+1 Electronic Trimmer 1MOhm 1.00
+1 Electronic Trimmer100KOhm 1.00
+1 Relay Module 1.99
+1 LEDdriver (Teensy) 29.60
+1 SmallDC Motor 4.99
+Total 125.10
+17
+
+--- PAGE 18 ---
+Advantages
+ Power Efficiency: The rapid flickering used to simulate constant illumination
+reduces overall power consumption compared to keeping all LEDs continuously
+active[5].
+ Educational Value: The kit provides hands-on experience with various concepts
+and components, including memory-efficient programming, gearing, mechanical
+structures, and electronic sensors, offering a comprehensive learning tool for
+students.
+ Practical Application of Visual Perception: The product demonstrates the
+practical application of visual perception principles, such as POV and flicker fusion,
+which are critical in modern displaytechnologies andvisual effects.
+Disadvantages
+× Individual Perception Variability: The effectiveness of the POV display may vary
+among users due to differences in individual flicker fusion thresholds, potentially
+affecting thequality ofthe visualexperience forsomeusers [5].
+× Potential for Visual Discomfort: Rapid flickering, if not properly calibrated,
+could cause visual discomfort or fatigue in some users, especially during
+prolonged use.
+× Complexity for Beginners: The integration of multiple concepts and components
+(e.g., programming, sensors, mechanical structures) may present a steep learning
+curve forbeginners, potentially requiring additionalguidance orresources.
+4.4 Hardware Debugging
+Thisproject encountered afew setbacks which we willbriefly discuss.
+Motor slipping off 3D mount:- To solve this issue, we adjusted the parameters of the
+3Dmodel and reprinted to account better forallowance but also give asnug fit.
+Breaking 3D mount: Initially 3D print was rather fragile but we chaalk that up to
+maintenance state of the 3D printer. With more iterations however, the design will
+improve.
+18
+
+--- PAGE 19 ---
+5. Software Design and Working Principle
+5.1 Mathematical Background of POV
+1/10 of a second so 10Hz for POV; for smoother illusion, monitors update at 30hz,
+same logic to get rotation speed close to 30RPS which is 1800rpm, if we have only
+oneside,since wehave aring, itcovers 2sides, so we would beokwith 900RPM.
+5.2 Code flowchart
+Stage I
+Figure25: StageIRough CodeFlowchart
+Stage II
+Figure26:StageII Rough CodeFlowchart
+19
+
+--- PAGE 20 ---
+Thedetailed BS2 program can befound in theappendix.
+5.2.1Proportional Control Algorithm
+Figure27: PIDFlow
+The proportional control algorithm is a key component in feedback control systems
+used here. It works by applying a correction proportional to the error between the
+desired and actual output. The algorithm calculates an error signal e(t)=r(t)−y(t) and
+generates a control output u(t)=Kp*e(t), where Kp is the proportional gain. This
+simple yet effective method offers fast response and reduced steady-state error, but
+may cause oscillations if the gain is too high. While it can't completely eliminate
+steady-state error in some systems, it serves as a foundation for more advanced
+control strategies likePID controllers.
+Figure28:RPMGraph
+20
+
+--- PAGE 21 ---
+5.3 Software Debugging
+A huge challenge was ensuring the BS2 EEPROM memory was not exceeded. We
+solved thisinstage 2byimplementingtheTeensy 4.1as an LED driver.
+21
+
+--- PAGE 22 ---
+6. Persistence of Vision Robotics Educational Kit
+Figure29: POVProduct Kit
+6.1 Product Description:
+ThePersistence ofVisionRobotics EducationalKit is acutting-edge learning tool
+designed toteach students foundational and advanced concepts in electronics,
+programming, androbotics through hands-on experimentation. Building onthe
+proven success of platforms liketheBoe-Bot Robot, thiskit offers an immersive
+experience indeveloping dynamicdisplays using thephenomenon of persistence of
+vision(POV). By following detailed instructions and using modularcomponents,
+studentswill learn to assembleand program a spinningLED array that creates
+stunningvisual effects synchronized withmotor motion and environmental data. No
+priorprogramming or electronics experience is required, making thekitaccessible for
+beginners whilestillchallenging for advanced users.
+6.1.1Kit Overview:
+Thiskit guides students through constructing a functional POVdisplay using
+components liketheBASIC Stamp 2microcontroller, RGB LEDs, sensors, and
+motors.The educational journey spans multiplestages, from basicassembly to
+advanced programming and hardware integration. The projects build incrementally,
+providing acomprehensiveintroduction to mechatronics, control systems, and sensor-
+based feedback mechanisms. Students willengage in tasks such as wiring circuits,
+tuningsource code, and integratingreal-time datafrom sensors to control LED
+brightness and patterns.
+Thecomplete set ofprojects takes approximately 50hours to complete, making it
+ideal for classroom use, robotics clubs, orSTEM workshops. Designed forstudents
+aged 13andup,thiskit equips learners with skills applicabletofields likerobotics,
+computerscience, and engineering.
+22
+
+--- PAGE 23 ---
+6.1.2Key Features ofthe Persistence of VisionRobotics Educational Kit:
+ Beginner-Friendly:No programming experience isrequired; theincluded
+guides provideclear, step-by-step instructions.
+ ModularDesign: ComponentsliketheBASIC Stamp2and Adafruit
+NeoPixel Ringare reusable and compatiblewith avariety ofrobotics and
+electronics projects.
+ Hands-On Learning:Exposed circuitry and solder-free breadboard
+connectionsallow studentsto experiment with custom circuits.
+ DynamicProgramming:Introduces concepts of microcontroller
+programming, such as PWM control, sensorintegration,pattern generation
+using PBASIC and Teensy 4.1coding.
+ AutonomousFunctionality: Hall Effect sensors, ambient light sensor,and
+environmental data enable synchronization andadaptive behavior.
+ Expandable: Additionalsensors and hardware modules can be integrated to
+explorefurther applications.
+ Affordable:Priced for accessibility, with all essential hardware and software
+included.
+6.1.3Kit Contents:
+ BasicStamp2microcontroller module
+ Adafruit NeoPixel Ring(Stage II upgrade)
+ DC Motorwith slipring for continuouspower to thespinning LED array
+ Hall Effect sensor and photodiodeforsynchronization and ambient light
+sensing
+ RGBLEDs (Stage I) forfoundational POVeffects
+ Teensy 4.1microcontrollerfor advanced pattern generation (Stage II)
+ 3D-printed motormounts forstability and alignment
+ Allnecessary resistors, wires, and hardware for assembly
+23
+
+--- PAGE 24 ---
+6.1.4CostAnalysisforMass Production
+Component Estimated Cost(USD)
+Basic Stamp2 $25.00
+DC Motor $5.00
+Hall Effect Sensor $1.50
+Digital Potentiometer $2.00
+RGBLEDs (5pcs) $1.00
+Ambient Photodiode $0.75
+555Timer $0.50
+MOSFET with protection $1.50
+Magnet $0.50
+ADC $0.98
+555Timer $0.98
+Slipring $3.00
+3Dprinted motormount $2.00
+Teensy 4.1 $22.00
+Adafruit 24LEDNeopixel Ring $15.00
+Total $81.71
+This cost analysis for mass production is based on estimated bulk pricing for
+components. The Basic Stamp 2, while traditionally priced at 49 for individual units,
+24
+
+--- PAGE 25 ---
+can be obtained for around 25 in large quantities1. The DC motor with encoder is
+estimated at $5,considering bulk pricing forsimilarmotors.
+The Teensy 4.1 and Adafruit Neopixel Ring represent significant portions of the total
+cost due to their advanced features. The 3D printed motor mount cost is an estimate
+based onmaterial and productioncosts at scale.
+It's important to notethat actual costs may vary based on:
+ Negotiated supplier contracts
+ Market fluctuations incomponent prices
+ Potential design optimizations for mass production
+ Shippingand handling costs
+Additionally, thetotal cost couldpotentially bereduced by:
+ Exploring alternative microcontrollers to theBasic Stamp 2and Teensy 4.1
+ Optimizing theLED configuration
+ Sourcing components from different suppliers
+25
+
+--- PAGE 26 ---
+7. Conclusion
+The Persistence of Vision Robotics Educational Kit provides students with practical
+experience in robotics and programming, fostering critical thinking and problem-
+solving skills. It introduces them to real-world applications of electronics and
+microcontrollers, inspiring future careers in STEM fields. With this kit, learners can
+explore the intersection of science, technology, and creativity, making it a versatile
+tool for both education and innovation. If they like, they could even adjust the code to
+showaimages too!
+26
+
+--- PAGE 27 ---
+8. References
+[1] https://www.masterclass.com/articles/persistence-of-vision-explained
+[2] https://garagefarm.net/blog/persistence-of-vision-explained-what-is-persistence-
+of-
+vision#:~:text=Peter%20Mark%20Roget%2C%20famous%20for,later%20be%2
+0used%20in%20the
+[3] https://pmc.ncbi.nlm.nih.gov/articles/PMC8537539/
+[4] https://global.samsungdisplay.com/28889/
+[5] https://nkcf.org/about-keratoconus/how-the-human-eye-works/
+[6] https://www.parallax.com/product/boe-bot-robot-kit-usb/
+[7] https://www.sciencedirect.com/topics/engineering/proportional-control
+[8] https://www.electronics-tutorials.ws/systems/proportional-control.html
+[9] https://www.ni.com/en/shop/seamlessly-connect-to-third-party-devices-and-
+supervisory-system/the-importance-of-proportional-control.html
+[10]https://www.instructables.com/POV-Globe/
+27
+
+--- PAGE 28 ---
+9. APPENDIX
+Allcodes used feature here.
+BS2Integration
+'{$STAMPBS2}
+'{$PBASIC 2.5}
+hallPinPIN 15'for digital inputofhall sensor
+potPulsePIN 0'for digitalPot adjustingtocontrol pwm which inturn controls motor
+upDown PIN 1'for direction of adjustmentof pot
+counter VAR WORD'for howmany pulses togive
+pCON12'multiplierfor error
+halfTimeVAR WORD'storing timetaken byhall
+desireTime CON16500'our required rpm
+errorOKCON 500 'allowableerror
+errorNowVAR WORD'current error
+speedControl:
+PULSIN hallPin, 1, halfTime 'gives us amount of time taken to go from one magnet
+toanother
+IF halfTime< desireTimeTHEN 'speed isovershooting
+errorNow= desireTime -halfTime
+IF errorNow> errorOKTHEN
+HIGH upDown 'wiper goes towards the connected terminal lowering
+resistance
+errorNow= errorNow **p
+FOR counter =0TO errorNow
+PULSOUT potPulse, 1 'lower resistance means lesser duty cycle from 555, so
+lowering thespeed
+PAUSE 1
+NEXT
+GOTOspeedControl
+ENDIF
+ELSEIF desireTime < halfTimeTHEN 'speed is undershooting
+errorNow= halfTime- desireTime
+IF errorNow> errorOKTHEN
+LOWupDown 'wipergoes away from terminal increasing resistance
+errorNow= errorNow **p
+FOR counter =0TO errorNow
+PULSOUT potPulse, 1 'higher resistance means higher duty cycle from 555, so
+increasing thespeed
+28
+
+--- PAGE 29 ---
+PAUSE 1
+NEXT
+GOTOspeedControl
+ENDIF
+ENDIF
+GOTOtakeBrightness
+luminosityVAR BYTE 'for analog Value ofvoltage byphotoDiode
+CSPIN 4'adc chip Select
+CLK PIN 3'adc clk
+Datain PIN 14'adc dataPin
+takeBrightness:
+HIGH CS
+LOWCS
+LOWCLK
+PULSOUT CLK, 210
+SHIFTIN Datain,CLK,MSBPOST,[luminosity\8]'getting thevalue
+GOTOLedPattern
+climateMap VAR BYTE(12) ' initiates 12-byte array, for 12 leds in one half of the
+ring
+LedPattern:
+climateMap(0) =%00011111
+climateMap(1) =%00110111
+climateMap(2) =%00111011
+climateMap(3) =%01111010
+climateMap(4) =%01111010
+climateMap(5) =%00111100
+climateMap(6) =%00011100
+climateMap(7) =%00011000
+climateMap(8) =%00011000
+climateMap(9) =%00001000
+climateMap(10)=%00000100
+climateMap(11)=%00000100
+climateMap(12)=%00000000
+SEROUT 13,9600,[STRclimateMap\12, luminosity] 'transmits datato teensy
+GOTOspeedControl
+Teensy ICSamplecode
+#include<FastLED.h>
+#define LED_PIN 2
+#define NUM_LEDS 24
+#define BRIGHTNESS 125
+#define LED_TYPE WS2812
+#define COLOR_ORDER GRB
+CRGBleds[NUM_LEDS];
+voidsetup() {
+29
+
+--- PAGE 30 ---
+FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds,
+NUM_LEDS).setCorrection(TypicalLEDStrip);
+FastLED.setBrightness(BRIGHTNESS);
+}
+voidloop() {
+for(int pos =1; pos<NUM_LEDS; pos++){
+//turn the previous LEDoff andset thecurrent LED to white:
+leds[pos-1]=CRGB::Black;
+leds[pos]= CRGB::Blue;
+FastLED.show();
+delay(500); //control delay fordifferent patterns
+}
+leds[NUM_LEDS-1] =CRGB::Black; //turning last led off
+}
+30

@@ -283,9 +283,9 @@ This experience reinforced my passion for **biomechatronics and assistive techno
 ### Acknowledgments
 
 Sincere gratitude to:
-- **Dr. Hao Su** for project oversight and research guidance
-- **Suzanne Oliver** for direct mentorship and technical support
-- **Muxiao** for collaborative engineering and problem-solving
+- **SREENIDHI KAMALAM MOHAN NIRMAL KUMAR** for collaborative engineering and core technical contributions
+- **Muxiao Zhang** for mechanical design and integration support
+- **Suzanne Oliver** for mentorship and research guidance
 - The entire **BIRO Lab** community for supporting a rich research environment
 
 This project represents the beginning of my journey in wearable assistive robotics—a field at the intersection of engineering excellence and human-centered design.
