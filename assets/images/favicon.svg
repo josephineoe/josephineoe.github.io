@@ -1,23 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
     <style>
-      .heart-dark { fill: #ff6b9d; }
-      .heart-light { fill: #ff1493; }
+      .heart { fill: #ff1493; }
     </style>
   </defs>
-  <!-- Heart shape -->
-  <path class="heart-dark" d="M50,85 C20,70 5,55 5,40 C5,25 15,15 25,15 C35,15 45,25 50,35 C55,25 65,15 75,15 C85,15 95,25 95,40 C95,55 80,70 50,85 Z"/>
+  <path class="heart" d="M50,90 C25,75 10,60 10,45 C10,30 20,20 30,20 C40,20 48,28 50,38 C52,28 60,20 70,20 C80,20 90,30 90,45 C90,60 75,75 50,90 Z"/>
 </svg>
-        
-  <!-- Tech details -->
-  <circle cx="256" cy="50" r="15" fill="#3498db" />
-  <circle cx="460" cy="160" r="15" fill="#3498db" />
-  <circle cx="460" cy="360" r="15" fill="#3498db" />
-  <circle cx="256" cy="470" r="15" fill="#3498db" />
-  <circle cx="52" cy="360" r="15" fill="#3498db" />
-  <circle cx="52" cy="160" r="15" fill="#3498db" />
-  
-  <!-- M / Circuit Trace Shape -->
   <path d="M156 320 V200 L256 300 L356 200 V320" 
         fill="none" 
         stroke="#ffffff" 

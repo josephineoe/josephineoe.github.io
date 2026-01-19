@@ -1,10 +1,10 @@
 ---
 layout: project
-title: "Mobile Eye-Gaze Tracker for Motor Rehabilitation (iSee)"
-description: "An innovative assistive technology system combining mobile eye-tracking with adaptive interfaces to provide real-time feedback for motor rehabilitation and accessibility. Features custom-designed 3D-printed hardware components with integrated sensor systems."
+title: "Mobile Eye-Gaze Tracker for Cerebral Palsy Rehabilitation (iSee)"
+description: "A custom-designed assistive technology system integrating mobile eye-tracking with specialized rehabilitation software to provide real-time gaze feedback and communication support for patients with cerebral palsy. Features precision 3D-printed hardware components, computer vision algorithms, and personalized therapy exercises."
 date: 2024-12-10
-categories: [Assistive Technology, Computer Vision, Hardware Design, Mobile Development, Accessibility]
-featured_image: "/assets/images/projects/mobile_eyegaze_tracker/preview.jpg"
+categories: [Cerebral Palsy, Assistive Technology, Rehabilitation Technology, Computer Vision, Hardware Design, Accessibility]
+featured_image: "/assets/images/projects/mobile_eyegaze_tracker/system_overview.jpg"
 github_url: "https://github.com/josephineoe/iSee"
 demo_url: "#"
 interactive_plot: true
@@ -260,21 +260,32 @@ gallery:
 
 ## Project Overview
 
-**iSee** is an innovative mobile eye-gaze tracking system designed specifically for motor rehabilitation and assistive technology applications. This project combines computer vision, custom hardware design, and therapeutic software to provide real-time feedback for patients undergoing rehabilitation. The system enables precise tracking of eye movements and gaze points, allowing therapists to design personalized rehabilitation exercises targeting specific oculomotor and motor control deficits.
+**iSee** is a specialized mobile eye-gaze tracking system developed in collaboration with **Jessica Frew**, a user with cerebral palsy (CP) and limited upper-body mobility. This custom-designed system addresses the critical gaps in current eye-tracking technology that Jessica experiences with her existing Tobii EyeGaze system, particularly in **outdoor/sunlight environments** and **mobile device usability**.
 
-The project represents a comprehensive effort merging **hardware engineering**, **software development**, and **accessibility research** to create a portable, affordable alternative to traditional eye-tracking systems that typically cost $5,000-$15,000.
+Developed as a patient-centered research and design project, iSee was built by understanding Jessica's lived experience and real-world pain points:
+- **Outdoor limitations**: Sunlight interference severely impacts gaze tracking accuracy and usability
+- **Small icon selection**: Mobile interfaces with small touch targets are difficult to access with eye-gaze control
+- **Portability needs**: Existing systems are desktop-bound; mobile solutions are limited and expensive
+- **System integration**: Seamless integration with iPhone and communication apps (AAC - Augmentative & Alternative Communication)
+
+The system represents a comprehensive integration of **precision hardware engineering**, **real-time computer vision**, and **patient-centered design** to create specialized assistive technology that enhances independence and communication access for individuals with cerebral palsy.
 
 ## System Architecture
 
 ### Overall Design Philosophy
 
-The iSee system is built on the principle of accessibility and affordability. By leveraging readily available smartphone hardware combined with custom 3D-printed components, the system achieves professional-grade eye-tracking capabilities at a fraction of traditional cost.
+The iSee system was designed specifically to address Jessica's documented pain points with existing eye-tracking systems. Unlike generic eye-gaze solutions, iSee prioritizes:
+
+1. **Sunlight Adaptability**: Infrared illumination and anti-reflective coatings to enable outdoor usability
+2. **Mobile-First Design**: Portable, pen-sized form factor instead of desktop-bound equipment
+3. **Usability Optimization**: Adjustable target sizes and enlarged hit zones for precise icon selection
+4. **Minimal Device Disruption**: Non-intrusive attachment to existing devices without requiring system replacement
 
 **Key Architecture Components:**
 - **Mobile Processing Unit**: Smartphone provides computational power and display
-- **Optical Subsystem**: Custom-designed camera mounting with IR lighting
-- **Mechanical Structure**: 3D-printed mounting brackets engineered for precision
-- **Software Stack**: Real-time computer vision + rehabilitation software
+- **Optical Subsystem**: High-speed IR camera with infrared illumination for reliable pupil detection
+- **Mechanical Structure**: 3D-printed mounting brackets with anti-reflective coating for outdoor performance
+- **Software Stack**: Real-time eye-gaze detection + calibration system optimized for variable lighting conditions
 
 ### Hardware Architecture
 
@@ -586,27 +597,32 @@ Each therapy session captures:
 - Contact lens compatibility: Yes
 - Lighting conditions: 100-500 lux (office to bright environments)
 
-### Clinical Applications
+### Clinical Applications & Assistive Technology Use
 
-#### Stroke Rehabilitation
-- Post-CVA oculomotor recovery
-- Visual field restoration assessment
-- Spatial neglect intervention
+While originally conceptualized as a rehabilitation tool, iSee's primary application is **assistive technology for individuals with cerebral palsy and limited upper-body mobility**.
 
-#### Attention Deficit
-- ADHD training and assessment
-- Attention span improvement tracking
-- Distraction-resilience building
+#### Primary Use Case: Mobile Communication Access
+**Jessica's Scenario:**
+- User with cerebral palsy and limited upper-body mobility
+- Primary input method: Eye-gaze control
+- Current system: Desktop-bound Tobii EyeGaze setup
+- Goal: Enable eye-controlled access to mobile devices for communication and daily tasks
+- Key requirements:
+  - Integration with iPhone and communication apps
+  - High accuracy in outdoor environments
+  - Easy selection of small interface elements
 
-#### Fine Motor Rehabilitation
-- Tremor quantification
-- Coordination improvement training
-- Progressive therapy difficulty
+#### Augmentative and Alternative Communication (AAC)
+- Eye-gaze controlled text input for rapid communication
+- Compatibility with AAC apps (Proloquo4Text, Spoken, APP2Speak)
+- Phrase prediction and storage for efficient conversation
+- System-wide access across FaceTime, Zoom, phone calls
 
-#### Accessibility
-- Eye-controlled communication for locked-in syndrome
-- AAC (Augmentative and Alternative Communication) input
-- Environmental control interface
+#### Accessibility Enhancement
+- Hands-free device control for individuals with limited mobility
+- Customizable interface sizing for precision eye-tracking
+- Environmental control and multimedia access
+- Enhanced independence in personal and professional life
 
 ## Performance Metrics
 
@@ -629,20 +645,24 @@ Each therapy session captures:
 
 ## Project Milestones
 
-### Midterm Presentation
-**Focus**: Proof of concept, hardware prototype validation
-- [YouTube Video](https://www.youtube.com/watch?v=78H-UFpoXGU)
-- Hardware assembly v1-v2 demonstrated
-- Initial software accuracy validation
-- Clinical application assessment
+### Midterm Presentation (October 21, 2025)
+**Focus**: User research, design concepts, and proof-of-concept validation
+- **User Research**: Jessica's journey map, pain points analysis, competitive analysis
+- **Hardware Concepts**: Compact pen-sized design vs. traditional desktop setups
+- **Software Prototype**: WebGazer.js-based browser simulation with calibration UI
+- **Interaction Design**: Addressing sunlight interference and small icon selection
+- [Presentation Video](https://www.youtube.com/watch?v=rIoDeln3XJw)
+- [Presentation Slides](https://figma.com/design/djyWW2wGiASZ8g0luf5ggn/Jessica-Tobii-User-Journey-Map)
 
-### Final Project Presentation
-**Focus**: Production-ready system, comprehensive validation
-- [YouTube Video](https://www.youtube.com/watch?v=a42_QZo1e5U)
-- Final hardware design (v3) presentation
-- Complete software integration showcase
-- Clinical trial results and user feedback
-- Future research directions
+### Final Project Presentation (December 2025)
+**Focus**: Research synthesis, design validation, and future directions
+- **Problem Statement**: Jessica's specific challenges with outdoor/mobile eye-gaze usage
+- **Hardware Iterations**: v1 → v2 → v3 design evolution
+- **Software Architecture**: Eye-gaze detection pipeline with sunlight compensation
+- **User-Centered Solutions**: Enlarged hit zones, iOS app integration, AAC compatibility
+- **Future Roadmap**: Mobile deployment, deep learning optimization, clinical validation
+- [Final Presentation Video](https://stream.nyu.edu/media/iSee+Group_DAT+Final+Presentation/1_ydz5a8zk)
+- [Final Presentation Slides](https://wp.nyu.edu/ap_classes_dat_f25/isee/final-project/)
 
 ## Technical Challenges & Solutions
 
@@ -689,35 +709,44 @@ Each therapy session captures:
 
 ## Hardware Contributions Summary
 
-**As the hardware lead for this project, my specific contributions included:**
+**As the hardware lead for this patient-centered research project, my specific contributions focused on translating Jessica's needs into engineered solutions:**
 
-1. **Mechanical Design**:
-   - CAD modeling of top mount and bottom housing components
-   - Iterative design refinement through v1 → v2 → v3
-   - Optimization for 3D printability and assembly
+1. **Problem Definition & Design Research**:
+   - Documented Jessica's pain points with existing eye-tracking systems
+   - User journey mapping to understand outdoor limitations and sunlight interference
+   - Competitive analysis comparing Tobii EyeGaze vs. iOS eye-tracking accuracy
+   - Hardware requirements specification driven by accessibility needs
 
-2. **Component Selection**:
-   - IR camera module specification and sourcing
-   - LED array design for uniform illumination
-   - Sensor integration planning (accelerometer, proximity)
+2. **Mechanical Design**:
+   - CAD modeling of compact pen-sized form factor (vs. desktop-bound alternatives)
+   - Top mount for precise optical alignment with user's eye
+   - Bottom housing with IR LED integration for sunlight adaptability
+   - Iterative design refinement through v1 → v2 → v3 based on testing feedback
+   - Anti-reflective coating design to minimize outdoor glare
 
-3. **Manufacturing & Assembly**:
-   - FDM printing optimization (layer height, infill, support strategy)
+3. **Component Selection & Integration**:
+   - High-speed IR camera (30-60fps) for real-time eye detection
+   - 850nm IR LED ring configuration for uniform illumination
+   - Microcontroller selection (ESP32, OpenMV, Jetson) for mobile deployment
+   - Cost optimization (<$9 per component for accessibility)
+
+4. **Manufacturing & Assembly**:
+   - FDM 3D printing optimization for precision tolerances
    - Post-processing techniques for optical surface quality
-   - Assembly jig design for consistent manufacturing
-   - Quality assurance and tolerance verification
+   - Assembly design for clinical/home use (tool-free assembly)
+   - Quality assurance with focus on durability (>100 cycles)
 
-4. **Testing & Validation**:
-   - Thermal analysis and optimization
-   - Mechanical stress testing (FEA simulation + physical)
-   - Optical alignment verification
-   - Durability testing (>100 assembly/disassembly cycles)
+5. **Testing & Validation for Jessica's Environment**:
+   - Harsh sunlight performance testing (critical pain point)
+   - Calibration accuracy under variable lighting conditions
+   - Thermal management for sustained outdoor operation
+   - User comfort and weight distribution analysis
 
-5. **Documentation**:
-   - Detailed assembly instructions with step-by-step photography
-   - BOM (Bill of Materials) with supplier information
-   - CAD model version control and archiving
-   - Manufacturing process documentation
+6. **Patient-Centered Documentation**:
+   - Assembly instructions with accessibility focus
+   - Technical specifications referencing Jessica's requirements
+   - Manufacturing process documentation for future iterations
+   - Maintenance and calibration guides for non-technical users
 
 ## Project Documentation
 
@@ -731,9 +760,20 @@ See the gallery above for all documentation and animation videos showing the mec
 
 ## Conclusion
 
-iSee represents a significant advancement in accessible eye-tracking technology for rehabilitation. By combining custom-designed 3D-printed hardware with intelligent software, the system provides a cost-effective solution that maintains professional-grade accuracy while remaining portable and easy to use in clinical settings.
+iSee represents a meaningful contribution to **patient-centered assistive technology design**. By centering the project on Jessica's real-world experience with cerebral palsy and her existing Tobii EyeGaze system, we were able to identify critical gaps—particularly outdoor usability and mobile device integration—that generic eye-tracking solutions overlook.
 
-The project demonstrates the power of interdisciplinary collaboration, merging hardware engineering, computer vision, and therapeutic science to create meaningful assistive technology that improves patients' quality of life and rehabilitation outcomes.
+The research and design work documented here serves as a foundation for future development. While the project reached the research and early design phase, the documentation captures:
+- **User-centered pain points** and accessibility requirements
+- **Technical specifications** optimized for sunlight performance
+- **Hardware design iterations** (v1-v3) with manufacturability analysis
+- **Software architecture** for real-time eye-gaze detection
+- **Integration pathways** with mobile AAC applications
+
+This work demonstrates the power of **accessibility-first design**, where engineering priorities are driven by the lived experience of individuals with disabilities, resulting in solutions that are genuinely responsive to user needs.
+
+### Acknowledgments
+
+Special gratitude to **Jessica Frew**, whose generosity, openness, and lived experience shaped every major decision in this project. The work is not meant as an ending, but as a **handoff point**—a foundation that could be built upon in future iterations with additional time, resources, and technical support.
 
 ---
 
