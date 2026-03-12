@@ -54,6 +54,8 @@ navigation:
     url: "/"
   - title: "Experience"
     url: "/experience/"
+  - title: "Impact"
+    url: "/impact/"
   - title: "Projects"
     url: "/projects/"
   - title: "Contact"
