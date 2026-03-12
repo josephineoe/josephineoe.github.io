@@ -1,0 +1,211 @@
+Investigating Spatial Perception Through an
+Audio-Based Head-Tracking System
+Fall 2025 Thesis Progress Report
+Josephine Odusanya
+Advisors: Dr. J. R. Rizzo; Dr. Giles Hamilton-Fletcher
+
+Tandon School of Engineering, New York University
+
+This report was finalized on December 29, 2025
+
+
+
+A    udio-augmented reality (AAR) systems offer a promising
+     pathway for enhancing spatial awareness through sound,
+particularly for blind and low-vision users who rely on non-
+                                                                   A. System Architecture Overview. The system consists of three
+                                                                   primary components:
+
+visual cues for navigation. When combined with accurate             1. A wearable IMU unit that estimates head orientation in
+head tracking, spatial audio allows sound sources to remain            real time.
+perceptually anchored to fixed locations in the environment
+                                                                    2. A host-side spatial audio engine that renders world-locked
+as a user moves, supporting intuitive understanding of spatial
+                                                                       audio using HRTFs.
+layout.
+   This progress report documents the Fall 2025 development         3. A communication layer that streams orientation data with
+toward a head-tracked spatial audio system using low-cost              minimal latency.
+inertial sensing and real-time audio processing. The semester
+focused on establishing a robust spatial audio engine and inte-       Orientation is estimated on the IMU platform and transmit-
+grating an IMU-based head-tracking pipeline capable of sup-        ted via UDP to the host machine, where it is used to update
+porting world-locked audio behavior. The report summarizes         the azimuth and elevation parameters of the audio source in
+completed work, validation to date, challenges encountered,        real time.
+and planned next steps.
+                                                                   B. IMU Sensing and Orientation Estimation. Head orientation
+                                                                   is estimated using an MPU6050 inertial measurement unit pro-
+1. Semester Progress Overview                                      viding tri-axial accelerometer and gyroscope measurements. A
+                                                                   6-DOF Madgwick sensor fusion algorithm is used to compute
+The focus was on establishing the core technical founda-
+                                                                   the orientation in quaternion form. Gyroscope measurements
+tion required for a real-time audio-augmented reality system.
+                                                                   provide short-term responsiveness, whereas accelerometer mea-
+Progress during the semester can be summarized as follows.
+                                                                   surements constrain long-term drift in roll and pitch.
+                                                                       The filter gain parameter β was empirically tuned to bal-
+  • Implementation of a real-time HRTF-based spatial audio         ance responsiveness and stability. Orientation quaternions are
+    engine that supports multiple simultaneous sound sources.      normalized before transmission to avoid numerical drift.
+
+  • Development of smoothing and interpolation strategies to       C. Validation: Head-Tracking Consistency Using a 3D Visual-
+    eliminate audible artifacts during dynamic source move-        izer. Prior to integrating head orientation data into the spatial
+    ment.                                                          audio rendering pipeline, a dedicated 3D visualizer was used to
+                                                                   validate the correctness of head-tracking behavior. The goal of
+  • Integration of a 6-DOF IMU-based head-tracking system
+    using a Madgwick sensor fusion algorithm.
+                                                                    Significance Statement
+  • Real-time streaming of head orientation data from a wear-
+    able IMU to a host audio system using UDP.                      Blind and low-vision individuals rely heavily on spatial hearing
+                                                                    to support navigation and environmental awareness, yet afford-
+                                                                    able technologies that leverage spatial audio remain limited.
+  • Validation of world-locked audio behavior using both
+                                                                    This project investigates the feasibility of a low-cost, wear-
+    visualization and auditory feedback.
+                                                                    able audio-augmented reality system that uses real-time head
+                                                                    tracking to maintain world-locked spatial audio cues as a user
+2. Methods                                                          moves. By combining commodity inertial sensors, real-time
+                                                                    sensor fusion, and head-related transfer function–based audio
+This project was developed through iterative prototyping of         rendering, this work explores key technical tradeoffs between
+a real-time spatial audio pipeline with head tracking. The          latency, stability, and perceptual clarity. The long-term goal is
+early versions of the system prioritized functional correctness,    to inform the design of accessible spatial audio interfaces for
+followed by successive refinements that targeted perceptual sta-    assistive navigation and inclusive human–computer interaction.
+bility, audio quality, and latency reduction. The final system
+integrates inertial sensing, real-time sensor fusion, network
+streaming, and HRTF-based spatial audio rendering.
+
+                                                                               iLCSS   |   December 29, 2025   |   vol. XXX   |   no. XX   |   1–3
+                                                                                       Latency measurements were logged concurrently within the
+                                                                                    visualizer to confirm that orientation updates were applied
+                                                                                    promptly after transmission. While absolute latency values
+                                                                                    were affected by unsynchronized clocks, relative timing consis-
+                                                                                    tency was sufficient for validating correct kinematic behavior.
+
+                                                                                    C.4. Role of the Visualizer in System Validation. The 3D visualizer
+                                                                                    served as a critical intermediate validation tool, enabling isola-
+                                                                                    tion of head-tracking correctness from audio rendering effects.
+                                                                                    By confirming that head movements produced accurate and
+                                                                                    stable visual rotations, errors related to sensor fusion, quater-
+                                                                                    nion normalization, axis inversion, and network transmission
+                                                                                    were identified and resolved prior to audio integration.
+                                                                                       This visual validation established confidence that subse-
+                                                                                    quent spatial audio behavior was driven by audio processing
+                                                                                    design choices rather than upstream head-tracking errors.
+
+                                                                                    D. Network Streaming and Timing. Orientation estimates are
+                                                                                    streamed from the IMU platform to the host system using
+Fig. 1. 3D head-tracking visualizer used for kinematic validation. A rigid cube     UDP. UDP was selected over TCP to minimize latency and
+represents head orientation and is updated in real time using incoming quaternion   avoid blocking behavior. Each packet includes a transmission
+data streamed from the IMU. Controlled head rotations allow verification of axis    timestamp embedded at the IMU, enabling downstream la-
+alignment, sign conventions, and temporal consistency prior to audio integration.   tency analysis. Because system clocks are not synchronized
+                                                                                    across devices, absolute latency measurements exhibits offset
+                                                                                    errors as seen in Table 1; therefore, relative latency and jitter
+this validation step was to ensure that inertial measurements,
+                                                                                    are emphasized during evaluation.
+sensor fusion, network transmission, and coordinate frame
+mappings produced physically consistent and interpretable
+                                                                                    E. Spatial Audio Rendering. Spatial audio is rendered using
+orientation updates before perceptual audio evaluation.
+                                                                                    head-related transfer functions (HRTFs) loaded from a SOFA
+C.1. Validation Setup. Orientation estimates are computed on                        dataset. Audio is processed in fixed-size blocks using overlap-
+the IMU platform using a Madgwick sensor fusion algorithm                           add convolution to enable real-time playback. Each virtual
+and transmitted via UDP as quaternions at approximately                             sound source is represented as a mono audio stream convolved
+100 Hz. Each packet includes a transmission timestamp and                           independently for the left and right ears.
+quaternion components (qw , qx , qy , qz ).                                            Early implementations used nearest-neighbor HRTF se-
+   On the host machine, incoming quaternion data are re-                            lection based solely on instantaneous azimuth and elevation.
+ceived asynchronously and applied to a rigid cube rendered                          While computationally simple, this approach produced audible
+in a PyQtGraph-based 3D visualization environment. The                              artifacts when the listener rotated their head.
+quaternion is converted to a rotation matrix and applied di-
+rectly to the cube transform, allowing head orientation to be                       F. Source Position Smoothing. To address perceptual instabil-
+observed visually in real time.                                                     ity during head motion, exponential smoothing was applied
+                                                                                    to spatial parameters. Each source maintains both a current
+C.2. Axis and Sign Convention Verification. The visualizer was used                 and target azimuth and elevation. Position updates follow
+to verify axis alignment and sign conventions between the IMU
+reference frame and the host visualization frame. Controlled                                          θt = αθt−1 + (1 − α)θtarget ,
+head rotations were performed along individual axes (yaw,
+pitch, roll), and the resulting cube motion was observed.                              where α is derived from a desired transition time and audio
+    In particular, yaw rotation was validated by confirming that                    buffer update rate. This smoothing significantly reduced rapid
+a leftward head rotation produced a corresponding leftward                          angular jumps that previously produced audible crackling.
+rotation of the cube about the vertical axis. An inversion of
+the z-component of the quaternion was required to reconcile                         G. HRTF Coefficient Interpolation and Crackling Mitigation.
+differences between the IMU coordinate frame and the visual-                        Early versions of the spatial audio pipeline exhibited audible
+ization coordinate frame. This correction ensured consistent                        crackling artifacts during head or source motion. Through
+rotational behavior across both systems.                                            systematic debugging, this issue was traced to abrupt transi-
+                                                                                    tions between discrete head-related impulse responses (HRIRs).
+C.3. Temporal Consistency and Update Rate Validation. Temporal                      Because HRTFs are measured at a finite set of azimuth and
+consistency was validated by observing smooth cube motion                           elevation angles, naïvely updating the spatial filter by select-
+during continuous head movement without visible jitter, dis-                        ing the nearest HRIR caused sudden, discontinuous changes
+continuities, or dropped updates. Orientation updates were                          in the convolution kernel. These discontinuities manifested
+received and applied at a rate consistent with the IMU update                       perceptually as crackling or zipper noise.
+frequency (∼100 Hz), confirming that UDP-based stream-                                 Two complementary strategies were implemented to address
+ing and non-blocking reception were sufficient for real-time                        this issue: spatial interpolation between neighboring HRIRs
+visualization.                                                                      and temporal smoothing of HRIR coefficients across frames.
+
+2   |                                                                                                                                         Odusanya
+G.1. Spatial Interpolation Between HRIR Directions. Rather than     Table 1. Summary of latency and jitter measurements for baseline
+                                                                    and full AAR systems.
+selecting a single nearest-neighbor HRIR, the final system
+interpolates between multiple HRIRs corresponding to nearby          System                 Mean (ms)    Std. Dev. (ms)             Notes
+directions on the unit sphere. Given a desired source direction      Baseline Visualizer      -256         339.217          High temporal variance
+d and a set of N nearest measured directions {di } with corre-       Full AAR Audio         -429.284        -10.579           Stable but buffered
+sponding HRIRs hi [n], a weighted interpolation is performed:
+                                N
+                                X                                   I. Head-Tracking Integration. Head orientation updates are
+                      ĥ[n] =         wi hi [n],                    mapped to audio azimuth using a world-locked reference frame.
+                                i=1                                 Yaw rotation is inverted such that turning the head left causes
+   where the weights wi satisfy                                     the audio scene to rotate right, preserving spatial stability.
+                                                                    Pitch updates are optionally applied with reduced gain to
+                     N
+                     X                                              avoid excessive vertical motion artifacts.
+                           wi = 1,      wi ≥ 0.                        Orientation updates are applied asynchronously within the
+                     i=1                                            audio callback loop to prevent blocking behavior and audible
+    Weights are computed as a function of angular distance          dropouts.
+between d and di , such that closer HRIR measurements con-
+tribute more strongly. In practice, inverse-distance weighting      3. Results to Date
+is used:
+                                                                    Initial system validation focused on timing behavior, stability,
+                                1/∥d − di ∥                         and perceptual responsiveness rather than absolute localization
+                   wi = PN                         .                accuracy. The integrated system demonstrates stable head-
+                                   1/∥d − dj ∥
+                             j=1                                    tracked spatial audio with perceptually smooth transitions
+   This spatial interpolation ensures that small changes in         during head motion.
+head orientation produce smooth changes in the effective im-           Latency analysis revealed that unsynchronized clocks be-
+pulse response, eliminating hard filter switches.                   tween the IMU platform and host machine produced negative
+                                                                    latency artifacts. As a result, evaluation focused on relative
+G.2. Temporal Smoothing of HRIR Coefficients. Although spatial      latency and jitter, which remain meaningful under clock offset.
+interpolation reduced large discontinuities, residual crackling
+remained during rapid head motion due to frame-to-frame             4. Challenges and Lessons Learned
+variation in interpolated HRIRs. To address this, exponential
+smoothing was applied directly to the HRIR coefficients over        Several technical challenges were encountered during devel-
+time.                                                               opment. Unsynchronized system clocks produced physically
+   Let ĥt [n] denote the interpolated HRIR at audio frame t.       impossible negative latency measurements, highlighting the
+The smoothed HRIR ht [n] is computed as                             importance of clock alignment in distributed real-time systems.
+                                                                    Additional challenges included coordinate frame misalignment
+               ht [n] = αht−1 [n] + (1 − α)ĥt [n],                 between the IMU and spatial audio reference frames, percep-
+                                                                    tual attenuation due to excessive smoothing, and yaw refer-
+   where α ∈ [0, 1) is a smoothing coefficient determined           ence ambiguity inherent to 6-DOF inertial sensing without a
+empirically based on the audio buffer rate and desired respon-      magnetometer. Addressing these challenges required iterative
+siveness. Larger values of α increase temporal stability at the     debugging and careful tradeoffs between responsiveness and
+cost of responsiveness, while smaller values prioritize rapid       perceptual stability.
+spatial updates.
+   This temporal filtering effectively enforces continuity in the   5. Next Steps
+convolution kernel, preventing abrupt spectral changes that
+would otherwise generate audible artifacts.                         Planned work for Spring 2026 includes integration of computer
+                                                                    vision for object detection, exploration of aesthetic soundscape
+G.3. Combined Effect on Audio Quality. The combination of spatial   techniques for representing object shape and size, migration
+HRIR interpolation and temporal coefficient smoothing elimi-        to embedded wearable hardware, and preparation for a user
+nated perceptual crackling while preserving directional cues        study with blind and low-vision participants.
+and responsiveness. Importantly, these techniques operate
+directly on the impulse response level rather than on audio         ACKNOWLEDGMENTS.         The author thanks advisors and lab
+output, ensuring that stability is enforced at the source of the    members for guidance and technical feedback throughout the
+                                                                    semester.
+artifact. This approach proved more effective than increasing
+buffer sizes or relying solely on output-domain smoothing, and
+forms a core component of the final spatial audio pipeline.         References
+
+H. Distance Attenuation and Amplitude Control. Distance-
+based attenuation is applied using a bounded inverse-distance
+model with conservative gain limits to prevent excessive near-
+field amplification. Additional global attenuation is applied to
+maintain consistent listening levels and avoid clipping when
+multiple sources are active.
+
+Odusanya                                                                            iLCSS   |   December 29, 2025   |   vol. XXX   |   no. XX   |   3
+

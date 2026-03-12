@@ -1,0 +1,345 @@
+---
+layout: default
+---
+
+<div class="project-hero">
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">{{ page.title }}</h1>
+            <p class="project-description">{{ page.description }}</p>
+
+            <div class="project-meta">
+                {% if page.github_url %}
+                <a href="{{ page.github_url }}" class="btn-github" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+                {% endif %}
+
+                {% if page.demo_url %}
+                <a href="{{ page.demo_url }}" class="btn-demo" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="project-content">
+    <div class="container">
+
+        <div class="project-header-simple">
+            <h1 class="project-title-simple">{{ page.title }}</h1>
+        </div>
+
+        <div class="project-split-layout">
+            <!-- Left Column: Text & Info -->
+            <div class="project-left-panel">
+
+                <!-- Overview / Description -->
+                <section class="project-section-clean" id="description">
+                    <h3>Overview</h3>
+                    <div class="project-description-content">
+                        <p class="project-lead">{{ page.description }}</p>
+                        {{ content }}
+                    </div>
+                </section>
+
+
+
+                <!-- Code Section (Collapsible) -->
+                {% if page.code_files %}
+                <section class="project-section-clean" id="code">
+                    <details class="code-details">
+                        <summary>Code Files</summary>
+                        <div class="code-list-container">
+                            {% for code_file in page.code_files %}
+                            <div class="code-file-wrapper">
+                                {% if code_file.content %}
+                                <details class="code-file-details">
+                                    <summary class="code-file-summary">
+                                        <span class="file-name"><i class="fas fa-code"></i> {{ code_file.name }}</span>
+                                        <div class="file-meta">
+                                            <span class="lang-tag">{{ code_file.language }}</span>
+                                            {% if code_file.download_url %}
+                                            <a href="{{ code_file.download_url }}" class="file-download-icon" download
+                                                title="Download"><i class="fas fa-download"></i></a>
+                                            {% endif %}
+                                        </div>
+                                    </summary>
+                                    <div class="code-block-content">
+                                        <pre><code class="language-{{ code_file.language }}">{{ code_file.content | escape }}</code></pre>
+                                    </div>
+                                </details>
+                                {% else %}
+                                <div class="code-file-item">
+                                    <i class="fas fa-code"></i> {{ code_file.name }}
+                                    {% if code_file.download_url %}
+                                    <a href="{{ code_file.download_url }}" download><i class="fas fa-download"></i></a>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </details>
+                </section>
+                {% endif %}
+
+                <!-- Components & Materials -->
+                {% if page.components %}
+                <section class="project-section-clean" id="components" style="margin-top: var(--spacing-lg);">
+                    <h3>Components & Materials</h3>
+                    <table class="components-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Qty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for component in page.components %}
+                            <tr>
+                                <td>{{ component.name }}</td>
+                                <td class="component-qty">{% if component.quantity %}x{{ component.quantity }}{% endif
+                                    %}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+                {% endif %}
+
+                <!-- Meta / Actions (Moved to bottom of left) -->
+                <div class="project-meta-bottom">
+
+                    <div class="project-actions-small">
+                        {% if page.github_url %}
+                        <a href="{{ page.github_url }}" class="btn-small" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        {% endif %}
+
+                        {% if page.demo_url %}
+                        <a href="{{ page.demo_url }}" class="btn-small" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                        {% endif %}
+                    </div>
+
+                    <div class="project-categories-bottom">
+                        {% for category in page.categories %}
+                        <span class="category-tag-small">{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Media -->
+            <div class="project-right-panel">
+
+
+
+                <!-- 3D Models Section -->
+                {% if page.models %}
+                <section class="project-media-group" id="models">
+                    <div class="models-grid-compact">
+                        {% for model in page.models %}
+                        <div class="model-viewer-container">
+                            <model-viewer src="{{ model.file | relative_url }}"
+                                alt="{{ model.description | default: page.title }}" camera-controls
+                                auto-rotate="{{ site.models.auto_rotate | default: false }}"
+                                background-color="{{ site.models.default_background | default: '#f0f0f0' }}"
+                                shadow-intensity="1" class="model-viewer">
+                            </model-viewer>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
+
+                <!-- Media Gallery -->
+                {% if page.gallery %}
+                <section class="project-media-group" id="gallery">
+                    <div class="media-gallery-stack">
+                        {% for media in page.gallery %}
+                        <div class="media-item">
+                            
+                            <!-- YouTube Video Embed -->
+                            {% if media.type == 'youtube' %}
+                            <div class="gallery-youtube-container">
+                                <iframe width="100%" height="315"
+                                    src="https://www.youtube.com/embed/{{ media.video_id | default: media.url | split: '/' | last }}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            
+                            <!-- Audio File with Spectrogram Visualization -->
+                            {% elsif media.type == 'audio' %}
+                            <div class="gallery-audio-container">
+                                <audio controls class="gallery-audio-{{ forloop.index }}" style="width:100%; margin-bottom:10px;">
+                                    <source src="{{ media.file | relative_url }}" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                                {% if media.visualization == 'spectrogram' %}
+                                <div style="text-align:center; margin-bottom:8px; font-size:12px; color:var(--text-secondary);">
+                                    Spectrogram Analysis:
+                                </div>
+                                <canvas class="spectrogram-canvas-{{ forloop.index }}" height="150" style="width:100%; border:1px solid #ccc; border-radius:4px;"></canvas>
+                                
+                                <!-- Inline Spectrogram Script for this audio element -->
+                                <script>
+                                (function() {
+                                  const audioSelector = '.gallery-audio-{{ forloop.index }}';
+                                  const canvasSelector = '.spectrogram-canvas-{{ forloop.index }}';
+                                  const audio = document.querySelector(audioSelector);
+                                  const canvas = document.querySelector(canvasSelector);
+                                  
+                                  if (!audio || !canvas) {
+                                    console.warn('Audio or canvas element not found for spectrogram {{ forloop.index }}');
+                                    return;
+                                  }
+                                  
+                                  const ctx = canvas.getContext('2d');
+                                  let animationId;
+                                  let spectrogramData = [];
+                                  const maxBars = 200;
+                                  
+                                  function drawSpectrogram(frequencyData) {
+                                    spectrogramData.push(Array.from(frequencyData.slice(0, 256)));
+                                    if (spectrogramData.length > maxBars) {
+                                      spectrogramData.shift();
+                                    }
+                                    
+                                    // Clear canvas
+                                    ctx.fillStyle = '#1a1a1a';
+                                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                                    
+                                    if (spectrogramData.length === 0) return;
+                                    
+                                    // Draw spectrogram
+                                    const barWidth = canvas.width / spectrogramData.length;
+                                    spectrogramData.forEach((freqData, timeIndex) => {
+                                      freqData.forEach((value, freqIndex) => {
+                                        const hue = (freqIndex / 256) * 360;
+                                        const brightness = (value / 255) * 100;
+                                        ctx.fillStyle = `hsl(${hue}, 100%, ${brightness * 40}%)`;
+                                        ctx.fillRect(timeIndex * barWidth, (256 - freqIndex - 1) * (canvas.height / 256), barWidth, canvas.height / 256);
+                                      });
+                                    });
+                                  }
+                                  
+                                  function animateSpectrogram() {
+                                    if (!audio.paused) {
+                                      if (!audio._analyser) {
+                                        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                                        const source = audioCtx.createMediaElementSource(audio);
+                                        const analyser = audioCtx.createAnalyser();
+                                        analyser.fftSize = 512;
+                                        source.connect(analyser);
+                                        analyser.connect(audioCtx.destination);
+                                        audio._analyser = analyser;
+                                        audio._audioCtx = audioCtx;
+                                      }
+                                      const frequencyData = new Uint8Array(audio._analyser.frequencyBinCount);
+                                      audio._analyser.getByteFrequencyData(frequencyData);
+                                      drawSpectrogram(frequencyData);
+                                      animationId = requestAnimationFrame(animateSpectrogram);
+                                    } else {
+                                      cancelAnimationFrame(animationId);
+                                    }
+                                  }
+                                  
+                                  audio.addEventListener('play', animateSpectrogram);
+                                  audio.addEventListener('pause', () => cancelAnimationFrame(animationId));
+                                  audio.addEventListener('ended', () => cancelAnimationFrame(animationId));
+                                })();
+                                </script>
+                                {% endif %}
+                            </div>
+                            
+                            <!-- Local Video Files -->
+                            {% elsif media.file %}
+                            {% assign file_extension = media.file | split: '.' | last | downcase %}
+                            {% if file_extension == 'mp4' or file_extension == 'webm' or file_extension == 'avi' or (file_extension == 'gif' and media.type == 'video') %}
+                            <video controls class="gallery-video" {% if file_extension == 'gif' %}autoplay loop muted{% endif %}>
+                                <source src="{{ media.file | relative_url }}" type="video/{{ file_extension }}">
+                                Your browser does not support the video tag.
+                            </video>
+                            {% elsif file_extension == 'gif' %}
+                            <img src="{{ media.file | relative_url }}"
+                                alt="{{ media.description | default: page.title }}" class="gallery-image gallery-gif" data-zoomable decoding="async">
+                            {% else %}
+                            <img src="{{ media.file | relative_url }}"
+                                alt="{{ media.description | default: page.title }}" class="gallery-image" data-zoomable>
+                            {% endif %}
+                            {% endif %}
+                            
+                            {% if media.description %}
+                            <p class="media-caption">{{ media.description }}</p>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
+
+                <!-- Circuit Schematics -->
+                {% if page.schematics %}
+                <section class="project-media-group" id="schematics">
+                    <h4>Schematics</h4>
+                    <div class="schematics-stack">
+                        {% for schematic in page.schematics %}
+                        <div class="schematic-container">
+                            <img src="{{ schematic.file | relative_url }}"
+                                alt="{{ schematic.description | default: 'Circuit Schematic' }}" class="schematic-image"
+                                data-zoomable>
+                        </div>
+                        {% endfor %}
+                    </div>
+            </div>
+            </section>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Project Navigation -->
+<div class="project-navigation">
+    <div class="container">
+        {% assign project_array = site.projects | sort: 'date' %}
+        {% for project in project_array %}
+        {% if project.url == page.url %}
+        {% assign current_index = forloop.index %}
+        {% break %}
+        {% endif %}
+        {% endfor %}
+
+        <div class="nav-links">
+            {% if current_index > 1 %}
+            {% assign prev_project = project_array[current_index | minus: 2] %}
+            <a href="{{ prev_project.url | relative_url }}" class="nav-link prev">
+                <i class="fas fa-chevron-left"></i>
+                <span>{{ prev_project.title }}</span>
+            </a>
+            {% endif %}
+
+            <a href="{{ '/projects/' | relative_url }}" class="nav-link all-projects">
+                <i class="fas fa-th"></i>
+                <span>All Projects</span>
+            </a>
+
+            {% if current_index < project_array.size %} {% assign next_project=project_array[current_index] %} <a
+                href="{{ next_project.url | relative_url }}" class="nav-link next">
+                <span>{{ next_project.title }}</span>
+                <i class="fas fa-chevron-right"></i>
+                </a>
+                {% endif %}
+        </div>
+    </div>
+</div>
