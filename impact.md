@@ -21,6 +21,9 @@ permalink: /impact/
 				<div class="leadership-item">
 					<div class="leadership-date">
 						<span class="date-badge">May 2025 – Present</span>
+						<div style="margin-top: 12px;">
+							<img src="/assets/images/uni/AGSA.png" alt="AGSA Logo" style="height: 48px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);" />
+						</div>
 					</div>
 					<div class="leadership-content">
 						<h3>Vice-President</h3>
@@ -28,31 +31,9 @@ permalink: /impact/
 						<p class="leadership-description">
 							Directed operations of a 10-person leadership team, overseeing a $10k budget and planning 10+ annual events to drive student engagement and connect members to prominent African professionals and academics. Secured partnerships with prominent companies including Vaseline and GoPuff to provide resources and opportunities for association members.
 						</p>
-						<div style="margin-top: 12px;">
-							<img src="/assets/images/uni/AGSA.png" alt="AGSA Logo" style="height: 48px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);" />
-						</div>
 					</div>
 				</div>
-				<div class="leadership-item">
-					<div class="leadership-date">
-						<span class="date-badge">[PLACEHOLDER: Start Date] – [PLACEHOLDER: End Date]</span>
-					</div>
-					<div class="leadership-content">
-						<h3>[PLACEHOLDER: Leadership Position/Role]</h3>
-						<p class="leadership-org"><strong>[PLACEHOLDER: Organization Name]</strong></p>
-						<p class="leadership-description">[PLACEHOLDER: Description of role responsibilities, initiatives led, and measurable impact]</p>
-					</div>
-				</div>
-				<div class="leadership-item">
-					<div class="leadership-date">
-						<span class="date-badge">[PLACEHOLDER: Start Date] – [PLACEHOLDER: End Date]</span>
-					</div>
-					<div class="leadership-content">
-						<h3>[PLACEHOLDER: Leadership Position/Role]</h3>
-						<p class="leadership-org"><strong>[PLACEHOLDER: Organization Name]</strong></p>
-						<p class="leadership-description">[PLACEHOLDER: Description of role responsibilities, initiatives led, and measurable impact]</p>
-					</div>
-				</div>
+
 			</div>
 		</section>
 
@@ -74,88 +55,11 @@ permalink: /impact/
 						</p>
 					</div>
 				</div>
-				<div class="award-item">
-					<div class="award-number">02</div>
-					<div class="award-content">
-						<h3>[PLACEHOLDER: Award/Grant Name]</h3>
-						<p class="award-meta"><strong>[PLACEHOLDER: Awarding Organization]</strong> · [PLACEHOLDER: Year]</p>
-						<p class="award-description">[PLACEHOLDER: Location or context] · [PLACEHOLDER: Brief description of significance or selection criteria]</p>
-					</div>
-				</div>
-				<div class="award-item">
-					<div class="award-number">03</div>
-					<div class="award-content">
-						<h3>[PLACEHOLDER: Award/Grant Name]</h3>
-						<p class="award-meta"><strong>[PLACEHOLDER: Awarding Organization]</strong> · [PLACEHOLDER: Year]</p>
-						<p class="award-description">[PLACEHOLDER: Location or context] · [PLACEHOLDER: Brief description of significance or selection criteria]</p>
-					</div>
-				</div>
-				<div class="award-item">
-					<div class="award-number">04</div>
-					<div class="award-content">
-						<h3>[PLACEHOLDER: Award/Grant Name]</h3>
-						<p class="award-meta"><strong>[PLACEHOLDER: Awarding Organization]</strong> · [PLACEHOLDER: Year]</p>
-						<p class="award-description">[PLACEHOLDER: Location or context] · [PLACEHOLDER: Brief description of significance or selection criteria]</p>
-					</div>
-				</div>
-				<div class="award-item">
-					<div class="award-number">05</div>
-					<div class="award-content">
-						<h3>[PLACEHOLDER: Award/Grant Name]</h3>
-						<p class="award-meta"><strong>[PLACEHOLDER: Awarding Organization]</strong> · [PLACEHOLDER: Year]</p>
-						<p class="award-description">[PLACEHOLDER: Location or context] · [PLACEHOLDER: Brief description of significance or selection criteria]</p>
-					</div>
-				</div>
-				<div class="award-item">
-					<div class="award-number">06</div>
-					<div class="award-content">
-						<h3>[PLACEHOLDER: Award/Grant Name]</h3>
-						<p class="award-meta"><strong>[PLACEHOLDER: Awarding Organization]</strong> · [PLACEHOLDER: Year]</p>
-						<p class="award-description">[PLACEHOLDER: Location or context] · [PLACEHOLDER: Brief description of significance or selection criteria]</p>
-					</div>
-				</div>
+
 			</div>
 		</section>
 
-		<!-- Research & Publications Section -->
-		<section class="about-section">
-			<h2>Research & Publications</h2>
-			<div class="publications-list">
-				<div class="publication-item">
-					<div class="pub-number">[P1]</div>
-					<div class="pub-content">
-						<h3>[PLACEHOLDER: Paper Title]</h3>
-						<p class="pub-meta">[PLACEHOLDER: Authors]. [PLACEHOLDER: Conference/Journal Name], [PLACEHOLDER: Year], pp. [PLACEHOLDER: Pages]</p>
-						<p class="pub-status">[PLACEHOLDER: Status - Published/Accepted/In Review]</p>
-						<div class="pub-links">
-							<a href="[PLACEHOLDER: Paper Link]" class="pub-link" target="_blank">View Paper</a>
-						</div>
-					</div>
-				</div>
-				<div class="publication-item">
-					<div class="pub-number">[P2]</div>
-					<div class="pub-content">
-						<h3>[PLACEHOLDER: Paper Title]</h3>
-						<p class="pub-meta">[PLACEHOLDER: Authors]. [PLACEHOLDER: Conference/Journal Name], [PLACEHOLDER: Year]</p>
-						<p class="pub-status">[PLACEHOLDER: Status - Published/Accepted/In Review]</p>
-						<div class="pub-links">
-							<a href="[PLACEHOLDER: Paper Link]" class="pub-link" target="_blank">View Paper</a>
-						</div>
-					</div>
-				</div>
-				<div class="publication-item">
-					<div class="pub-number">[P3]</div>
-					<div class="pub-content">
-						<h3>[PLACEHOLDER: Paper Title]</h3>
-						<p class="pub-meta">[PLACEHOLDER: Authors]. [PLACEHOLDER: Conference/Journal Name], [PLACEHOLDER: Year]</p>
-						<p class="pub-status">[PLACEHOLDER: Status - Published/Accepted/In Review]</p>
-						<div class="pub-links">
-							<a href="[PLACEHOLDER: Paper Link]" class="pub-link" target="_blank">View Paper</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+
 
 		<!-- Speaking Engagements & Conferences Section -->
 		<section class="about-section">
@@ -239,30 +143,7 @@ permalink: /impact/
 			</div>
 		</section>
 
-		<!-- Community & Education Impact Section -->
-		<section class="about-section">
-			<h2>Education & Community Impact</h2>
-			<div class="impact-highlights">
-				<div class="impact-card">
-					<div class="impact-number">[PLACEHOLDER: Number]</div>
-					<h3>[PLACEHOLDER: Metric/Achievement]</h3>
-					<p class="impact-description">[PLACEHOLDER: Description of impact - e.g., "students trained in robotics fundamentals", "schools visited with STEM outreach", "workshops led on AI/ML applications"]</p>
-					<p class="impact-date"><strong>[PLACEHOLDER: Date/Year]</strong></p>
-				</div>
-				<div class="impact-card">
-					<div class="impact-number">[PLACEHOLDER: Number]</div>
-					<h3>[PLACEHOLDER: Metric/Achievement]</h3>
-					<p class="impact-description">[PLACEHOLDER: Description of impact - e.g., "mentees guided in robotics engineering", "open-source contributions to ROS community", "educational tutorials published"]</p>
-					<p class="impact-date"><strong>[PLACEHOLDER: Date/Year]</strong></p>
-				</div>
-				<div class="impact-card">
-					<div class="impact-number">[PLACEHOLDER: Number]</div>
-					<h3>[PLACEHOLDER: Metric/Achievement]</h3>
-					<p class="impact-description">[PLACEHOLDER: Description of impact - e.g., "assistive devices designed for accessibility", "papers on inclusive robotics design", "students inspired through tech demonstrations"]</p>
-					<p class="impact-date"><strong>[PLACEHOLDER: Date/Year]</strong></p>
-				</div>
-			</div>
-		</section>
+
 
 		<!-- Connect Section -->
 		<section class="about-section" style="text-align: center; padding: 60px 0;">
@@ -593,9 +474,9 @@ permalink: /impact/
 .moderator-images {
 	flex-shrink: 0;
 	display: flex;
+	flex-direction: column;
 	gap: var(--spacing-sm);
-	flex-wrap: wrap;
-	width: 180px;
+	align-items: center;
 }
 
 .session-image {
