@@ -170,7 +170,7 @@ permalink: /impact/
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(135deg, rgba(240, 250, 245, 0.95) 0%, rgba(224, 242, 233, 0.95) 100%);
+  background: var(--background-color);
 }
 
 /* Hero Section */
