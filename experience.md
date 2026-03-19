@@ -17,7 +17,7 @@ permalink: /experience/
 		<section class="about-section">
 			<h2>Background</h2>
 			<div class="background-container">
-				<img src="assets\images\Jo.JPG" alt="Portrait of Josephine Odusanya" class="background-image" />
+				<img src="/assets/images/Jo.JPG" alt="Portrait of Josephine Odusanya" class="background-image" />
 			</div>
 			<p>I am a passionate roboticist and biomechatronics engineer with hands-on experience designing and developing innovative robotic systems, from wearable assistive devices to industrial automation platforms. My work spans mechanical engineering, embedded systems, computer vision, and control systems—with a focus on creating technology that solves real-world problems and improves human capabilities.</p>
 			<p>Beyond traditional engineering, I'm deeply passionate about leveraging robotics as an educational tool. My POV educational quadrotor kit exemplifies this commitment—making advanced robotics concepts accessible to students through hands-on, engaging learning experiences that inspire the next generation of engineers and innovators.</p>
