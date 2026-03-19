@@ -44,7 +44,7 @@ permalink: /impact/
       <div class="impact__grid">
         <article class="impact__card">
           <div class="impact__card-media">
-            <img src="/assets/images/GHC_2025.png" alt="Grace Hopper Conference 2025" class="impact__card-image" />
+            <img src="/assets/images/GHC_2025.jpg" alt="Grace Hopper Conference 2025" class="impact__card-image" />
           </div>
           <div class="impact__card-body">
             <div class="impact__card-header">
@@ -170,7 +170,7 @@ permalink: /impact/
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  background: linear-gradient(135deg, rgba(240, 250, 245, 0.95) 0%, rgba(224, 242, 233, 0.95) 100%);
 }
 
 /* Hero Section */
@@ -395,12 +395,14 @@ permalink: /impact/
   border-radius: var(--radius-md);
   overflow: hidden;
   margin-top: var(--spacing-md);
+  aspect-ratio: 16 / 9;
+  width: 100%;
 }
 
 .impact__video-embed iframe {
   border-radius: var(--radius-md);
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 /* Call to Action Section */
