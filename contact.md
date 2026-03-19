@@ -18,7 +18,7 @@ permalink: /contact/
 			<!-- Contact Form -->
 			<div class="contact-form-wrapper">
 				<h2>Send a Message</h2>
-				<form action="https://formspree.io/f/xyzqwpby" method="POST" class="contact-form">
+				<form action="https://formspree.io/f/mojkrjok" method="POST" class="contact-form">
 					<div class="form-group">
 						<label for="name" class="form-label">Name</label>
 						<input 
