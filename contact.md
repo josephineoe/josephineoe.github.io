@@ -18,7 +18,7 @@ permalink: /contact/
 			<!-- Contact Form -->
 			<div class="contact-form-wrapper">
 				<h2>Send a Message</h2>
-				<form action="https://formspree.io/f/mnqekgqg" method="POST" class="contact-form">
+				<form action="https://formspree.io/f/xyzqwpby" method="POST" class="contact-form">
 					<div class="form-group">
 						<label for="name" class="form-label">Name</label>
 						<input 
@@ -78,21 +78,16 @@ permalink: /contact/
 
 				<div class="contact-methods">
 					<div class="contact-method">
-						<h3>📧 Email</h3>
-						<p>For general inquiries and collaboration opportunities</p>
-						<a href="mailto:[PLACEHOLDER: Your Email]" class="contact-link">Send Email</a>
-					</div>
 
-					<div class="contact-method">
 						<h3>💼 LinkedIn</h3>
 						<p>Connect and follow my professional journey</p>
-						<a href="https://www.linkedin.com/in/[PLACEHOLDER: LinkedIn Handle]" target="_blank" rel="noopener noreferrer" class="contact-link">Visit LinkedIn</a>
+						<a href="https://www.linkedin.com/in/josephineodusanya/" target="_blank" rel="noopener noreferrer" class="contact-link">Visit LinkedIn</a>
 					</div>
 
 					<div class="contact-method">
 						<h3>🐙 GitHub</h3>
 						<p>Explore my open-source projects and code</p>
-						<a href="https://github.com/[PLACEHOLDER: GitHub Handle]" target="_blank" rel="noopener noreferrer" class="contact-link">Visit GitHub</a>
+						<a href="https://github.com/josephineoe" target="_blank" rel="noopener noreferrer" class="contact-link">Visit GitHub</a>
 					</div>
 
 					<div class="contact-method">

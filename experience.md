@@ -16,6 +16,9 @@ permalink: /experience/
 		<!-- Background, Education, Technical Expertise sections from experience.md -->
 		<section class="about-section">
 			<h2>Background</h2>
+			<div class="background-container">
+				<img src="/assets/images/uni/Jo.JPG" alt="Portrait of Josephine Odusanya" class="background-image" />
+			</div>
 			<p>I am a passionate roboticist and biomechatronics engineer with hands-on experience designing and developing innovative robotic systems, from wearable assistive devices to industrial automation platforms. My work spans mechanical engineering, embedded systems, computer vision, and control systems—with a focus on creating technology that solves real-world problems and improves human capabilities.</p>
 			<p>Beyond traditional engineering, I'm deeply passionate about leveraging robotics as an educational tool. My POV educational quadrotor kit exemplifies this commitment—making advanced robotics concepts accessible to students through hands-on, engaging learning experiences that inspire the next generation of engineers and innovators.</p>
 			<p>I'm equally fascinated by the intersection of technology and experience design. My work with immersive design and interactive environments drives me to explore how sensors, sound, and spatial design can create multisensory experiences that transform physical spaces into responsive, engaging environments. This creative pursuit merges art, technology, and human interaction—crafting soundscapes and interactive installations where the environment itself becomes a medium for engagement and expression.</p>
@@ -146,7 +149,7 @@ permalink: /experience/
 				</div>
 			</div>
 		</section>
-		<section class="about-section">
+		<section class="about-section placeholder-section" style="display: none;">
 			<h2>Certifications & Professional Development</h2>
 			<div class="certifications-grid">
 				<div class="certification-item">
@@ -184,7 +187,7 @@ permalink: /experience/
 				</div>
 			</div>
 		</section>
-		<section class="about-section">
+		<section class="about-section placeholder-section" style="display: none;">
 			<h2>Hackathons & Competitions</h2>
 			<div class="hackathons-timeline">
 				<div class="hackathon-item">
@@ -235,6 +238,26 @@ permalink: /experience/
 </div>
 
 <style>
+/* Background Section */
+.background-container {
+	margin-bottom: var(--spacing-lg);
+	display: flex;
+	justify-content: flex-start;
+}
+
+.background-image {
+	max-width: 200px;
+	height: auto;
+	border-radius: var(--radius-lg);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+	object-fit: cover;
+}
+
+/* Placeholder Sections */
+.placeholder-section {
+	/* Hidden by default, change display to 'block' to show */
+}
+
 .experience-timeline {
 	margin-top: var(--spacing-lg);
 }

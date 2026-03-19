@@ -1,739 +1,672 @@
 ---
 layout: default
-published: false
+published: True
 title: Impact
 permalink: /impact/
 ---
 
-<div class="hero-section" style="padding: 100px 0; background: var(--background-color); border-bottom: 1px solid var(--border-color); text-align: center;">
-	<div class="container">
-		<h1 style="font-size: var(--font-size-3xl); letter-spacing: -0.02em; color: var(--text-primary);">Impact</h1>
-		<p style="color: var(--text-secondary); opacity: 0.7; max-width: 600px; margin: 0 auto; font-weight: 300;">Research contributions, leadership initiatives, and hobbies that advance robotics, accessibility, and inclusive engineering education.</p>
-	</div>
-</div>
+<canvas id="roseCanvas" class="impact__background-canvas" aria-hidden="true"></canvas>
 
-<div class="impact-content">
-	<div class="container">
-		<!-- Leadership Section -->
-		<section class="about-section">
-			<h2>Leadership & Community Initiatives</h2>
-			<div class="leadership-timeline">
-				<div class="leadership-item">
-					<div class="leadership-date">
-						<span class="date-badge">May 2025 – Present</span>
-					</div>
-					<div class="leadership-content">
-						<h3>Vice-President</h3>
-						<p class="leadership-org"><strong>African Graduate Student Association (AGSA)</strong></p>
-						<p class="leadership-description">
-							Directed operations of a 10-person leadership team, overseeing a $10k budget and planning 10+ annual events to drive student engagement and connect members to prominent African professionals and academics. Secured partnerships with prominent companies including Vaseline and GoPuff to provide resources and opportunities for association members.
-						</p>
-						<div style="margin-top: 12px;">
-							<img src="/assets/images/uni/AGSA.png" alt="AGSA Logo" style="height: 48px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);" />
-						</div>
-					</div>
-				</div>
-				<div class="leadership-item">
-					<div class="leadership-date">
-						<span class="date-badge">[PLACEHOLDER: Start Date] – [PLACEHOLDER: End Date]</span>
-					</div>
-					<div class="leadership-content">
-						<h3>[PLACEHOLDER: Leadership Position/Role]</h3>
-						<p class="leadership-org"><strong>[PLACEHOLDER: Organization Name]</strong></p>
-						<p class="leadership-description">[PLACEHOLDER: Description of role responsibilities, initiatives led, and measurable impact]</p>
-					</div>
-				</div>
-				<div class="leadership-item">
-					<div class="leadership-date">
-						<span class="date-badge">[PLACEHOLDER: Start Date] – [PLACEHOLDER: End Date]</span>
-					</div>
-					<div class="leadership-content">
-						<h3>[PLACEHOLDER: Leadership Position/Role]</h3>
-						<p class="leadership-org"><strong>[PLACEHOLDER: Organization Name]</strong></p>
-						<p class="leadership-description">[PLACEHOLDER: Description of role responsibilities, initiatives led, and measurable impact]</p>
-					</div>
-				</div>
-			</div>
-		</section>
+<header class="impact__hero" role="banner">
+  <div class="container">
+    <h1 class="impact__title">Impact</h1>
+    <p class="impact__subtitle">Research contributions, leadership initiatives, and hobbies that advance robotics, accessibility, and inclusive engineering education.</p>
+  </div>
+</header>
 
-		<!-- Awards & Travel Grants Section -->
-		<section class="about-section">
-			<h2>Awards & Travel Grants</h2>
-			<div class="awards-grid">
-				<div class="award-item">
-					<div class="award-number">01</div>
-					<div class="award-content">
-						<h3>GHC 25 Travel Grant Winner</h3>
-						<p class="award-meta"><strong>AnitaB.org</strong> · 2025</p>
-						<p class="award-description">Unbound Grace Hopper Celebration 2025 · Chicago, IL (November 4–7, 2025)</p>
-						<div style="margin-top: 12px;">
-							<img src="/assets/images/GHC_2025.png" alt="Grace Hopper Conference 2025" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color);" />
-						</div>
-						<p style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-top: var(--spacing-md); font-style: italic;">
-							GHC 25 is a lot more than a conference—it's a community. I'm heading to Chicago this fall to connect with thousands of technologists who are building, leading, and reimagining what's possible. A huge thank you to NYU Tandon School of Engineering for making this opportunity possible! 💜
-						</p>
-					</div>
-				</div>
-				<div class="award-item">
-					<div class="award-number">02</div>
-					<div class="award-content">
-						<h3>[PLACEHOLDER: Award/Grant Name]</h3>
-						<p class="award-meta"><strong>[PLACEHOLDER: Awarding Organization]</strong> · [PLACEHOLDER: Year]</p>
-						<p class="award-description">[PLACEHOLDER: Location or context] · [PLACEHOLDER: Brief description of significance or selection criteria]</p>
-					</div>
-				</div>
-				<div class="award-item">
-					<div class="award-number">03</div>
-					<div class="award-content">
-						<h3>[PLACEHOLDER: Award/Grant Name]</h3>
-						<p class="award-meta"><strong>[PLACEHOLDER: Awarding Organization]</strong> · [PLACEHOLDER: Year]</p>
-						<p class="award-description">[PLACEHOLDER: Location or context] · [PLACEHOLDER: Brief description of significance or selection criteria]</p>
-					</div>
-				</div>
-				<div class="award-item">
-					<div class="award-number">04</div>
-					<div class="award-content">
-						<h3>[PLACEHOLDER: Award/Grant Name]</h3>
-						<p class="award-meta"><strong>[PLACEHOLDER: Awarding Organization]</strong> · [PLACEHOLDER: Year]</p>
-						<p class="award-description">[PLACEHOLDER: Location or context] · [PLACEHOLDER: Brief description of significance or selection criteria]</p>
-					</div>
-				</div>
-				<div class="award-item">
-					<div class="award-number">05</div>
-					<div class="award-content">
-						<h3>[PLACEHOLDER: Award/Grant Name]</h3>
-						<p class="award-meta"><strong>[PLACEHOLDER: Awarding Organization]</strong> · [PLACEHOLDER: Year]</p>
-						<p class="award-description">[PLACEHOLDER: Location or context] · [PLACEHOLDER: Brief description of significance or selection criteria]</p>
-					</div>
-				</div>
-				<div class="award-item">
-					<div class="award-number">06</div>
-					<div class="award-content">
-						<h3>[PLACEHOLDER: Award/Grant Name]</h3>
-						<p class="award-meta"><strong>[PLACEHOLDER: Awarding Organization]</strong> · [PLACEHOLDER: Year]</p>
-						<p class="award-description">[PLACEHOLDER: Location or context] · [PLACEHOLDER: Brief description of significance or selection criteria]</p>
-					</div>
-				</div>
-			</div>
-		</section>
+<main class="impact__content">
+  <div class="container">
+    <!-- Leadership Section -->
+    <section class="impact__section" aria-labelledby="leadership-heading">
+      <h2 id="leadership-heading" class="impact__section-title">Leadership & Community Initiatives</h2>
+      <div class="impact__grid">
+        <article class="impact__card">
+          <div class="impact__card-media">
+            <img src="/assets/images/uni/AGSA.png" alt="African Graduate Student Association Logo" class="impact__card-image" />
+          </div>
+          <div class="impact__card-body">
+            <div class="impact__card-header">
+              <h3 class="impact__card-title">Vice-President</h3>
+              <time class="impact__card-date">May 2025 – Present</time>
+            </div>
+            <p class="impact__card-org">African Graduate Student Association (AGSA)</p>
+            <p class="impact__card-description">
+              Directed operations of a 10-person leadership team, overseeing a $10k budget and planning 10+ annual events to drive student engagement and connect members to prominent African professionals and academics. Secured partnerships with prominent companies including Vaseline and GoPuff to provide resources and opportunities for association members.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-		<!-- Research & Publications Section -->
-		<section class="about-section">
-			<h2>Research & Publications</h2>
-			<div class="publications-list">
-				<div class="publication-item">
-					<div class="pub-number">[P1]</div>
-					<div class="pub-content">
-						<h3>[PLACEHOLDER: Paper Title]</h3>
-						<p class="pub-meta">[PLACEHOLDER: Authors]. [PLACEHOLDER: Conference/Journal Name], [PLACEHOLDER: Year], pp. [PLACEHOLDER: Pages]</p>
-						<p class="pub-status">[PLACEHOLDER: Status - Published/Accepted/In Review]</p>
-						<div class="pub-links">
-							<a href="[PLACEHOLDER: Paper Link]" class="pub-link" target="_blank">View Paper</a>
-						</div>
-					</div>
-				</div>
-				<div class="publication-item">
-					<div class="pub-number">[P2]</div>
-					<div class="pub-content">
-						<h3>[PLACEHOLDER: Paper Title]</h3>
-						<p class="pub-meta">[PLACEHOLDER: Authors]. [PLACEHOLDER: Conference/Journal Name], [PLACEHOLDER: Year]</p>
-						<p class="pub-status">[PLACEHOLDER: Status - Published/Accepted/In Review]</p>
-						<div class="pub-links">
-							<a href="[PLACEHOLDER: Paper Link]" class="pub-link" target="_blank">View Paper</a>
-						</div>
-					</div>
-				</div>
-				<div class="publication-item">
-					<div class="pub-number">[P3]</div>
-					<div class="pub-content">
-						<h3>[PLACEHOLDER: Paper Title]</h3>
-						<p class="pub-meta">[PLACEHOLDER: Authors]. [PLACEHOLDER: Conference/Journal Name], [PLACEHOLDER: Year]</p>
-						<p class="pub-status">[PLACEHOLDER: Status - Published/Accepted/In Review]</p>
-						<div class="pub-links">
-							<a href="[PLACEHOLDER: Paper Link]" class="pub-link" target="_blank">View Paper</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    <!-- Awards Section -->
+    <section class="impact__section" aria-labelledby="awards-heading">
+      <h2 id="awards-heading" class="impact__section-title">Awards & Travel Grants</h2>
+      <div class="impact__grid">
+        <article class="impact__card">
+          <div class="impact__card-media">
+            <img src="/assets/images/GHC_2025.png" alt="Grace Hopper Conference 2025" class="impact__card-image" />
+          </div>
+          <div class="impact__card-body">
+            <div class="impact__card-header">
+              <h3 class="impact__card-title">GHC 25 Travel Grant Winner</h3>
+              <time class="impact__card-date">2025</time>
+            </div>
+            <p class="impact__card-org">AnitaB.org</p>
+            <p class="impact__card-description">
+              Unbound Grace Hopper Celebration 2025 · Chicago, IL (November 4–7, 2025)
+            </p>
+            <p class="impact__card-note">
+              GHC 25 is a lot more than a conference—it's a community. I'm heading to Chicago this fall to connect with thousands of technologists who are building, leading, and reimagining what's possible. A huge thank you to NYU Tandon School of Engineering for making this opportunity possible! 💜
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-		<!-- Speaking Engagements & Conferences Section -->
-		<section class="about-section">
-			<h2>Speaking Engagements & Conferences</h2>
-			<div class="speaking-list">
-				<div class="speaking-item">
-					<div class="speaking-thumbnail">
-						<img src="/assets/images/Josephine Odusanya Speaker Flyer.jpg" alt="Black Is Tech Conference 2026" />
-					</div>
-					<div class="speaking-content">
-						<h3>Black Is Tech Conference 2026</h3>
-						<p class="speaking-meta"><strong>Houston, TX</strong> · April 20–24, 2026</p>
-						<p class="speaking-description">
-							I'm excited to share that I'll be speaking at the Black Is Tech Conference 2026 in Houston (April 20–24, 2026) — and I'm honored to be part of not one, but two sessions this year.
-						</p>
-						<div class="speaking-sessions">
-							<div class="session">
-								<h4>Session 1 — Panel</h4>
-								<p><strong>🗓 Thursday, April 23, 2026 · 🕒 2:30 PM CST</strong></p>
-								<p><strong>🎤 From Clinical Systems to Intelligent Care: The Tech-Driven Evolution of Healthcare and Why You Should Pay Attention</strong></p>
-								<p><strong>📍 Main Stage</strong> (Room details coming soon)</p>
-							</div>
-							<div class="session">
-								<h4>Session 2 — Solo Presentation</h4>
-								<p><strong>🗓 Thursday, April 23, 2026 · 🕓 4:45 PM CST</strong></p>
-								<p><strong>🎤 Accessibility as Engineering: Research to Reality — Prototyping Assistive Tech That Works for Everyone</strong></p>
-								<p><strong>📍 Breakout Room 2</strong> (Room details coming soon)</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    <!-- Speaking Section -->
+    <section class="impact__section" aria-labelledby="speaking-heading">
+      <h2 id="speaking-heading" class="impact__section-title">Speaking Engagements & Conferences</h2>
+      <div class="impact__grid">
+        <article class="impact__card">
+          <div class="impact__card-media">
+            <img src="/assets/images/Josephine Odusanya Speaker Flyer.jpg" alt="Black Is Tech Conference 2026 speaker flyer" class="impact__card-image" />
+          </div>
+          <div class="impact__card-body">
+            <div class="impact__card-header">
+              <h3 class="impact__card-title">Black Is Tech Conference 2026</h3>
+              <time class="impact__card-date">April 20–24, 2026</time>
+            </div>
+            <p class="impact__card-org">Houston, TX</p>
+            <p class="impact__card-description">
+              I'm excited to share that I'll be speaking at the Black Is Tech Conference 2026 in Houston—and I'm honored to be part of two sessions this year.
+            </p>
+            <div class="impact__sessions">
+              <div class="impact__session">
+                <h4 class="impact__session-title">Session 1 — Panel</h4>
+                <p class="impact__session-meta">Thursday, April 23, 2026 · 2:30 PM CST</p>
+                <p class="impact__session-topic">From Clinical Systems to Intelligent Care: The Tech-Driven Evolution of Healthcare and Why You Should Pay Attention</p>
+                <p class="impact__session-location">📍 Main Stage</p>
+              </div>
+              <div class="impact__session">
+                <h4 class="impact__session-title">Session 2 — Solo Presentation</h4>
+                <p class="impact__session-meta">Thursday, April 23, 2026 · 4:45 PM CST</p>
+                <p class="impact__session-topic">Accessibility as Engineering: Research to Reality — Prototyping Assistive Tech That Works for Everyone</p>
+                <p class="impact__session-location">📍 Breakout Room 2</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-		<!-- Moderator Sessions Section -->
-		<section class="about-section">
-			<h2>Moderator Sessions & Community Conversations</h2>
-			<div class="moderator-sessions">
-				<!-- Session 1: From Connection to Creation -->
-				<div class="moderator-item">
-					<div class="moderator-images">
-						<img src="/assets/images/3.png" alt="Session thumbnail" class="session-image" />
-						<img src="/assets/images/Nov 3 Webinar.png" alt="From Connection to Creation" class="session-image" />
-					</div>
-					<div class="moderator-content">
-						<h3>From Connection to Creation — How Collaboration Fuels Diaspora Excellence</h3>
-						<p class="moderator-meta"><strong>📅 Monday, November 3, 2025</strong> · <strong>🕐 1–3 PM ET</strong></p>
-						<p class="moderator-description">
-							The NYU African Graduate Students Association hosted a webinar exploring how collaboration, identity, and community drive impact across diasporic and professional spaces—spotlighting third spaces, cross-industry networks, innovation, and feminism with:
-						</p>
-						<div class="guest-speakers">
-							<div class="guest">
-								<p><strong>😁 Symone Williams</strong> (Afro-Latina, Associate Director at Hearst Magazines)</p>
-							</div>
-							<div class="guest">
-								<p><strong>😁 Obianuju Okafor, PhD</strong> (Nigerian-born software engineer & researcher at Microsoft)</p>
-							</div>
-						</div>
-						<p style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-top: var(--spacing-md);">💻 Zoom (open to all)</p>
-					</div>
-				</div>
+    <!-- Moderator Sessions Section -->
+    <section class="impact__section" aria-labelledby="moderator-heading">
+      <h2 id="moderator-heading" class="impact__section-title">Moderator Sessions & Community Conversations</h2>
+      <div class="impact__grid">
+        <article class="impact__card">
+          <div class="impact__card-media">
+            <img src="/assets/images/3.png" alt="From Connection to Creation session thumbnail" class="impact__card-thumbnail" />
+            <img src="/assets/images/Nov 3 Webinar.png" alt="From Connection to Creation webinar banner" class="impact__card-thumbnail" />
+          </div>
+          <div class="impact__card-body">
+            <div class="impact__card-header">
+              <h3 class="impact__card-title">From Connection to Creation — How Collaboration Fuels Diaspora Excellence</h3>
+              <time class="impact__card-date">Monday, November 3, 2025</time>
+            </div>
+            <p class="impact__card-time">🕐 1–3 PM ET</p>
+            <p class="impact__card-description">
+              The NYU African Graduate Students Association hosted a webinar exploring how collaboration, identity, and community drive impact across diasporic and professional spaces—spotlighting third spaces, cross-industry networks, innovation, and feminism with:
+            </p>
+            <div class="impact__speakers">
+              <p class="impact__speaker"><strong>Symone Williams</strong> – Afro-Latina, Associate Director at Hearst Magazines</p>
+              <p class="impact__speaker"><strong>Obianuju Okafor, PhD</strong> – Nigerian-born software engineer & researcher at Microsoft</p>
+            </div>
+            <p class="impact__card-format">💻 Zoom (open to all)</p>
+          </div>
+        </article>
 
-				<!-- Session 2: For Such a Time as This -->
-				<div class="moderator-item">
-					<div class="moderator-images">
-						<img src="/assets/images/5.png" alt="Session thumbnail" class="session-image" />
-						<img src="/assets/images/6.png" alt="For Such a Time as This" class="session-image" />
-					</div>
-					<div class="moderator-content">
-						<h3>For Such a Time as This with Marie-Ange Eyoum Tagne, PhD</h3>
-						<p class="moderator-meta"><strong>📅 Wednesday, November 5, 2025</strong> · <strong>🕐 1–3 PM ET</strong></p>
-						<p class="moderator-description">
-							An uplifting online conversation with Marie-Ange Eyoum Tagne — Visionary Product Lead (ex-Meta/Amazon/Yahoo/Intel), Amazon Top Bestselling Author, and keynote speaker. Drawing from her new book, <em>For Such a Time as This</em>, Marie-Ange shared a candid, hope-filled conversation about faith, resilience, and purpose—what it looks like to embrace your calling and walk boldly in your season. Expect laughter, reflection, and practical encouragement.
-						</p>
-						<p style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-top: var(--spacing-md);">💻 Zoom (open to students, alumni, and allies)</p>
-						<div class="youtube-embed" style="margin-top: var(--spacing-lg);">
-							<iframe width="100%" height="315" src="https://www.youtube.com/embed/CUsI_GhGg6o?si=lCNy4KvR-5ujOHoW" title="For Such a Time as This - Marie-Ange Eyoum Tagne" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+        <article class="impact__card">
+          <div class="impact__card-media">
+            <img src="/assets/images/5.png" alt="For Such a Time as This session thumbnail" class="impact__card-thumbnail" />
+            <img src="/assets/images/6.png" alt="For Such a Time as This banner" class="impact__card-thumbnail" />
+          </div>
+          <div class="impact__card-body">
+            <div class="impact__card-header">
+              <h3 class="impact__card-title">For Such a Time as This with Marie-Ange Eyoum Tagne, PhD</h3>
+              <time class="impact__card-date">Wednesday, November 5, 2025</time>
+            </div>
+            <p class="impact__card-time">🕐 1–3 PM ET</p>
+            <p class="impact__card-description">
+              An uplifting online conversation with Marie-Ange Eyoum Tagne — Visionary Product Lead (ex-Meta/Amazon/Yahoo/Intel), Amazon Top Bestselling Author, and keynote speaker. Drawing from her new book, <cite>For Such a Time as This</cite>, Marie-Ange shared a candid, hope-filled conversation about faith, resilience, and purpose—what it looks like to embrace your calling and walk boldly in your season. Expect laughter, reflection, and practical encouragement.
+            </p>
+            <p class="impact__card-format">💻 Zoom (open to students, alumni, and allies)</p>
+            <div class="impact__video-embed">
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/CUsI_GhGg6o?si=lCNy4KvR-5ujOHoW" title="For Such a Time as This - Marie-Ange Eyoum Tagne" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-		<!-- Community & Education Impact Section -->
-		<section class="about-section">
-			<h2>Education & Community Impact</h2>
-			<div class="impact-highlights">
-				<div class="impact-card">
-					<div class="impact-number">[PLACEHOLDER: Number]</div>
-					<h3>[PLACEHOLDER: Metric/Achievement]</h3>
-					<p class="impact-description">[PLACEHOLDER: Description of impact - e.g., "students trained in robotics fundamentals", "schools visited with STEM outreach", "workshops led on AI/ML applications"]</p>
-					<p class="impact-date"><strong>[PLACEHOLDER: Date/Year]</strong></p>
-				</div>
-				<div class="impact-card">
-					<div class="impact-number">[PLACEHOLDER: Number]</div>
-					<h3>[PLACEHOLDER: Metric/Achievement]</h3>
-					<p class="impact-description">[PLACEHOLDER: Description of impact - e.g., "mentees guided in robotics engineering", "open-source contributions to ROS community", "educational tutorials published"]</p>
-					<p class="impact-date"><strong>[PLACEHOLDER: Date/Year]</strong></p>
-				</div>
-				<div class="impact-card">
-					<div class="impact-number">[PLACEHOLDER: Number]</div>
-					<h3>[PLACEHOLDER: Metric/Achievement]</h3>
-					<p class="impact-description">[PLACEHOLDER: Description of impact - e.g., "assistive devices designed for accessibility", "papers on inclusive robotics design", "students inspired through tech demonstrations"]</p>
-					<p class="impact-date"><strong>[PLACEHOLDER: Date/Year]</strong></p>
-				</div>
-			</div>
-		</section>
-
-		<!-- Connect Section -->
-		<section class="about-section" style="text-align: center; padding: 60px 0;">
-			<h2>Let's Talk Impact</h2>
-			<p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px;">I'm passionate about advancing robotics, making technology more accessible, and inspiring the next generation of engineers. Let's collaborate on projects that matter.</p>
-			<div class="contact-buttons">
-				<a href="https://www.linkedin.com/in/josephineodusanya/" class="btn-contact" target="_blank">Message on LinkedIn</a>
-				<a href="mailto:joo9964@nyu.edu" class="btn-contact">Send Email</a>
-				<a href="/contact/" class="btn-contact">Full Contact Form</a>
-			</div>
-		</section>
-	</div>
-</div>
+    <!-- Call to Action Section -->
+    <section class="impact__cta" aria-labelledby="cta-heading">
+      <h2 id="cta-heading" class="impact__cta-title">Let's Talk Impact</h2>
+      <p class="impact__cta-description">I'm passionate about advancing robotics, making technology more accessible, and inspiring the next generation of engineers. Let's collaborate on projects that matter.</p>
+      <div class="impact__cta-buttons">
+        <a href="https://www.linkedin.com/in/josephineodusanya/" class="impact__cta-button" target="_blank" rel="noopener noreferrer">Message on LinkedIn</a>
+        <a href="mailto:joo9964@nyu.edu" class="impact__cta-button">Send Email</a>
+        <a href="/contact/" class="impact__cta-button">Full Contact Form</a>
+      </div>
+    </section>
+  </div>
+</main>
 
 <style>
-.impact-content {
-	color: var(--text-primary);
+/* Background Canvas */
+.impact__background-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
 }
 
-.leadership-timeline {
-	margin-top: var(--spacing-lg);
+/* Hero Section */
+.impact__hero {
+  padding: 100px 0;
+  background: transparent;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-.leadership-item {
-	display: flex;
-	gap: var(--spacing-lg);
-	padding: var(--spacing-lg);
-	background-color: var(--surface-color);
-	border-radius: var(--radius-lg);
-	border: 1px solid var(--border-color);
-	margin-bottom: var(--spacing-md);
-	align-items: flex-start;
+.impact__title {
+  font-size: var(--font-size-3xl);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-md) 0;
 }
 
-.leadership-date {
-	flex-shrink: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-width: 120px;
+.impact__subtitle {
+  color: var(--text-secondary);
+  opacity: 0.7;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
 }
 
-.date-badge {
-	background-color: var(--primary-color);
-	color: white;
-	padding: 8px 12px;
-	border-radius: var(--radius-md);
-	font-weight: var(--font-weight-medium);
-	font-size: var(--font-size-sm);
-	text-align: center;
-	white-space: nowrap;
+/* Main Content */
+.impact__content {
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
 }
 
-.leadership-content h3 {
-	color: var(--text-primary);
-	margin-bottom: var(--spacing-sm);
-	margin-top: 0;
+/* Section Styling */
+.impact__section {
+  margin-bottom: 60px;
 }
 
-.leadership-org {
-	color: var(--text-secondary);
-	font-weight: var(--font-weight-medium);
-	margin-bottom: var(--spacing-sm);
-	margin: 0;
+.impact__section-title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
 }
 
-.leadership-description {
-	color: var(--text-secondary);
-	margin: 0;
+/* Grid Layout */
+.impact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
 }
 
-.awards-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-	gap: var(--spacing-lg);
-	margin-top: var(--spacing-lg);
+/* Card Component */
+.impact__card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  align-items: start;
+  transition: all 0.3s ease;
 }
 
-.award-item {
-	display: flex;
-	gap: var(--spacing-md);
-	padding: var(--spacing-lg);
-	background-color: var(--surface-color);
-	border-radius: var(--radius-lg);
-	border: 1px solid var(--border-color);
-	align-items: flex-start;
+.impact__card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
-.award-number {
-	flex-shrink: 0;
-	font-size: var(--font-size-lg);
-	font-weight: var(--font-weight-bold);
-	color: var(--primary-color);
-	min-width: 40px;
+/* Card Media */
+.impact__card-media {
+  flex-shrink: 0;
 }
 
-.award-content h3 {
-	color: var(--text-primary);
-	margin-bottom: var(--spacing-sm);
-	margin-top: 0;
-	font-size: var(--font-size-base);
+.impact__card-image {
+  display: block;
+  max-width: 180px;
+  max-height: 180px;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-md);
+  object-fit: cover;
 }
 
-.award-meta {
-	color: var(--primary-color);
-	font-weight: var(--font-weight-medium);
-	margin-bottom: var(--spacing-xs);
-	margin: 0;
-	font-size: var(--font-size-sm);
+.impact__card-thumbnail {
+  display: inline-block;
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  margin-right: var(--spacing-sm);
 }
 
-.award-description {
-	color: var(--text-secondary);
-	margin: 0;
-	font-size: var(--font-size-sm);
+.impact__card-thumbnail:last-of-type {
+  margin-right: 0;
 }
 
-.publications-list {
-	margin-top: var(--spacing-lg);
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-md);
+/* Card Body */
+.impact__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
 }
 
-.publication-item {
-	display: flex;
-	gap: var(--spacing-md);
-	padding: var(--spacing-lg);
-	background-color: var(--surface-color);
-	border-radius: var(--radius-lg);
-	border: 1px solid var(--border-color);
-	align-items: flex-start;
+/* Card Header */
+.impact__card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-md);
 }
 
-.pub-number {
-	flex-shrink: 0;
-	font-weight: var(--font-weight-bold);
-	color: var(--primary-color);
-	min-width: 35px;
+.impact__card-title {
+  color: var(--text-primary);
+  margin: 0;
+  font-size: var(--font-size-lg);
+  flex: 1;
 }
 
-.pub-content h3 {
-	color: var(--text-primary);
-	margin-bottom: var(--spacing-sm);
-	margin-top: 0;
+.impact__card-date {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.pub-meta {
-	color: var(--text-secondary);
-	font-size: var(--font-size-sm);
-	margin-bottom: var(--spacing-xs);
-	margin: 0;
+.impact__card-org {
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+  font-size: var(--font-size-base);
 }
 
-.pub-status {
-	color: var(--primary-color);
-	font-size: var(--font-size-sm);
-	font-weight: var(--font-weight-medium);
-	margin-bottom: var(--spacing-sm);
-	margin: 0;
+.impact__card-time {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: var(--font-size-sm);
 }
 
-.pub-links {
-	display: flex;
-	gap: var(--spacing-md);
-	margin-top: var(--spacing-sm);
+.impact__card-description {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
 }
 
-.pub-link {
-	color: var(--primary-color);
-	text-decoration: none;
-	font-size: var(--font-size-sm);
-	font-weight: var(--font-weight-medium);
-	padding: 6px 12px;
-	border: 1px solid var(--primary-color);
-	border-radius: var(--radius-md);
-	transition: all 0.3s ease;
+.impact__card-note {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-style: italic;
 }
 
-.pub-link:hover {
-	background-color: var(--primary-color);
-	color: white;
+.impact__card-format {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: var(--font-size-sm);
 }
 
-.impact-highlights {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	gap: var(--spacing-lg);
-	margin-top: var(--spacing-lg);
+/* Sessions */
+.impact__sessions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
 }
 
-.impact-card {
-	padding: var(--spacing-lg);
-	background-color: var(--surface-color);
-	border-radius: var(--radius-lg);
-	border: 1px solid var(--border-color);
-	text-align: center;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+.impact__session {
+  padding: var(--spacing-md);
+  background-color: rgba(0, 0, 0, 0.02);
+  border-left: 4px solid var(--primary-color);
+  border-radius: var(--radius-md);
 }
 
-.impact-card:hover {
-	transform: translateY(-4px);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.impact__session-title {
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
 }
 
-.impact-number {
-	font-size: 2.5rem;
-	font-weight: var(--font-weight-bold);
-	color: var(--primary-color);
-	margin-bottom: var(--spacing-sm);
+.impact__session-meta {
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-size-sm);
 }
 
-.impact-card h3 {
-	color: var(--text-primary);
-	margin-bottom: var(--spacing-sm);
-	margin-top: 0;
+.impact__session-topic {
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
 }
 
-.impact-description {
-	color: var(--text-secondary);
-	margin-bottom: var(--spacing-sm);
-	font-size: var(--font-size-sm);
+.impact__session-location {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: var(--font-size-sm);
 }
 
-.impact-date {
-	color: var(--primary-color);
-	font-weight: var(--font-weight-medium);
-	font-size: var(--font-size-sm);
-	margin: 0;
+/* Speakers */
+.impact__speakers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: rgba(0, 0, 0, 0.02);
+  border-left: 4px solid var(--primary-color);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-md) 0;
 }
 
-.speaking-list {
-	margin-top: var(--spacing-lg);
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-lg);
+.impact__speaker {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: var(--font-size-sm);
 }
 
-.speaking-item {
-	display: flex;
-	gap: var(--spacing-lg);
-	padding: var(--spacing-lg);
-	background-color: var(--surface-color);
-	border-radius: var(--radius-lg);
-	border: 1px solid var(--border-color);
-	align-items: flex-start;
+/* Video Embed */
+.impact__video-embed {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: var(--spacing-md);
 }
 
-.speaking-thumbnail {
-	flex-shrink: 0;
-	border-radius: var(--radius-lg);
-	overflow: hidden;
-	width: 180px;
-	height: 180px;
-	object-fit: cover;
+.impact__video-embed iframe {
+  border-radius: var(--radius-md);
+  width: 100%;
+  height: auto;
 }
 
-.speaking-thumbnail img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
+/* Call to Action Section */
+.impact__cta {
+  text-align: center;
+  padding: 60px 0;
+  position: relative;
+  z-index: 1;
 }
 
-.speaking-content h3 {
-	color: var(--text-primary);
-	margin-bottom: var(--spacing-sm);
-	margin-top: 0;
+.impact__cta-title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
 }
 
-.speaking-meta {
-	color: var(--primary-color);
-	font-weight: var(--font-weight-medium);
-	margin-bottom: var(--spacing-sm);
-	margin: 0;
-	font-size: var(--font-size-sm);
+.impact__cta-description {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
+  line-height: 1.6;
 }
 
-.speaking-description {
-	color: var(--text-secondary);
-	margin-bottom: var(--spacing-md);
-	margin-top: var(--spacing-sm);
+.impact__cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
 }
 
-.speaking-sessions {
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-md);
-	margin-top: var(--spacing-md);
+.impact__cta-button {
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary-color);
+  cursor: pointer;
+  display: inline-block;
 }
 
-.session {
-	padding: var(--spacing-md);
-	background-color: rgba(0, 0, 0, 0.02);
-	border-left: 4px solid var(--primary-color);
-	border-radius: var(--radius-md);
+.impact__cta-button:hover {
+  background-color: transparent;
+  color: var(--primary-color);
 }
 
-.session h4 {
-	color: var(--text-primary);
-	margin: 0 0 var(--spacing-sm) 0;
-	font-size: var(--font-size-base);
-}
-
-.session p {
-	color: var(--text-secondary);
-	margin: var(--spacing-xs) 0;
-	font-size: var(--font-size-sm);
-}
-
-.moderator-sessions {
-	margin-top: var(--spacing-lg);
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-lg);
-}
-
-.moderator-item {
-	display: flex;
-	gap: var(--spacing-lg);
-	padding: var(--spacing-lg);
-	background-color: var(--surface-color);
-	border-radius: var(--radius-lg);
-	border: 1px solid var(--border-color);
-	align-items: flex-start;
-}
-
-.moderator-images {
-	flex-shrink: 0;
-	display: flex;
-	gap: var(--spacing-sm);
-	flex-wrap: wrap;
-	width: 180px;
-}
-
-.session-image {
-	width: 85px;
-	height: 85px;
-	object-fit: cover;
-	border-radius: var(--radius-md);
-	border: 1px solid var(--border-color);
-}
-
-.moderator-content h3 {
-	color: var(--text-primary);
-	margin-bottom: var(--spacing-sm);
-	margin-top: 0;
-}
-
-.moderator-meta {
-	color: var(--primary-color);
-	font-weight: var(--font-weight-medium);
-	margin-bottom: var(--spacing-sm);
-	margin: 0;
-	font-size: var(--font-size-sm);
-}
-
-.moderator-description {
-	color: var(--text-secondary);
-	margin-bottom: var(--spacing-md);
-	margin-top: var(--spacing-sm);
-}
-
-.guest-speakers {
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-sm);
-	padding: var(--spacing-md);
-	background-color: rgba(0, 0, 0, 0.02);
-	border-left: 4px solid var(--primary-color);
-	border-radius: var(--radius-md);
-	margin: var(--spacing-md) 0;
-}
-
-.guest p {
-	color: var(--text-secondary);
-	margin: 0;
-	font-size: var(--font-size-sm);
-}
-
-.youtube-embed {
-	border-radius: var(--radius-md);
-	overflow: hidden;
-}
-
-.youtube-embed iframe {
-	border-radius: var(--radius-md);
-}
-
-.contact-buttons {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--spacing-md);
-	justify-content: center;
-}
-
-.btn-contact {
-	padding: 12px 24px;
-	background-color: var(--primary-color);
-	color: white;
-	text-decoration: none;
-	border-radius: var(--radius-md);
-	font-weight: var(--font-weight-medium);
-	transition: background-color 0.3s ease;
-	border: 2px solid var(--primary-color);
-}
-
-.btn-contact:hover {
-	background-color: transparent;
-	color: var(--primary-color);
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
-	.leadership-item {
-		flex-direction: column;
-	}
+  .impact__card {
+    grid-template-columns: 1fr;
+  }
 
-	.leadership-date {
-		min-width: auto;
-		width: 100%;
-	}
+  .impact__card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-	.award-item {
-		flex-direction: column;
-	}
+  .impact__card-date {
+    width: 100%;
+    white-space: normal;
+  }
 
-	.publication-item {
-		flex-direction: column;
-	}
+  .impact__card-media {
+    width: 100%;
+    text-align: center;
+  }
 
-	.speaking-item {
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
+  .impact__card-image {
+    max-width: 100%;
+    max-height: 300px;
+  }
 
-	.speaking-thumbnail {
-		width: 100%;
-		max-width: 300px;
-		height: auto;
-		aspect-ratio: 16 / 9;
-	}
+  .impact__card-thumbnail {
+    width: 100px;
+    height: 100px;
+  }
 
-	.session {
-		border-left: none;
-		border-top: 4px solid var(--primary-color);
-	}
+  .impact__cta-buttons {
+    flex-direction: column;
+  }
 
-	.moderator-item {
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
+  .impact__cta-button {
+    width: 100%;
+    text-align: center;
+  }
 
-	.moderator-images {
-		width: 100%;
-		justify-content: center;
-	}
+  .impact__session {
+    border-left: none;
+    border-top: 4px solid var(--primary-color);
+    padding-top: var(--spacing-md);
+  }
 
-	.guest-speakers {
-		border-left: none;
-		border-top: 4px solid var(--primary-color);
-	}
+  .impact__speakers {
+    border-left: none;
+    border-top: 4px solid var(--primary-color);
+  }
 
-	.contact-buttons {
-		flex-direction: column;
-	}
+  .impact__title {
+    font-size: var(--font-size-2xl);
+  }
 
-	.btn-contact {
-		width: 100%;
-		text-align: center;
-	}
+  .impact__section-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .impact__cta-title {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .impact__card {
+    padding: var(--spacing-md);
+  }
+
+  .impact__card-image {
+    max-height: 150px;
+  }
+
+  .impact__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .impact__sessions {
+    gap: var(--spacing-sm);
+  }
+
+  .impact__session {
+    padding: var(--spacing-sm);
+  }
 }
 </style>
+
+<script>
+/**
+ * Animated Rose Particles Background
+ * Creates a subtle animated rose petal effect on the canvas
+ */
+(function initializeRoseBackground() {
+  const canvas = document.getElementById('roseCanvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let animationFrameId;
+
+  /**
+   * Resize canvas to fit window
+   */
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  /**
+   * Rose petal particle class
+   */
+  class RoseParticle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height - canvas.height;
+      this.size = Math.random() * 8 + 4;
+      this.opacity = Math.random() * 0.3 + 0.1;
+      this.velocityX = (Math.random() - 0.5) * 1;
+      this.velocityY = Math.random() * 0.5 + 0.5;
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotationSpeed = (Math.random() - 0.5) * 0.05;
+      this.color = this.getRandomRoseColor();
+    }
+
+    /**
+     * Get random rose-inspired color
+     */
+    getRandomRoseColor() {
+      const colors = [
+        'rgba(204, 102, 153, ',      // soft rose
+        'rgba(255, 182, 193, ',       // light pink
+        'rgba(219, 112, 147, ',       // pale violet red
+        'rgba(255, 192, 203, ',       // pink
+        'rgba(255, 160, 180, ',       // coral pink
+      ];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    /**
+     * Draw rose petal shape
+     */
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+      ctx.globalAlpha = this.opacity;
+
+      // Draw rose petal shape (elongated circle with curve)
+      ctx.beginPath();
+      ctx.ellipse(0, 0, this.size * 0.6, this.size * 1.2, 0, 0, Math.PI * 2);
+      ctx.fillStyle = `${this.color}${this.opacity})`;
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    /**
+     * Update particle position and properties
+     */
+    update() {
+      this.x += this.velocityX;
+      this.y += this.velocityY;
+      this.rotation += this.rotationSpeed;
+
+      // Reset particle when it goes off screen
+      if (this.y > canvas.height) {
+        this.y = -10;
+        this.x = Math.random() * canvas.width;
+        this.opacity = Math.random() * 0.3 + 0.1;
+      }
+    }
+  }
+
+  /**
+   * Initialize particles
+   */
+  function initParticles() {
+    particles = [];
+    const particleCount = Math.min(Math.max(Math.floor(canvas.width / 100), 15), 50);
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new RoseParticle());
+    }
+  }
+
+  /**
+   * Animation loop
+   */
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach((particle) => {
+      particle.update();
+      particle.draw();
+    });
+
+    animationFrameId = requestAnimationFrame(animate);
+  }
+
+  /**
+   * Handle window resize
+   */
+  function handleResize() {
+    resizeCanvas();
+    initParticles();
+  }
+
+  // Initialize
+  resizeCanvas();
+  initParticles();
+  animate();
+
+  // Event listeners
+  window.addEventListener('resize', handleResize);
+
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', () => {
+    cancelAnimationFrame(animationFrameId);
+    window.removeEventListener('resize', handleResize);
+  });
+})();
+</script>
