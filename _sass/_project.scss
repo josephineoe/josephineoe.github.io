@@ -484,8 +484,6 @@
 .gallery-gif {
   width: 100%;
   height: auto;
-  max-height: 720px;
-  aspect-ratio: 16 / 9;
   object-fit: contain;
   cursor: zoom-in;
   background-color: var(--surface-color);
@@ -499,11 +497,10 @@
 
 .gallery-video {
   width: 100%;
-  height: auto;
-  max-height: 720px;
-  aspect-ratio: 16 / 9;
+  height: 720px;
   object-fit: contain;
   display: block;
+  background-color: #000;
 }
 
 .media-description {
