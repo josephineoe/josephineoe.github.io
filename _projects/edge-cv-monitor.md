@@ -1,3 +1,4 @@
+---
 layout: project
 title: "Edge CV Safety Monitor"
 description: "Real-time computer vision inference pipeline for industrial edge deployment. Detects PPE and zone violations using Roboflow or OpenCV, with advanced telemetry for remote monitoring and alert management."
