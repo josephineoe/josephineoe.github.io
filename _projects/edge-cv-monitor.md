@@ -5,7 +5,6 @@ description: "Real-time computer vision inference pipeline for industrial edge d
 date: 2024-06-15
 categories: [Computer Vision, Edge AI, Industrial Safety, Roboflow, Linux, Python]
 featured_image: "/assets/images/projects/edge-cv-monitor/screenshot_main.png"
-github_url: "https://github.com/josephineoe/Edge-CV-Safety-Monitor"
 
 code_files:
   - name: "Edge CV Monitor — Inference Engine"
