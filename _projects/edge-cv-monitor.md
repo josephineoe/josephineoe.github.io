@@ -211,7 +211,7 @@ The **Edge CV Safety Monitor** is a production-ready computer vision safety syst
 - **Industrial Grade**: Designed for 24/7 continuous operation
 
 <div style="margin: 20px 0; text-align: center;">
-  <a href="https://github.com/josephineoe/edge-cv-monitor" style="display: inline-block; padding: 10px 20px; background-color: #333; color: #fff; text-decoration: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s;">
+  <a href="https://github.com/josephineoe/Edge-CV-Safety-Monitor" style="display: inline-block; padding: 10px 20px; background-color: #333; color: #fff; text-decoration: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s;">
     <span>🐙 View on GitHub</span>
   </a>
 </div>
