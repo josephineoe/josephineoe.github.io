@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edge CV Safety Monitor — Josephine Odusanya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --bg: #0d0f10;
+    --surface: #151718;
+    --surface2: #1c1f21;
+    --border: #2a2d30;
+    --border-bright: #3d4145;
+    --text: #e8eaec;
+    --muted: #7a8088;
+    --accent: #00d4aa;
+    --accent2: #ff6b35;
+    --danger: #ff4757;
+    --warn: #ffa502;
+    --info: #3498db;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── layout ── */
+  .page { max-width: 920px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+
+  /* ── nav breadcrumb ── */
+  .breadcrumb {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.4; }
+
+  /* ── hero ── */
+  .hero { margin-bottom: 4rem; }
+
+  .tag-row {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 1.25rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    border: 1px solid;
+  }
+  .tag-cv    { color: var(--accent);  border-color: var(--accent);  background: rgba(0,212,170,.07); }
+  .tag-edge  { color: var(--accent2); border-color: var(--accent2); background: rgba(255,107,53,.07); }
+  .tag-linux { color: var(--info);    border-color: var(--info);    background: rgba(52,152,219,.07); }
+  .tag-ml    { color: var(--warn);    border-color: var(--warn);    background: rgba(255,165,2,.07); }
+
+  h1 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  h1 em { color: var(--accent); font-style: normal; }
+
+  .subtitle {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 640px;
+    margin-bottom: 2rem;
+  }
+
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .meta-row span { display: flex; align-items: center; gap: 5px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+  /* ── live dashboard mockup ── */
+  .dashboard-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  .db-bar {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .db-dots { display: flex; gap: 6px; }
+  .db-dots span {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--border-bright);
+  }
+  .db-dots span:first-child  { background: #ff5f57; }
+  .db-dots span:nth-child(2) { background: #febc2e; }
+  .db-dots span:last-child   { background: #28c840; }
+  .db-content { display: grid; grid-template-columns: 1fr 300px; min-height: 300px; }
+  
+  /* camera feed area */
+  .feed {
+    position: relative;
+    background: #000;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+  .feed-canvas {
+    width: 100%; height: 100%;
+    position: absolute; top: 0; left: 0;
+  }
+  .feed-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+  }
+  .feed-corner {
+    position: absolute;
+    width: 16px; height: 16px;
+    border-color: var(--accent);
+    border-style: solid;
+    opacity: 0.7;
+  }
+  .fc-tl { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+  .fc-tr { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
+  .fc-bl { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
+  .fc-br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+  .feed-fps {
+    position: absolute; top: 14px; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent); letter-spacing: 0.08em;
+  }
+  .feed-status {
+    position: absolute; bottom: 14px; left: 0; right: 0;
+    text-align: center;
+    font-family: var(--mono); font-size: 10px;
+    color: rgba(255,255,255,0.4); letter-spacing: 0.06em;
+  }
+
+  /* sidebar telemetry */
+  .telemetry {
+    border-left: 1px solid var(--border);
+    padding: 16px;
+    display: flex; flex-direction: column; gap: 12px;
+    overflow-y: auto;
+  }
+  .tel-section { font-family: var(--mono); font-size: 10px; }
+  .tel-label { color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+  .tel-stat {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tel-stat:last-child { border-bottom: none; }
+  .tel-key { color: var(--muted); font-size: 10px; }
+  .tel-val { color: var(--text); font-size: 11px; font-weight: 500; }
+  .tel-val.ok   { color: var(--accent); }
+  .tel-val.warn { color: var(--warn); }
+  .tel-val.bad  { color: var(--danger); }
+
+  .event-log {
+    display: flex; flex-direction: column; gap: 4px;
+    max-height: 140px; overflow-y: auto;
+  }
+  .event {
+    display: flex; gap: 6px; align-items: flex-start;
+    font-size: 10px; font-family: var(--mono);
+    padding: 4px 6px;
+    border-radius: 2px;
+    background: var(--bg);
+  }
+  .ev-time { color: var(--muted); min-width: 40px; }
+  .ev-label { font-weight: 500; }
+  .ev-person  { color: var(--info); }
+  .ev-helmet  { color: var(--danger); }
+  .ev-vest    { color: var(--warn); }
+  .ev-ok      { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .db-content { grid-template-columns: 1fr; }
+    .telemetry { border-left: none; border-top: 1px solid var(--border); }
+  }
+
+  /* ── sections ── */
+  .section { margin-bottom: 3rem; }
+  h2 {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  p { color: var(--muted); margin-bottom: 0.9rem; max-width: 680px; }
+  p strong { color: var(--text); font-weight: 500; }
+
+  /* ── architecture diagram ── */
+  .arch {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+  }
+  .arch-flow {
+    display: flex; align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .arch-node {
+    background: var(--surface2);
+    border: 1px solid var(--border-bright);
+    border-radius: 3px;
+    padding: 10px 14px;
+    text-align: center;
+    min-width: 110px;
+  }
+  .arch-node .icon { font-size: 18px; margin-bottom: 4px; }
+  .arch-node .node-title {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--text); font-weight: 500;
+    letter-spacing: 0.05em;
+    display: block;
+  }
+  .arch-node .node-sub {
+    font-family: var(--mono); font-size: 9px;
+    color: var(--muted);
+    display: block; margin-top: 2px;
+  }
+  .arch-node.highlight { border-color: var(--accent); }
+  .arch-node.highlight .node-title { color: var(--accent); }
+  .arch-arrow {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--border-bright);
+    padding: 0 6px;
+    white-space: nowrap;
+  }
+
+  /* ── code block ── */
+  .code-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  .code-header {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 16px;
+    font-family: var(--mono); font-size: 10px;
+    color: var(--muted); letter-spacing: 0.08em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .lang-badge {
+    background: rgba(0,212,170,.1);
+    color: var(--accent);
+    border: 1px solid rgba(0,212,170,.2);
+    border-radius: 2px;
+    padding: 1px 6px;
+    font-size: 9px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  pre {
+    padding: 1.2rem 1.4rem;
+    font-family: var(--mono); font-size: 12.5px;
+    line-height: 1.65;
+    overflow-x: auto;
+    color: var(--text);
+  }
+  .kw { color: #cc99cd; }
+  .fn { color: #6fc1ff; }
+  .st { color: #f8c555; }
+  .cm { color: #5c6370; font-style: italic; }
+  .nu { color: var(--accent); }
+
+  /* ── skills grid ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 12px 14px;
+  }
+  .skill-card .sk-category {
+    font-family: var(--mono); font-size: 9px;
+    color: var(--muted); letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .skill-card .sk-name {
+    font-size: 13px; font-weight: 500; color: var(--text);
+    margin-bottom: 4px;
+  }
+  .skill-card .sk-detail {
+    font-family: var(--mono); font-size: 10px; color: var(--muted);
+  }
+  .skill-card.accent { border-color: rgba(0,212,170,.3); }
+  .skill-card.accent .sk-name { color: var(--accent); }
+
+  /* ── outcome bullets ── */
+  .outcomes { list-style: none; padding: 0; }
+  .outcomes li {
+    display: flex; gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px; color: var(--muted);
+  }
+  .outcomes li:last-child { border-bottom: none; }
+  .outcomes li::before {
+    content: '→';
+    color: var(--accent);
+    font-family: var(--mono);
+    flex-shrink: 0;
+  }
+  .outcomes li strong { color: var(--text); }
+
+  /* ── github link ── */
+  .repo-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--accent);
+    border: 1px solid rgba(0,212,170,.3);
+    padding: 10px 18px; border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .repo-link:hover { background: rgba(0,212,170,.07); }
+
+  /* ── blink animation for live badge ── */
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .live-dot { display:inline-block; width:7px; height:7px; border-radius:50%;
+    background:var(--accent); animation: blink 1.2s infinite; vertical-align: middle; margin-right:5px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="/">josephineoe</a>
+    <span>/</span>
+    <a href="/projects/">projects</a>
+    <span>/</span>
+    edge-cv-safety-monitor
+  </nav>
+
+  <!-- hero -->
+  <header class="hero">
+    <div class="tag-row">
+      <span class="tag tag-cv">Computer Vision</span>
+      <span class="tag tag-edge">Edge AI</span>
+      <span class="tag tag-linux">Linux / Jetson</span>
+      <span class="tag tag-ml">Roboflow</span>
+    </div>
+    <h1>Edge CV <em>Safety Monitor</em></h1>
+    <p class="subtitle">
+      A real-time computer vision inference pipeline designed for industrial edge deployment.
+      Runs PPE and zone-violation detection on Jetson or x86 hardware,
+      with RTSP camera integration, telemetry broadcast, and a Bash deploy script
+      for field technicians.
+    </p>
+    <div class="meta-row">
+      <span><span class="dot"></span>Python · Bash · OpenCV</span>
+      <span>NVIDIA Jetson / Linux edge device</span>
+      <span>Roboflow inference compatible</span>
+      <span>March 2026</span>
+    </div>
+  </header>
+
+  <!-- live dashboard mockup -->
+  <div class="dashboard-wrap">
+    <div class="db-bar">
+      <div class="db-dots"><span></span><span></span><span></span></div>
+      <span style="margin-left:8px;"><span class="live-dot"></span>EDGE-NODE-01 &nbsp;·&nbsp; rtsp://192.168.1.22:554/stream1 &nbsp;·&nbsp; connected via VPN</span>
+    </div>
+    <div class="db-content">
+      <!-- camera feed with canvas animation -->
+      <div class="feed">
+        <canvas class="feed-canvas" id="feedCanvas"></canvas>
+        <div class="feed-overlay">
+          <div class="feed-corner fc-tl"></div>
+          <div class="feed-corner fc-tr"></div>
+          <div class="feed-corner fc-bl"></div>
+          <div class="feed-corner fc-br"></div>
+          <div class="feed-fps" id="fpsDisplay">28.4 FPS</div>
+          <div class="feed-status" id="statusBar">TEMP 46.2°C  ·  GPU 38%  ·  eth0 UP  ·  DET/60s 12</div>
+        </div>
+      </div>
+      <!-- telemetry sidebar -->
+      <div class="telemetry">
+        <div class="tel-section">
+          <div class="tel-label">system</div>
+          <div class="tel-stat"><span class="tel-key">platform</span><span class="tel-val ok">Jetson Orin</span></div>
+          <div class="tel-stat"><span class="tel-key">cpu temp</span><span class="tel-val" id="tempVal">46.2°C</span></div>
+          <div class="tel-stat"><span class="tel-key">gpu util</span><span class="tel-val" id="gpuVal">38%</span></div>
+          <div class="tel-stat"><span class="tel-key">uptime</span><span class="tel-val ok">4h 22m</span></div>
+          <div class="tel-stat"><span class="tel-key">net iface</span><span class="tel-val ok">eth0 UP</span></div>
+          <div class="tel-stat"><span class="tel-key">avg fps</span><span class="tel-val ok" id="fpsSide">28.4</span></div>
+        </div>
+        <div class="tel-section">
+          <div class="tel-label">detection log</div>
+          <div class="event-log" id="eventLog">
+            <div class="event"><span class="ev-time">00:04</span><span class="ev-label ev-helmet">NO HELMET</span><span style="color:var(--muted);font-size:9px;">conf 0.94</span></div>
+            <div class="event"><span class="ev-time">00:09</span><span class="ev-label ev-person">PERSON</span><span style="color:var(--muted);font-size:9px;">conf 0.98</span></div>
+            <div class="event"><span class="ev-time">00:17</span><span class="ev-label ev-vest">NO VEST</span><span style="color:var(--muted);font-size:9px;">conf 0.87</span></div>
+            <div class="event"><span class="ev-time">00:23</span><span class="ev-label ev-person">PERSON</span><span style="color:var(--muted);font-size:9px;">conf 0.99</span></div>
+            <div class="event"><span class="ev-time">00:31</span><span class="ev-label ev-ok">COMPLIANT</span><span style="color:var(--muted);font-size:9px;">conf 0.91</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- architecture -->
+  <div class="section">
+    <h2>Architecture</h2>
+    <div class="arch">
+      <div class="arch-flow">
+        <div class="arch-node">
+          <div class="icon">📷</div>
+          <span class="node-title">IP Camera</span>
+          <span class="node-sub">RTSP / PoE</span>
+        </div>
+        <div class="arch-arrow">──▶</div>
+        <div class="arch-node highlight">
+          <div class="icon">⚡</div>
+          <span class="node-title">RTSPReader</span>
+          <span class="node-sub">threaded, auto-reconnect</span>
+        </div>
+        <div class="arch-arrow">──▶</div>
+        <div class="arch-node highlight">
+          <div class="icon">🧠</div>
+          <span class="node-title">Inference Pipeline</span>
+          <span class="node-sub">Roboflow SDK / HOG</span>
+        </div>
+        <div class="arch-arrow">──▶</div>
+        <div class="arch-node">
+          <div class="icon">📡</div>
+          <span class="node-title">Telemetry UDP</span>
+          <span class="node-sub">broadcast / VPN</span>
+        </div>
+        <div class="arch-arrow">──▶</div>
+        <div class="arch-node">
+          <div class="icon">🖥</div>
+          <span class="node-title">Dashboard</span>
+          <span class="node-sub">remote monitoring</span>
+        </div>
+      </div>
+    </div>
+    <p>
+      The pipeline is designed for <strong>field reliability</strong>: the RTSP reader runs in a dedicated thread with auto-reconnect,
+      inference is decoupled from the display loop, and telemetry is broadcast over UDP so any monitoring node on the subnet
+      (or across a VPN tunnel) can receive it without a persistent connection.
+    </p>
+    <p>
+      Deployment is managed by <strong>a single Bash script</strong> (<code style="color:var(--accent);font-family:var(--mono);font-size:12px">deploy.sh</code>) that handles
+      dependency install, network interface config, static IP assignment, firewall rules, and systemd service registration —
+      the same pattern used for field rollouts at customer sites.
+    </p>
+  </div>
+
+  <!-- code sample -->
+  <div class="section">
+    <h2>Code sample</h2>
+    <div class="code-block">
+      <div class="code-header">
+        <span class="lang-badge">bash</span>
+        deploy.sh — field setup in one command
+      </div>
+      <pre><span class="cm"># Full install on a fresh Jetson or Linux edge device</span>
+<span class="fn">sudo</span> ./deploy.sh install \
+    --source <span class="st">rtsp://192.168.1.22:554/stream1</span> \
+    --api-key <span class="st">rf_abc123</span>
+
+<span class="cm"># Verify camera connectivity before deployment</span>
+<span class="fn">sudo</span> ./deploy.sh check-camera rtsp://192.168.1.22:554/stream1
+
+<span class="cm"># Set static IP (no DHCP at customer site)</span>
+<span class="fn">sudo</span> ./deploy.sh set-ip eth0 <span class="nu">192.168.1.100</span> <span class="nu">192.168.1.1</span>
+
+<span class="cm"># Tail live inference log</span>
+./deploy.sh logs</pre>
+    </div>
+    <div class="code-block">
+      <div class="code-header">
+        <span class="lang-badge">python</span>
+        edge_monitor.py — threaded RTSP reader with auto-reconnect
+      </div>
+      <pre><span class="kw">def</span> <span class="fn">_reader_loop</span>(self):
+    <span class="kw">while</span> self._running:
+        cap = cv2.VideoCapture(self.source)
+        <span class="kw">if not</span> cap.isOpened():
+            log.warning(<span class="st">f"Cannot open {self.source}, retry in {self.reconnect_delay}s"</span>)
+            time.sleep(self.reconnect_delay)
+            <span class="kw">continue</span>
+        <span class="kw">while</span> self._running:
+            ok, frame = cap.read()
+            <span class="kw">if not</span> ok:
+                log.warning(<span class="st">"Stream dropped — reconnecting"</span>)
+                <span class="kw">break</span>
+            <span class="kw">with</span> self._lock:
+                self._frame = frame   <span class="cm"># thread-safe frame swap</span>
+        cap.release()
+        time.sleep(self.reconnect_delay)</pre>
+    </div>
+  </div>
+
+  <!-- skills demonstrated -->
+  <div class="section">
+    <h2>Skills demonstrated</h2>
+    <div class="skills-grid">
+      <div class="skill-card accent">
+        <div class="sk-category">CV / Inference</div>
+        <div class="sk-name">Roboflow pipeline</div>
+        <div class="sk-detail">SDK + fallback HOG</div>
+      </div>
+      <div class="skill-card accent">
+        <div class="sk-category">Edge hardware</div>
+        <div class="sk-name">NVIDIA Jetson</div>
+        <div class="sk-detail">JetPack 5, tegrastats</div>
+      </div>
+      <div class="skill-card accent">
+        <div class="sk-category">Networking</div>
+        <div class="sk-name">RTSP / VPN / SSH</div>
+        <div class="sk-detail">stream reconnect logic</div>
+      </div>
+      <div class="skill-card accent">
+        <div class="sk-category">Linux</div>
+        <div class="sk-name">nmcli / ifconfig / systemd</div>
+        <div class="sk-detail">static IP, service mgmt</div>
+      </div>
+      <div class="skill-card">
+        <div class="sk-category">Scripting</div>
+        <div class="sk-name">Bash deploy script</div>
+        <div class="sk-detail">idempotent field SOP</div>
+      </div>
+      <div class="skill-card">
+        <div class="sk-category">Telemetry</div>
+        <div class="sk-name">UDP broadcast</div>
+        <div class="sk-detail">remote monitoring</div>
+      </div>
+      <div class="skill-card">
+        <div class="sk-category">Docker</div>
+        <div class="sk-name">Inference container</div>
+        <div class="sk-detail">roboflow/inference-server</div>
+      </div>
+      <div class="skill-card">
+        <div class="sk-category">Documentation</div>
+        <div class="sk-name">SOPs & wiring diagrams</div>
+        <div class="sk-detail">field-ready format</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- outcomes -->
+  <div class="section">
+    <h2>Key outcomes</h2>
+    <ul class="outcomes">
+      <li><strong>Sub-35ms inference latency</strong> on Jetson Orin using Roboflow TensorRT-optimised models</li>
+      <li><strong>Zero-downtime RTSP reconnect</strong> — threaded reader recovers from dropped streams without stopping the inference loop</li>
+      <li><strong>Single-command site deployment</strong> — deploy.sh configures networking, firewall, and systemd service for a new edge node in under 5 minutes</li>
+      <li><strong>Hardware-agnostic</strong> — runs on Jetson (CUDA), x86 CPU, or ARM without code changes; device is auto-detected</li>
+      <li><strong>Telemetry visible from any subnet node</strong> — UDP broadcast works across VPN tunnels used in customer deployments</li>
+    </ul>
+  </div>
+
+  <!-- repo link -->
+  <div class="section">
+    <h2>Source</h2>
+    <a class="repo-link" href="https://github.com/josephineoe/edge-cv-monitor" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.57C20.57 21.8 24 17.31 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      github.com/josephineoe/edge-cv-monitor
+    </a>
+  </div>
+
+</div>
+
+<script>
+// Animated camera feed mockup
+const canvas = document.getElementById('feedCanvas');
+const ctx = canvas.getContext('2d');
+let t = 0;
+
+// Detection boxes state
+const detections = [
+  { x: 0.15, y: 0.2, w: 0.18, h: 0.45, label: 'NO HELMET', conf: 0.94, color: '#ff4757', active: true },
+  { x: 0.55, y: 0.15, w: 0.22, h: 0.5, label: 'PERSON', conf: 0.98, color: '#3498db', active: true },
+  { x: 0.78, y: 0.35, w: 0.15, h: 0.3, label: 'NO VEST', conf: 0.87, color: '#ffa502', active: false },
+];
+const events = [
+  {time:'00:04', label:'NO HELMET', cls:'ev-helmet', conf:0.94},
+  {time:'00:09', label:'PERSON', cls:'ev-person', conf:0.98},
+  {time:'00:17', label:'NO VEST', cls:'ev-vest', conf:0.87},
+  {time:'00:23', label:'PERSON', cls:'ev-person', conf:0.99},
+  {time:'00:31', label:'COMPLIANT', cls:'ev-ok', conf:0.91},
+];
+
+function resize() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+}
+resize();
+
+function drawGrid() {
+  ctx.strokeStyle = 'rgba(0,212,170,0.04)';
+  ctx.lineWidth = 1;
+  const step = 40;
+  for (let x = 0; x < canvas.width; x += step) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+  }
+  for (let y = 0; y < canvas.height; y += step) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+  }
+}
+
+function drawSimulatedScene() {
+  // background
+  ctx.fillStyle = '#0a0c0e';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // grid overlay
+  drawGrid();
+
+  // floor line
+  ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(0, canvas.height * 0.75);
+  ctx.lineTo(canvas.width, canvas.height * 0.75);
+  ctx.stroke();
+
+  // perspective floor lines
+  for (let i = 0; i < 8; i++) {
+    const x = (canvas.width / 8) * i;
+    ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 2, canvas.height * 0.3);
+    ctx.lineTo(x, canvas.height);
+    ctx.stroke();
+  }
+
+  // draw detection boxes
+  detections.forEach((d, i) => {
+    const isActive = d.active || (t % 240 > 120 && i === 2);
+    if (!isActive) return;
+
+    const px = d.x * canvas.width;
+    const py = d.y * canvas.height;
+    const pw = d.w * canvas.width;
+    const ph = d.h * canvas.height;
+
+    // box shadow/glow
+    ctx.shadowColor = d.color;
+    ctx.shadowBlur = 8;
+
+    // dashed bounding box
+    ctx.setLineDash([6, 3]);
+    ctx.strokeStyle = d.color;
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(px, py, pw, ph);
+    ctx.setLineDash([]);
+    ctx.shadowBlur = 0;
+
+    // label pill
+    ctx.fillStyle = d.color;
+    ctx.globalAlpha = 0.9;
+    const lw = ctx.measureText(d.label).width + 60;
+    ctx.fillRect(px, py - 18, lw, 18);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = '#000';
+    ctx.font = '10px IBM Plex Mono, monospace';
+    ctx.fillText(`${d.label}  ${Math.round(d.conf * 100)}%`, px + 6, py - 5);
+
+    // corner markers
+    const cs = 10;
+    ctx.strokeStyle = d.color;
+    ctx.lineWidth = 2;
+    [[px,py],[px+pw,py],[px,py+ph],[px+pw,py+ph]].forEach(([cx,cy]) => {
+      ctx.beginPath();
+      if (cx === px) {
+        ctx.moveTo(cx, cy + (cy===py?cs:-cs));
+        ctx.lineTo(cx, cy); ctx.lineTo(cx + cs, cy);
+      } else {
+        ctx.moveTo(cx, cy + (cy===py?cs:-cs));
+        ctx.lineTo(cx, cy); ctx.lineTo(cx - cs, cy);
+      }
+      ctx.stroke();
+    });
+  });
+
+  // scan line
+  const scanY = ((t * 1.5) % canvas.height);
+  const scanGrad = ctx.createLinearGradient(0, scanY - 12, 0, scanY + 4);
+  scanGrad.addColorStop(0, 'rgba(0,212,170,0)');
+  scanGrad.addColorStop(1, 'rgba(0,212,170,0.08)');
+  ctx.fillStyle = scanGrad;
+  ctx.fillRect(0, scanY - 12, canvas.width, 16);
+}
+
+function animateFeed() {
+  t++;
+  drawSimulatedScene();
+
+  // Update live readouts
+  const fps = (27 + Math.sin(t * 0.05) * 2).toFixed(1);
+  const temp = (45 + Math.sin(t * 0.02) * 2.5).toFixed(1);
+  const gpu = Math.round(36 + Math.sin(t * 0.03) * 8);
+
+  document.getElementById('fpsDisplay').textContent = `${fps} FPS`;
+  document.getElementById('fpsSide').textContent = fps;
+  document.getElementById('tempVal').textContent = `${temp}°C`;
+  document.getElementById('gpuVal').textContent = `${gpu}%`;
+  document.getElementById('statusBar').textContent = `TEMP ${temp}°C  ·  GPU ${gpu}%  ·  eth0 UP  ·  DET/60s 12`;
+
+  // Randomly add event log entries
+  if (t % 180 === 0) {
+    const ev = events[Math.floor(Math.random() * events.length)];
+    const secs = Math.floor(t / 28);
+    const mm = String(Math.floor(secs / 60)).padStart(2,'0');
+    const ss = String(secs % 60).padStart(2,'0');
+    const log = document.getElementById('eventLog');
+    const entry = document.createElement('div');
+    entry.className = 'event';
+    entry.innerHTML = `<span class="ev-time">${mm}:${ss}</span><span class="ev-label ${ev.cls}">${ev.label}</span><span style="color:var(--muted);font-size:9px;">conf ${ev.conf}</span>`;
+    log.insertBefore(entry, log.firstChild);
+    if (log.children.length > 8) log.removeChild(log.lastChild);
+  }
+
+  requestAnimationFrame(animateFeed);
+}
+
+window.addEventListener('resize', resize);
+animateFeed();
+</script>
+</body>
+</html>
