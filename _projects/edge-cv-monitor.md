@@ -191,35 +191,11 @@ code_files:
       info "Start service: sudo systemctl start $SERVICE_NAME"
       info "View logs: journalctl -u $SERVICE_NAME -f"
 
-gallery:
-  - type: "video"
-    file: "/assets/images/projects/edge-cv-monitor/demo_video.mp4"
-    description: "Full system walkthrough showing real-time PPE detection, zone monitoring, and alert generation on edge hardware"
-    
-  - type: "image"
-    file: "/assets/images/projects/edge-cv-monitor/screenshot_alert.png"
-    description: "Live video feed with detected person, bounding boxes, and confidence scores annotated in real-time"
-    
-  - type: "image"
-    file: "/assets/images/projects/edge-cv-monitor/screenshot_clean.png"
-    description: "Monitoring dashboard showing clean frame without active violations"
-    
-  - type: "image"
-    file: "/assets/images/projects/edge-cv-monitor/screenshot_main.png"
-    description: "Primary user interface for monitoring safety violations and system status"
-    
-  - type: "image"
-    file: "/assets/images/projects/edge-cv-monitor/screenshot_telemetry.png"
-    description: "Real-time metrics and analytics dashboard showing detection statistics and alert history"
-
 ---
-
 
 <div style="margin: 20px 0; text-align: center;">
   <a href="https://github.com/josephineoe/Edge-CV-Safety-Monitor" style="display: inline-block; padding: 10px 20px; background-color: #333; color: #fff; text-decoration: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s;">
-    <span style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo" style="height: 1.5em; vertical-align: middle; margin-right: 0.5em; background: #fff; border-radius: 50%; padding: 2px;">View on GitHub
-    </span>
+    <span>🐙 View on GitHub</span>
   </a>
 </div>
 
@@ -235,12 +211,6 @@ The **Edge CV Safety Monitor** is a production-ready computer vision safety syst
 - **Telemetry Pipeline**: JSON-based alert streaming to remote monitoring systems
 - **Automated Deployment**: Single-script systemd service installation
 - **Industrial Grade**: Designed for 24/7 continuous operation
-
-<div style="margin: 20px 0; text-align: center;">
-  <a href="https://github.com/josephineoe/Edge-CV-Safety-Monitor" style="display: inline-block; padding: 10px 20px; background-color: #333; color: #fff; text-decoration: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s;">
-    <span>🐙 View on GitHub</span>
-  </a>
-</div>
 
 ## System Architecture
 
@@ -404,3 +374,5 @@ edge_monitor.py --roboflow-api-key YOUR_KEY \
 The Edge CV Safety Monitor brings state-of-the-art computer vision capabilities to industrial edge environments, enabling real-time safety compliance monitoring without dependence on cloud connectivity. The system combines the flexibility of Roboflow's model deployment with the reliability of deployed edge infrastructure, providing a compelling solution for safety-critical industrial automation.
 
 **For documentation, deployment guides, and detailed API reference, visit the [GitHub repository](https://github.com/josephineoe/Edge-CV-Safety-Monitor).**
+
+---
