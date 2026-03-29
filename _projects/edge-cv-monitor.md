@@ -1,10 +1,27 @@
----
 layout: project
 title: "Edge CV Safety Monitor"
 description: "Real-time computer vision inference pipeline for industrial edge deployment. Detects PPE and zone violations using Roboflow or OpenCV, with advanced telemetry for remote monitoring and alert management."
 date: 2024-06-15
 categories: [Computer Vision, Edge AI, Industrial Safety, Roboflow, Linux, Python]
 featured_image: "/assets/images/projects/edge-cv-monitor/screenshot_main.png"
+
+gallery:
+  - type: "image"
+    file: "/assets/images/projects/edge-cv-monitor/screenshot_main.png"
+    description: "Primary user interface for monitoring safety violations and system status"
+  - type: "image"
+    file: "/assets/images/projects/edge-cv-monitor/screenshot_alert.png"
+    description: "Live video feed with detected person, bounding boxes, and confidence scores annotated in real-time"
+  - type: "image"
+    file: "/assets/images/projects/edge-cv-monitor/screenshot_clean.png"
+    description: "Monitoring dashboard showing clean frame without active violations"
+  - type: "image"
+    file: "/assets/images/projects/edge-cv-monitor/screenshot_telemetry.png"
+    description: "Real-time metrics and analytics dashboard showing detection statistics and alert history"
+  - type: "video"
+    file: "/assets/images/projects/edge-cv-monitor/demo_video.mp4"
+    description: "Full system walkthrough showing real-time PPE detection, zone monitoring, and alert generation on edge hardware"
+
 
 code_files:
   - name: "Edge CV Monitor — Inference Engine"
@@ -195,6 +212,15 @@ gallery:
     description: "Real-time metrics and analytics dashboard showing detection statistics and alert history"
 
 ---
+
+
+<div style="margin: 20px 0; text-align: center;">
+  <a href="https://github.com/josephineoe/Edge-CV-Safety-Monitor" style="display: inline-block; padding: 10px 20px; background-color: #333; color: #fff; text-decoration: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s;">
+    <span style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo" style="height: 1.5em; vertical-align: middle; margin-right: 0.5em; background: #fff; border-radius: 50%; padding: 2px;">View on GitHub
+    </span>
+  </a>
+</div>
 
 ## Project Overview
 
