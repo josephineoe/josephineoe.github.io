@@ -176,29 +176,24 @@ code_files:
 
 gallery:
   - type: "video"
-    title: "Live System Demonstration"
+    file: "/assets/images/projects/edge-cv-monitor/demo_video.mp4"
     description: "Full system walkthrough showing real-time PPE detection, zone monitoring, and alert generation on edge hardware"
-    src: "/assets/images/projects/edge-cv-monitor/demo_video.mp4"
     
   - type: "image"
-    title: "Main inference Stream with Alert"
+    file: "/assets/images/projects/edge-cv-monitor/screenshot_alert.png"
     description: "Live video feed with detected person, bounding boxes, and confidence scores annotated in real-time"
-    src: "/assets/images/projects/edge-cv-monitor/screenshot_alert.png"
     
   - type: "image"
-    title: "Clean Stream View"
+    file: "/assets/images/projects/edge-cv-monitor/screenshot_clean.png"
     description: "Monitoring dashboard showing clean frame without active violations"
-    src: "/assets/images/projects/edge-cv-monitor/screenshot_clean.png"
     
   - type: "image"
-    title: "Main Monitoring Interface"
+    file: "/assets/images/projects/edge-cv-monitor/screenshot_main.png"
     description: "Primary user interface for monitoring safety violations and system status"
-    src: "/assets/images/projects/edge-cv-monitor/screenshot_main.png"
     
   - type: "image"
-    title: "Telemetry Dashboard"
+    file: "/assets/images/projects/edge-cv-monitor/screenshot_telemetry.png"
     description: "Real-time metrics and analytics dashboard showing detection statistics and alert history"
-    src: "/assets/images/projects/edge-cv-monitor/screenshot_telemetry.png"
 
 ---
 
