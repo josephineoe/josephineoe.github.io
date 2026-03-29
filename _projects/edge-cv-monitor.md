@@ -5,7 +5,7 @@ description: "Real-time computer vision inference pipeline for industrial edge d
 date: 2024-06-15
 categories: [Computer Vision, Edge AI, Industrial Safety, Roboflow, Linux, Python]
 featured_image: "/assets/images/projects/edge-cv-monitor/screenshot_main.png"
-github_url: "https://github.com/josephineoe/edge-cv-monitor"
+github_url: "https://github.com/josephineoe/Edge-CV-Safety-Monitor"
 
 code_files:
   - name: "Edge CV Monitor — Inference Engine"
@@ -128,7 +128,7 @@ code_files:
       # ── clone repository ───────────────────────────────────────────────────
       if [ ! -d "$APP_DIR/.git" ]; then
           info "Cloning edge-cv-monitor repository..."
-          git clone https://github.com/josephineoe/edge-cv-monitor.git "$APP_DIR"
+          git clone https://github.com/josephineoe/Edge-CV-Safety-Monitor.git "$APP_DIR"
       fi
 
       # ── create python virtual environment ──────────────────────────────────
@@ -377,4 +377,4 @@ edge_monitor.py --roboflow-api-key YOUR_KEY \
 
 The Edge CV Safety Monitor brings state-of-the-art computer vision capabilities to industrial edge environments, enabling real-time safety compliance monitoring without dependence on cloud connectivity. The system combines the flexibility of Roboflow's model deployment with the reliability of deployed edge infrastructure, providing a compelling solution for safety-critical industrial automation.
 
-**For documentation, deployment guides, and detailed API reference, visit the [GitHub repository](https://github.com/josephineoe/edge-cv-monitor).**
+**For documentation, deployment guides, and detailed API reference, visit the [GitHub repository](https://github.com/josephineoe/Edge-CV-Safety-Monitor).**
