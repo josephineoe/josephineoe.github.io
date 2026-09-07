@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "Pneumatic Exosuit Research - Shoulder Assistance System"
+published: false
 description: "Research and development of a wearable pneumatic exoskeleton for shoulder assistance, combining mechanical design, pneumatic actuation, and electronic control systems. Work at BIRO Lab done by lead Suzanne Oliver, focusing on biomechatronic integration for human-robot interaction."
 date: 2025-12-14
 categories: [Wearable Robotics, Pneumatic Systems, Biomechatronics, Mechanical Design, Control Systems, Assistive Technology]

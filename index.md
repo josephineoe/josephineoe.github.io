@@ -10,6 +10,19 @@ layout: default
            <h1 class="hero-name">{{ site.author | default: "Your Name" }}</h1>
            <p class="hero-title">I build robotic and assistive systems</p>
         </div>
+
+        <div class="hero-visual hero-visual-lava" aria-hidden="true">
+          <div class="lava-lamp">
+            <div class="lava-lamp-glass">
+              <span class="lava-orb lava-orb-one"></span>
+              <span class="lava-orb lava-orb-two"></span>
+              <span class="lava-orb lava-orb-three"></span>
+              <span class="lava-orb lava-orb-four"></span>
+            </div>
+            <div class="lava-lamp-neck"></div>
+            <div class="lava-lamp-base"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
