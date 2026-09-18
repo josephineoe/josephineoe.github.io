@@ -58,6 +58,8 @@ navigation:
     url: "/impact/"
   - title: "Projects"
     url: "/projects/"
+  - title: "Workshops"
+    url: "/workshops/"
   - title: "Contact"
     url: "/contact/"
 
