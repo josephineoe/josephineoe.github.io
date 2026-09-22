@@ -51,9 +51,18 @@ permalink: /workshops/
 		<div class="workshops-events">
 			<div class="workshops-events-column">
 				<h2>Upcoming Events</h2>
-				<div class="workshops-events-placeholder">
-					<p>No upcoming workshops scheduled right now—check back soon!</p>
+				<div class="workshops-luma-embed">
+					<iframe
+						src="https://lu.ma/embed/event/tf7lsyfm/simple"
+						width="100%"
+						height="450"
+						frameborder="0"
+						style="border-radius: var(--radius-md);"
+						allow="fullscreen; payment"
+						aria-label="Upcoming workshop event details and registration">
+					</iframe>
 				</div>
+				<a href="https://luma.com/tf7lsyfm" target="_blank" rel="noopener noreferrer" class="workshops-luma-link">View & RSVP on Luma →</a>
 			</div>
 
 			<div class="workshops-events-column">
@@ -160,6 +169,30 @@ permalink: /workshops/
 	color: var(--text-secondary);
 	font-size: var(--font-size-sm);
 	margin: 0;
+}
+
+.workshops-luma-embed {
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	background-color: var(--surface-color);
+}
+
+.workshops-luma-embed iframe {
+	display: block;
+}
+
+.workshops-luma-link {
+	display: inline-block;
+	margin-top: var(--spacing-sm);
+	color: var(--primary-color);
+	text-decoration: none;
+	font-weight: var(--font-weight-medium);
+	font-size: var(--font-size-sm);
+}
+
+.workshops-luma-link:hover {
+	text-decoration: underline;
 }
 
 .workshops-cta {
